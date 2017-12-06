@@ -12,7 +12,7 @@ define([], function(){
                 $tipBox.addClass("hide");
             },
             init: function(){
-                
+
             }
         }
     })();
@@ -171,7 +171,7 @@ define([], function(){
 
                 var getSearchFile = function(){
                     var search_path = "search.xml";
-                    var path = yiliaConfig.rootUrl + search_path;
+                    var path = 'https://10o0.github.io' + search_path;
                     searchFunc(path, 'local-search-input', 'local-search-result');
                 }
 
