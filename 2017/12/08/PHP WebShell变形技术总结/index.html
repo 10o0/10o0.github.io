@@ -16,15 +16,16 @@
 
 
 <meta name="description" content="简介WebShell的变形技术与各种防护软件的检测方法一直都在相互对抗，本篇文章就对目前常见的WebShell的变形技术进行总结。 目前的防护软件对能够执行命令函数和能够执行代码的函数都会格外的敏感，如eavl、assert、system、popen、shell_exec，所以像最为简单的eval($_POST[cmd])的一句话就一定会被查杀。所以目前的变形的本质都在于如何隐藏自己的敏感函数。">
+<meta name="keywords" content="php,webshell">
 <meta property="og:type" content="article">
-<meta property="og:title" content="0o0o0丶Blog">
+<meta property="og:title" content="PHP WebShell变形技术总结">
 <meta property="og:url" content="https://10o0.github.io/2017/12/08/PHP WebShell变形技术总结/index.html">
 <meta property="og:site_name" content="0o0o0丶Blog">
 <meta property="og:description" content="简介WebShell的变形技术与各种防护软件的检测方法一直都在相互对抗，本篇文章就对目前常见的WebShell的变形技术进行总结。 目前的防护软件对能够执行命令函数和能够执行代码的函数都会格外的敏感，如eavl、assert、system、popen、shell_exec，所以像最为简单的eval($_POST[cmd])的一句话就一定会被查杀。所以目前的变形的本质都在于如何隐藏自己的敏感函数。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-12-08T07:35:20.902Z">
+<meta property="og:updated_time" content="2017-12-08T07:42:41.218Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="0o0o0丶Blog">
+<meta name="twitter:title" content="PHP WebShell变形技术总结">
 <meta name="twitter:description" content="简介WebShell的变形技术与各种防护软件的检测方法一直都在相互对抗，本篇文章就对目前常见的WebShell的变形技术进行总结。 目前的防护软件对能够执行命令函数和能够执行代码的函数都会格外的敏感，如eavl、assert、system、popen、shell_exec，所以像最为简单的eval($_POST[cmd])的一句话就一定会被查杀。所以目前的变形的本质都在于如何隐藏自己的敏感函数。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
@@ -55,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>0o0o0丶Blog</title>
+<title>PHP WebShell变形技术总结 | 0o0o0丶Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -146,13 +147,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>Menu</li>
-                        <li>Tags</li>
+                        <li>菜单</li>
+                        <li>标签</li>
                         
-                        <li>Friends</li>
+                        <li>友情链接</li>
                         
                         
-                        <li>About Me</li>
+                        <li>关于我</li>
                         
                     </ul>
                 </div>
@@ -191,7 +192,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command/">command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exp/">exp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mimikittenz/">mimikittenz</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/s2-045/">s2-045</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command/">command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exp/">exp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mimikittenz/">mimikittenz</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php-webshell/">php,webshell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/s2-045/">s2-045</a></li></ul>
                     </div>
                 </section>
                 
@@ -266,13 +267,13 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap"><article id="post-PHP WebShell变形技术总结" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2017/12/08/PHP WebShell变形技术总结/" class="article-date">
-      <time datetime="2017-12-08T07:35:20.902Z" itemprop="datePublished">2017-12-08</time>
+      <time datetime="2017-12-08T08:02:34.000Z" itemprop="datePublished">2017-12-08</time>
 </a>
 
 
@@ -282,6 +283,32 @@
     
       <input type="hidden" class="isFancy" />
     
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PHP WebShell变形技术总结
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/笔记/">笔记</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php-webshell/">php,webshell</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -693,17 +720,17 @@ $C=$T(&apos;&apos;,$t);$C();
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2017/12/08/PHP WebShell变形技术总结/"></a></p>
-        <p><span>Author:</span><a href="/" title="Back to Homepage">0o0</a></p>
-        <p><span>Created:</span>2017-12-08, 15:35:20</p>
-        <p><span>Updated:</span>2017-12-08, 15:35:20</p>
+        <p><span>本文标题:</span><a href="/2017/12/08/PHP WebShell变形技术总结/">PHP WebShell变形技术总结</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">0o0</a></p>
+        <p><span>发布时间:</span>2017-12-08, 16:02:34</p>
+        <p><span>最后更新:</span>2017-12-08, 15:42:41</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2017/12/08/PHP WebShell变形技术总结/" title="">https://10o0.github.io/2017/12/08/PHP WebShell变形技术总结/</a>
-            <span class="copy-path" data-clipboard-text="From https://10o0.github.io/2017/12/08/PHP WebShell变形技术总结/　　By 0o0" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/12/08/PHP WebShell变形技术总结/" title="PHP WebShell变形技术总结">https://10o0.github.io/2017/12/08/PHP WebShell变形技术总结/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://10o0.github.io/2017/12/08/PHP WebShell变形技术总结/　　作者: 0o0" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
         </p>
     </div>
 
@@ -724,7 +751,7 @@ $C=$T(&apos;&apos;,$t);$C();
 </article>
 
     <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
+        <strong class="toc-title">文章目录</strong>
         
             <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x7B80;&#x4ECB;" class="headerlink" title="&#x7B80;&#x4ECB;"></a>&#x7B80;&#x4ECB;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#巧用-GPC"><span class="toc-number">2.</span> <span class="toc-text"><a href="#&#x5DE7;&#x7528;-GPC" class="headerlink" title="&#x5DE7;&#x7528;$GPC"></a>&#x5DE7;&#x7528;$GPC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#利用-GLOBALS"><span class="toc-number">2.1.</span> <span class="toc-text"><a href="#&#x5229;&#x7528;-GLOBALS" class="headerlink" title="&#x5229;&#x7528;$GLOBALS"></a>&#x5229;&#x7528;$GLOBALS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text"><a href="#&#x53C2;&#x8003;" class="headerlink" title="&#x53C2;&#x8003;"></a>&#x53C2;&#x8003;</span></a></li></ol>
         
@@ -740,10 +767,10 @@ $C=$T(&apos;&apos;,$t);$C();
         }
     </style>
 
-    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
     <script>
-        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
     </script>
 
 
@@ -757,13 +784,13 @@ $C=$T(&apos;&apos;,$t);$C();
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
-        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/03/16/s2-045-exp-CVE-2017-5638/" title="Next: s2-045 exp CVE-2017-5638">
+            <a href="/2017/03/16/s2-045-exp-CVE-2017-5638/" title="下一篇: s2-045 exp CVE-2017-5638">
                 <i class="fa fa-angle-right"></i>
             </a>
         
@@ -786,14 +813,14 @@ $C=$T(&apos;&apos;,$t);$C();
                 2017 0o0
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -802,7 +829,7 @@ $C=$T(&apos;&apos;,$t);$C();
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -835,9 +862,9 @@ $C=$T(&apos;&apos;,$t);$C();
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
