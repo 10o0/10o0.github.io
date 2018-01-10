@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[kali安装NVDIA显卡驱动]]></title>
+    <url>%2F2018%2F01%2F10%2Fkali%E5%AE%89%E8%A3%85NVDIA%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8%2F</url>
+    <content type="text"><![CDATA[安装参考链接https://forums.kali.org/showthread.php?35748-TUTORIAL-Installing-official-NVIDIA-driver-in-Optimus-laptop验证：https://docs.kali.org/general-use/install-nvidia-drivers-on-kali-linux]]></content>
+      <tags>
+        <tag>kali,NVDIA,驱动</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[s2-045 exp CVE-2017-5638]]></title>
     <url>%2F2017%2F03%2F16%2Fs2-045-exp-CVE-2017-5638%2F</url>
     <content type="text"><![CDATA[Usage: Testing a single URL. python struts-pwn.py --url &apos;http://example.com/struts2-showcase/index.action&apos; -c &apos;id&apos; Testing a list of URLs. python struts-pwn.py --list &apos;urls.txt&apos; -c &apos;id&apos; Checking if the vulnerability exists against a single URL. python struts-pwn.py --check --url &apos;http://example.com/struts2-showcase/index.action&apos; Checking if the vulnerability exists against a list of URLs. python struts-pwn.py --check --list &apos;urls.txt&apos; Requirements Python2 or Python3 requests https://github.com/mazen160/struts-pwn/blob/master/struts-pwn.py]]></content>
