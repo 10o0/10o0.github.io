@@ -3,7 +3,15 @@
   <entry>
     <title><![CDATA[linux实用技巧]]></title>
     <url>%2F2018%2F01%2F18%2Flinux%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7%2F</url>
-    <content type="text"><![CDATA[title: linux实用技巧date: 2018-01-18 09:56:49tags: [linux,bash,sh]categories: “笔记” comments: true自定义终端命令启动程序exm： alias burp=&apos;setsid java -jar /root/softs/burpsuite_pro_v1.6.37.jar &gt;/dev/null 2&gt;&amp;1 &amp;&apos;]]></content>
+    <content type="text"><![CDATA[自定义终端命令启动程序exm： alias burp=&apos;setsid java -jar /root/softs/burpsuite_pro_v1.6.37.jar &gt;/dev/null 2&gt;&amp;1 &amp;&apos;]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>bash</tag>
+        <tag>sh</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[linux入侵检测基础]]></title>
