@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="##last">
+<meta name="description" content="审计命令last 这个命令可用于查看我们系统的成功登录、关机、重启等情况，本质就是将/var/log/wtmp文件格式化输出，因此如果该文件被删除，则无法输出结果。  相关参数：  last -10（-n） 查看最近10条记录 last -x reboot 查看重启的记录 last -x shutdown 查看关机的记录 last -d 查看登陆的记录 last –help 命令帮助信息 last">
 <meta name="keywords" content="linux,入侵检测，安全审计">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux入侵检测基础">
 <meta property="og:url" content="https://10o0.github.io/2018/01/18/linux入侵检测基础/index.html">
 <meta property="og:site_name" content="0o0o0丶Blog">
-<meta property="og:description" content="##last">
+<meta property="og:description" content="审计命令last 这个命令可用于查看我们系统的成功登录、关机、重启等情况，本质就是将/var/log/wtmp文件格式化输出，因此如果该文件被删除，则无法输出结果。  相关参数：  last -10（-n） 查看最近10条记录 last -x reboot 查看重启的记录 last -x shutdown 查看关机的记录 last -d 查看登陆的记录 last –help 命令帮助信息 last">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-01-18T01:47:36.917Z">
+<meta property="og:updated_time" content="2018-01-18T02:53:55.083Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux入侵检测基础">
-<meta name="twitter:description" content="##last">
+<meta name="twitter:description" content="审计命令last 这个命令可用于查看我们系统的成功登录、关机、重启等情况，本质就是将/var/log/wtmp文件格式化输出，因此如果该文件被删除，则无法输出结果。  相关参数：  last -10（-n） 查看最近10条记录 last -x reboot 查看重启的记录 last -x shutdown 查看关机的记录 last -d 查看登陆的记录 last –help 命令帮助信息 last">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -313,8 +313,18 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>##last</p>
+        <h1 id="审计命令"><a href="#审计命令" class="headerlink" title="审计命令"></a>审计命令</h1><h2 id="last"><a href="#last" class="headerlink" title="last"></a>last</h2><blockquote>
+<p>这个命令可用于查看我们系统的成功登录、关机、重启等情况，本质就是将/var/log/wtmp文件格式化输出，因此如果该文件被删除，则无法输出结果。</p>
+</blockquote>
+<pre><code>相关参数：
 
+last -10（-n） 查看最近10条记录
+last -x reboot 查看重启的记录
+last -x shutdown 查看关机的记录
+last -d 查看登陆的记录
+last –help 命令帮助信息
+last -f wtmp 用last命令查看wtmp文件（直接打开无法查看）
+</code></pre>
       
     </div>
     
@@ -325,7 +335,7 @@
         <p><span>本文标题:</span><a href="/2018/01/18/linux入侵检测基础/">linux入侵检测基础</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">0o0</a></p>
         <p><span>发布时间:</span>2018-01-18, 09:30:05</p>
-        <p><span>最后更新:</span>2018-01-18, 09:47:36</p>
+        <p><span>最后更新:</span>2018-01-18, 10:53:55</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/01/18/linux入侵检测基础/" title="linux入侵检测基础">https://10o0.github.io/2018/01/18/linux入侵检测基础/</a>
             <span class="copy-path" data-clipboard-text="原文: https://10o0.github.io/2018/01/18/linux入侵检测基础/　　作者: 0o0" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -361,7 +371,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#审计命令"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x5BA1;&#x8BA1;&#x547D;&#x4EE4;" class="headerlink" title="&#x5BA1;&#x8BA1;&#x547D;&#x4EE4;"></a>&#x5BA1;&#x8BA1;&#x547D;&#x4EE4;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#last"><span class="toc-number">1.1.</span> <span class="toc-text"><a href="#last" class="headerlink" title="last"></a>last</span></a></li></ol></li></ol>
         
     </div>
     <style>

@@ -437,8 +437,18 @@ root@kali:~# source .bashrc
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>##last</p>
+        <h1 id="审计命令"><a href="#审计命令" class="headerlink" title="审计命令"></a>审计命令</h1><h2 id="last"><a href="#last" class="headerlink" title="last"></a>last</h2><blockquote>
+<p>这个命令可用于查看我们系统的成功登录、关机、重启等情况，本质就是将/var/log/wtmp文件格式化输出，因此如果该文件被删除，则无法输出结果。</p>
+</blockquote>
+<pre><code>相关参数：
 
+last -10（-n） 查看最近10条记录
+last -x reboot 查看重启的记录
+last -x shutdown 查看关机的记录
+last -d 查看登陆的记录
+last –help 命令帮助信息
+last -f wtmp 用last命令查看wtmp文件（直接打开无法查看）
+</code></pre>
       
     </div>
     
