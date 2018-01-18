@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title><![CDATA[linux入侵检测基础]]></title>
+      <url>/2018/01/18/linux%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B%E5%9F%BA%E7%A1%80/</url>
+      <content type="html"><![CDATA[<p>##last</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> 入侵检测，安全审计 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[kali安装NVIDIA显卡驱动]]></title>
       <url>/2018/01/10/kali%E5%AE%89%E8%A3%85NVIDIA%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/</url>
       <content type="html"><![CDATA[<p>安装参考链接<br><a href="https://forums.kali.org/showthread.php?35748-TUTORIAL-Installing-official-NVIDIA-driver-in-Optimus-laptop" target="_blank" rel="noopener">https://forums.kali.org/showthread.php?35748-TUTORIAL-Installing-official-NVIDIA-driver-in-Optimus-laptop</a><br>验证：<br><a href="https://docs.kali.org/general-use/install-nvidia-drivers-on-kali-linux" target="_blank" rel="noopener">https://docs.kali.org/general-use/install-nvidia-drivers-on-kali-linux</a></p>
