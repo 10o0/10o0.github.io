@@ -88,6 +88,9 @@
     <title><![CDATA[win10-Cmd here]]></title>
     <url>%2F2017%2F03%2F04%2Fwin10-Cmd-here%2F</url>
     <content type="text"><![CDATA[保存为reg格式导入注册表即可： Windows Registry Editor Version 5.00 [HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\cmd_here] @=&quot;Cmd Here&quot; [HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\cmd_here\command] @=&quot;\&quot;C:\\Windows\\System32\\cmd.exe\&quot;&quot; [HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Folder\shell\cmdPrompt] @=&quot;Cmd Here&quot; [HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Folder\shell\cmdPrompt\command] @=&quot;\&quot;C:\\Windows\\System32\\cmd.exe\&quot; \&quot;cd %1\&quot;&quot; [HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\cmd_here] @=&quot;Cmd Here&quot; [HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\cmd_here\command] @=&quot;\&quot;C:\\Windows\\System32\\cmd.exe\&quot;&quot;]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
       <tags>
         <tag>cmd</tag>
       </tags>
