@@ -15,18 +15,16 @@
 
 
 
-<meta name="description" content="编辑 .bashrc 文件： root@kali:~# vim .bashrc  root@kali:~# source .bashrc 自定义终端命令启动程序exm： alias burp=&amp;apos;setsid java -jar /root/softs/burpsuite_pro_v1.6.37.jar &amp;gt;/dev/null 2&amp;gt;&amp;amp;1 &amp;amp;&amp;apos;">
-<meta name="keywords" content="linux,bash,sh">
-<meta property="og:type" content="article">
-<meta property="og:title" content="linux实用技巧">
-<meta property="og:url" content="https://10o0.github.io/2018/01/18/linux实用技巧/index.html">
+<meta name="description" content="网络安全,白帽子,网络安全,渗透测试,博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="0o0o0丶Blog">
+<meta property="og:url" content="https://10o0.github.io/tags/xss/index.html">
 <meta property="og:site_name" content="0o0o0丶Blog">
-<meta property="og:description" content="编辑 .bashrc 文件： root@kali:~# vim .bashrc  root@kali:~# source .bashrc 自定义终端命令启动程序exm： alias burp=&amp;apos;setsid java -jar /root/softs/burpsuite_pro_v1.6.37.jar &amp;gt;/dev/null 2&amp;gt;&amp;amp;1 &amp;amp;&amp;apos;">
+<meta property="og:description" content="网络安全,白帽子,网络安全,渗透测试,博客">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-01-18T02:18:41.361Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux实用技巧">
-<meta name="twitter:description" content="编辑 .bashrc 文件： root@kali:~# vim .bashrc  root@kali:~# source .bashrc 自定义终端命令启动程序exm： alias burp=&amp;apos;setsid java -jar /root/softs/burpsuite_pro_v1.6.37.jar &amp;gt;/dev/null 2&amp;gt;&amp;amp;1 &amp;amp;&amp;apos;">
+<meta name="twitter:title" content="0o0o0丶Blog">
+<meta name="twitter:description" content="网络安全,白帽子,网络安全,渗透测试,博客">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +54,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>linux实用技巧 | 0o0o0丶Blog</title>
+<title>Tag: xss | 0o0o0丶Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -66,9 +64,9 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: true,
+        isPost: false,
         isArchive: false,
-        isTag: false,
+        isTag: true,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
@@ -269,155 +267,60 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-linux实用技巧" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
   
-    <div class="article-meta">
-      <a href="/2018/01/18/linux实用技巧/" class="article-date">
-      <time datetime="2018-01-18T01:56:49.000Z" itemprop="datePublished">2018-01-18</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+          <div class="article-meta">
+              <a href="/2018/01/18/Xss常用测试代码/" class="archive-article-date">
+      <time datetime="2018-01-18T07:54:28.000Z" itemprop="datePublished">01-18</time>
 </a>
 
 
-    </div>
+        </div>
+         
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      linux实用技巧
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/01/18/Xss常用测试代码/">Xss常用测试代码</a>
     </h1>
   
 
-      </header>
-      
-      <div class="article-info article-info-post">
-        
+        <div class="article-info info-on-archive">
+          
     <div class="article-category tagcloud">
     <a class="article-category-link" href="/categories/笔记/">笔记</a>
     </div>
 
 
-        
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bash/">bash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sh/">sh</a></li></ul>
-    </div>
-
-        <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
           
-        <p>编辑 .bashrc 文件：</p>
-<pre><code>root@kali:~# vim .bashrc 
-root@kali:~# source .bashrc
-</code></pre><h2 id="自定义终端命令启动程序"><a href="#自定义终端命令启动程序" class="headerlink" title="自定义终端命令启动程序"></a>自定义终端命令启动程序</h2><p>exm：</p>
-<pre><code>alias burp=&apos;setsid java -jar /root/softs/burpsuite_pro_v1.6.37.jar &gt;/dev/null 2&gt;&amp;1 &amp;&apos;
-</code></pre>
-      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xss/">xss</a></li></ul>
     </div>
-    
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
-  
-    
-    <div class="copyright">
-        <p><span>Title:</span><a href="/2018/01/18/linux实用技巧/">linux实用技巧</a></p>
-        <p><span>Author:</span><a href="/" title="Back to Homepage">0o0</a></p>
-        <p><span>Created:</span>2018-01-18, 09:56:49</p>
-        <p><span>Updated:</span>2018-01-18, 10:18:41</p>
-        <p>
-            <span>Full URL:</span><a class="post-url" href="/2018/01/18/linux实用技巧/" title="linux实用技巧">https://10o0.github.io/2018/01/18/linux实用技巧/</a>
-            <span class="copy-path" data-clipboard-text="From https://10o0.github.io/2018/01/18/linux实用技巧/　　By 0o0" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
-        </p>
-    </div>
-
-
-
-    <nav id="article-nav">
-        
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/01/18/msf-shell/">
-                    msf_shell
-                </a>
-            </div>
-        
-        
-            <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/01/18/linux入侵检测基础/">
-                    linux入侵检测基础
-                </a>
-            </div>
-        
-    </nav>
-
-  
 </article>
-
-    <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
-        
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义终端命令启动程序"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x81EA;&#x5B9A;&#x4E49;&#x7EC8;&#x7AEF;&#x547D;&#x4EE4;&#x542F;&#x52A8;&#x7A0B;&#x5E8F;" class="headerlink" title="&#x81EA;&#x5B9A;&#x4E49;&#x7EC8;&#x7AEF;&#x547D;&#x4EE4;&#x542F;&#x52A8;&#x7A0B;&#x5E8F;"></a>&#x81EA;&#x5B9A;&#x4E49;&#x7EC8;&#x7AEF;&#x547D;&#x4EE4;&#x542F;&#x52A8;&#x7A0B;&#x5E8F;</span></a></li></ol>
-        
-    </div>
-    <style>
-        .left-col .switch-btn,
-        .left-col .switch-area {
-            display: none;
-        }
-        .toc-level-3 i,
-        .toc-level-3 ol {
-            display: none !important;
-        }
-    </style>
-
-    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
-
-    <script>
-        yiliaConfig.toc = ["Hide", "Show", !!"false"];
-    </script>
-
-
-
-
+  
+  
+    </div></section>
+  
 
     
 
-
-
-
-    <div class="scroll" id="post-nav-button">
-        
-            <a href="/2018/01/18/msf-shell/" title="Pre: msf_shell">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
-
-        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-
-        
-            <a href="/2018/01/18/linux入侵检测基础/" title="Next: linux入侵检测基础">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
-    </div>
-
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/Xss常用测试代码/">Xss常用测试代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/msf-shell/">msf_shell</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/linux实用技巧/">linux实用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/linux入侵检测基础/">linux入侵检测基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/kali安装NVIDIA显卡驱动/">kali安装NVIDIA显卡驱动</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/16/s2-045-exp-CVE-2017-5638/">s2-045 exp CVE-2017-5638</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/06/Python-command/">Python command</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/05/SimpleHTTPServer/">SimpleHTTPServer</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/04/win10-Cmd-here/">win10-Cmd here</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/02/hexo-command/">hexo command</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/01/mimikittenz-Ps1版/">mimikittenz-Ps1版</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/01/0o0-test/">0o0-test</a></li></ul>
-
-
-
-
-    <script>
-        
-    </script>
 </div>
       <footer id="footer">
     <div class="outer">

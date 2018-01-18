@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://10o0.github.io/"/>
-  <updated>2018-01-18T02:26:51.339Z</updated>
+  <updated>2018-01-18T07:57:37.116Z</updated>
   <id>https://10o0.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Xss常用测试代码</title>
+    <link href="https://10o0.github.io/2018/01/18/Xss%E5%B8%B8%E7%94%A8%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81/"/>
+    <id>https://10o0.github.io/2018/01/18/Xss常用测试代码/</id>
+    <published>2018-01-18T07:54:28.000Z</published>
+    <updated>2018-01-18T07:57:37.116Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>简单测试代码：</p></blockquote><pre><code>&lt;img src=&quot;#&quot; onerror=&quot;alert(111)&quot;&gt;</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;简单测试代码：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;img src=&amp;quot;#&amp;quot; onerror=&amp;quot;alert(111)&amp;quot;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+      
+    
+    </summary>
+    
+      <category term="笔记" scheme="https://10o0.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="xss" scheme="https://10o0.github.io/tags/xss/"/>
+    
+      <category term="js" scheme="https://10o0.github.io/tags/js/"/>
+    
+  </entry>
   
   <entry>
     <title>msf_shell</title>
