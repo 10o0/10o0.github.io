@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="0o0o0丶Blog">
 <meta property="og:description" content="审计命令last 这个命令可用于查看我们系统的成功登录、关机、重启等情况，本质就是将/var/log/wtmp文件格式化输出，因此如果该文件被删除，则无法输出结果。  相关参数：  last -10（-n） 查看最近10条记录 last -x reboot 查看重启的记录 last -x shutdown 查看关机的记录 last -d 查看登陆的记录 last –help 命令帮助信息 last">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-01-18T02:53:55.083Z">
+<meta property="og:updated_time" content="2018-01-18T03:58:35.213Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux入侵检测基础">
 <meta name="twitter:description" content="审计命令last 这个命令可用于查看我们系统的成功登录、关机、重启等情况，本质就是将/var/log/wtmp文件格式化输出，因此如果该文件被删除，则无法输出结果。  相关参数：  last -10（-n） 查看最近10条记录 last -x reboot 查看重启的记录 last -x shutdown 查看关机的记录 last -d 查看登陆的记录 last –help 命令帮助信息 last">
@@ -324,6 +324,110 @@ last -x shutdown 查看关机的记录
 last -d 查看登陆的记录
 last –help 命令帮助信息
 last -f wtmp 用last命令查看wtmp文件（直接打开无法查看）
+</code></pre><a id="more"></a>
+<h2 id="lastb"><a href="#lastb" class="headerlink" title="lastb"></a>lastb</h2><blockquote>
+<p>这个命令用于查看登录失败的情况，本质就是将/var/log/btmp文件格式化输出。</p>
+</blockquote>
+<pre><code>相关参数：
+
+lastb name（root） 查看root用户登陆失败记录
+lastb -10（-n） 查看最近10条登陆失败记录
+lastb –heplp 命令帮助信息
+</code></pre><h2 id="lastlog"><a href="#lastlog" class="headerlink" title="lastlog"></a>lastlog</h2><blockquote>
+<p>这个命令用于查看用户上一次的登录情况，本质就是将/var/log/lastlog文件格式化输出。</p>
+</blockquote>
+<pre><code>相关参数：
+
+lastlog 所有用户上一次登陆记录
+lastlog -u username（root） root用户上一次登陆记录
+lastlog –help 命令帮助信息
+</code></pre><h2 id="who"><a href="#who" class="headerlink" title="who"></a>who</h2><blockquote>
+<p>这个命令用户查看当前登录系统的情况，本质就是将/var/log/utmp文件格式化输出。主要用来查看当前用户名称，以及登陆的ip地址信息，w命令与who一样，会更详细一些。</p>
+<h2 id="history"><a href="#history" class="headerlink" title="history"></a>history</h2><p>查看历史命令记录，其实就是查看root/.bash_history文件内容，删除这个文件，记录就没了。</p>
+</blockquote>
+<pre><code>相关参数：
+
+history 查看所有历史记录
+history -10 查看最近10条记录
+history | grep “wget” 查看wget相关信息的记录
+history –help 命令帮助信息
+</code></pre><blockquote>
+<p>history显示时间戳：</p>
+</blockquote>
+<p><code>export HISTTIMEFORMAT=&quot;%F %T</code>whoami<code>&quot;
+history | more</code></p>
+<h1 id="检查用户"><a href="#检查用户" class="headerlink" title="检查用户"></a>检查用户</h1><blockquote>
+<p>Linux不同的用户，有不同的操作权限，但是所有用户都会在/etc/passwd、/etc/shadow、/etc/group文件中记录。</p>
+</blockquote>
+<pre><code>less /etc/passwd　　查看是否有新增用户
+grep :0 /etc/passwd　　查看是否有特权用户（root权限用户）
+ls -l /etc/passwd　　查看passwd最后修改时间
+</code></pre><p><code>cawk -F: &#39;$3==0 {print $1}&#39; /etc/passwd　　查看是否存在特权用户</code></p>
+<p><code>awk -F: &#39;length($2)==0 {print $1}&#39; /etc/shadow　　查看是否存在空口令用户</code></p>
+<blockquote>
+<p>注：linux设置空口令：<code>passwd -d username</code></p>
+</blockquote>
+<h1 id="检查进程"><a href="#检查进程" class="headerlink" title="检查进程"></a>检查进程</h1><blockquote>
+<p>一般被入侵的服务器都会运行一些恶意程序，或是挖矿程序，或者DDOS程序等等，如果程序运行着，那么通过查看进程可以发现一些信息。</p>
+</blockquote>
+<h2 id="普通进程"><a href="#普通进程" class="headerlink" title="普通进程"></a>普通进程</h2><pre><code>ps -aux　　查看进程
+top查看进程
+lsof -p pid　　查看进程所打开的端口及文件
+lsof -c 进程名　　查看关联文件
+ps -aux | grep python | cut -d &apos; &apos; -f 2 | xargs kill   杀死python相关的进程
+</code></pre><blockquote>
+<p>检查/etc/inetd.conf文件，输入：<code>cat /etc/inetd.conf | grep –v &quot;^#&quot;</code>，输出的信息就是你这台机器所开启的远程服务。</p>
+</blockquote>
+<h2 id="隐藏进程"><a href="#隐藏进程" class="headerlink" title="隐藏进程"></a>隐藏进程</h2><pre><code>ps -ef | awk &apos;{print}&apos; | sort -n | uniq &gt;1  
+ls /proc | sort -n |uniq &gt;2
+diff 1 2
+</code></pre><h1 id="检查文件"><a href="#检查文件" class="headerlink" title="检查文件"></a>检查文件</h1><blockquote>
+<p>被入侵的网站，通常肯定有文件被改动，那么可以通过比较文件创建时间、完整性、文件路径等方式查看文件是否被改动。</p>
+</blockquote>
+<pre><code>find / -uid 0 -print　　查找特权用户文件
+find / -size +10000k -print　　查找大于10000k的文件
+find / -name &quot;…&quot; -prin　　查找用户名为…的文件
+find / -name core -exec ls -l {} \;　　查找core文件，并列出详细信息
+md5sum -b filename　　查看文件的md5值
+rpm -qf /bin/ls　　检查文件的完整性（还有其它/bin目录下的文件）
+whereis 文件名　　查看文件路径
+ls -al 文件名　　查看文件创建时间
+du -sh  文件名   查看文件大小
+</code></pre><h1 id="检查网络"><a href="#检查网络" class="headerlink" title="检查网络"></a>检查网络</h1><blockquote>
+<p>检查网络的目的，是查看黑客是否通过篡改网卡类型，进行流量嗅探等操作。</p>
+</blockquote>
+<pre><code>ip link | grep PROMISC　　正常网卡不应该存在promisc，如果存在可能有sniffer
+lsof -i
+netstat -nap　　查看不正常端口
+arp -a　　查看arp记录是否正常
+ifconfig -a　　查看网卡设置
+</code></pre><h1 id="检查计划任务"><a href="#检查计划任务" class="headerlink" title="检查计划任务"></a>检查计划任务</h1><blockquote>
+<p>当我们尝试kill恶意程序时，往往会遇到被kill程序自动启动的问题，那么就要检查下计划任务(cron)了。</p>
+</blockquote>
+<pre><code>crontab -u root -l　　查看root用户的计划任务
+cat /etc/crontab
+ls -l /etc/cron.*　　查看cron文件是否变化的详细信息
+ls /var/spool/cron/
+</code></pre><h1 id="检查系统后门"><a href="#检查系统后门" class="headerlink" title="检查系统后门"></a>检查系统后门</h1><blockquote>
+<p>可以使用工具，如：Conmodo、rkhunter等，当然也可以手工输入命令检查。</p>
+</blockquote>
+<pre><code>vim $HOME/.ssh/authorized_keys　　查看ssh永久链接文件
+lsmod　　检查内核模块
+chkconfig –list/systemctl list-units –type=service　　检查自启
+</code></pre><blockquote>
+<p>查看著名的木门后门程序：</p>
+</blockquote>
+<pre><code>ls /etc/rc.d   #系统开机后，此目录下的文件会被启动
+ls /etc/rc3.d
+find / -name “.rhosts” –print
+find / -name “.forward” –print
+</code></pre><h1 id="打包文件"><a href="#打包文件" class="headerlink" title="打包文件"></a>打包文件</h1><blockquote>
+<p>当我们做好一切入侵检测分析后，我们需要把一些日志文件copy到本地进行更进一步详细的分析时，怎么打包服务器相关信息，并且copy到本地呢？</p>
+</blockquote>
+<h2 id="打包web文件"><a href="#打包web文件" class="headerlink" title="打包web文件"></a>打包web文件</h2><p>打包文件名中包含jsp的文件，打包后的文件为my_txt_files.tar：<br>tar cvf my_txt_files.tar <code>find . -type f -name &quot;*.jsp*&quot;</code></p>
+<h2 id="打包日志文件"><a href="#打包日志文件" class="headerlink" title="打包日志文件"></a>打包日志文件</h2><pre><code>tar -cvf log.tar /var/log
+</code></pre><h2 id="打包其他信息"><a href="#打包其他信息" class="headerlink" title="打包其他信息"></a>打包其他信息</h2><pre><code>last &gt; last.log
+netstat -an &gt; netstat.log
 </code></pre>
       
     </div>
@@ -335,7 +439,7 @@ last -f wtmp 用last命令查看wtmp文件（直接打开无法查看）
         <p><span>本文标题:</span><a href="/2018/01/18/linux入侵检测基础/">linux入侵检测基础</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">0o0</a></p>
         <p><span>发布时间:</span>2018-01-18, 09:30:05</p>
-        <p><span>最后更新:</span>2018-01-18, 10:53:55</p>
+        <p><span>最后更新:</span>2018-01-18, 11:58:35</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/01/18/linux入侵检测基础/" title="linux入侵检测基础">https://10o0.github.io/2018/01/18/linux入侵检测基础/</a>
             <span class="copy-path" data-clipboard-text="原文: https://10o0.github.io/2018/01/18/linux入侵检测基础/　　作者: 0o0" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -371,7 +475,7 @@ last -f wtmp 用last命令查看wtmp文件（直接打开无法查看）
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#审计命令"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x5BA1;&#x8BA1;&#x547D;&#x4EE4;" class="headerlink" title="&#x5BA1;&#x8BA1;&#x547D;&#x4EE4;"></a>&#x5BA1;&#x8BA1;&#x547D;&#x4EE4;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#last"><span class="toc-number">1.1.</span> <span class="toc-text"><a href="#last" class="headerlink" title="last"></a>last</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#审计命令"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x5BA1;&#x8BA1;&#x547D;&#x4EE4;" class="headerlink" title="&#x5BA1;&#x8BA1;&#x547D;&#x4EE4;"></a>&#x5BA1;&#x8BA1;&#x547D;&#x4EE4;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#last"><span class="toc-number">1.1.</span> <span class="toc-text"><a href="#last" class="headerlink" title="last"></a>last</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lastb"><span class="toc-number">1.2.</span> <span class="toc-text"><a href="#lastb" class="headerlink" title="lastb"></a>lastb</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lastlog"><span class="toc-number">1.3.</span> <span class="toc-text"><a href="#lastlog" class="headerlink" title="lastlog"></a>lastlog</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#who"><span class="toc-number">1.4.</span> <span class="toc-text"><a href="#who" class="headerlink" title="who"></a>who</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#history"><span class="toc-number">1.5.</span> <span class="toc-text"><a href="#history" class="headerlink" title="history"></a>history</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#检查用户"><span class="toc-number">2.</span> <span class="toc-text"><a href="#&#x68C0;&#x67E5;&#x7528;&#x6237;" class="headerlink" title="&#x68C0;&#x67E5;&#x7528;&#x6237;"></a>&#x68C0;&#x67E5;&#x7528;&#x6237;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#检查进程"><span class="toc-number">3.</span> <span class="toc-text"><a href="#&#x68C0;&#x67E5;&#x8FDB;&#x7A0B;" class="headerlink" title="&#x68C0;&#x67E5;&#x8FDB;&#x7A0B;"></a>&#x68C0;&#x67E5;&#x8FDB;&#x7A0B;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#普通进程"><span class="toc-number">3.1.</span> <span class="toc-text"><a href="#&#x666E;&#x901A;&#x8FDB;&#x7A0B;" class="headerlink" title="&#x666E;&#x901A;&#x8FDB;&#x7A0B;"></a>&#x666E;&#x901A;&#x8FDB;&#x7A0B;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#隐藏进程"><span class="toc-number">3.2.</span> <span class="toc-text"><a href="#&#x9690;&#x85CF;&#x8FDB;&#x7A0B;" class="headerlink" title="&#x9690;&#x85CF;&#x8FDB;&#x7A0B;"></a>&#x9690;&#x85CF;&#x8FDB;&#x7A0B;</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#检查文件"><span class="toc-number">4.</span> <span class="toc-text"><a href="#&#x68C0;&#x67E5;&#x6587;&#x4EF6;" class="headerlink" title="&#x68C0;&#x67E5;&#x6587;&#x4EF6;"></a>&#x68C0;&#x67E5;&#x6587;&#x4EF6;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#检查网络"><span class="toc-number">5.</span> <span class="toc-text"><a href="#&#x68C0;&#x67E5;&#x7F51;&#x7EDC;" class="headerlink" title="&#x68C0;&#x67E5;&#x7F51;&#x7EDC;"></a>&#x68C0;&#x67E5;&#x7F51;&#x7EDC;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#检查计划任务"><span class="toc-number">6.</span> <span class="toc-text"><a href="#&#x68C0;&#x67E5;&#x8BA1;&#x5212;&#x4EFB;&#x52A1;" class="headerlink" title="&#x68C0;&#x67E5;&#x8BA1;&#x5212;&#x4EFB;&#x52A1;"></a>&#x68C0;&#x67E5;&#x8BA1;&#x5212;&#x4EFB;&#x52A1;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#检查系统后门"><span class="toc-number">7.</span> <span class="toc-text"><a href="#&#x68C0;&#x67E5;&#x7CFB;&#x7EDF;&#x540E;&#x95E8;" class="headerlink" title="&#x68C0;&#x67E5;&#x7CFB;&#x7EDF;&#x540E;&#x95E8;"></a>&#x68C0;&#x67E5;&#x7CFB;&#x7EDF;&#x540E;&#x95E8;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#打包文件"><span class="toc-number">8.</span> <span class="toc-text"><a href="#&#x6253;&#x5305;&#x6587;&#x4EF6;" class="headerlink" title="&#x6253;&#x5305;&#x6587;&#x4EF6;"></a>&#x6253;&#x5305;&#x6587;&#x4EF6;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#打包web文件"><span class="toc-number">8.1.</span> <span class="toc-text"><a href="#&#x6253;&#x5305;web&#x6587;&#x4EF6;" class="headerlink" title="&#x6253;&#x5305;web&#x6587;&#x4EF6;"></a>&#x6253;&#x5305;web&#x6587;&#x4EF6;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#打包日志文件"><span class="toc-number">8.2.</span> <span class="toc-text"><a href="#&#x6253;&#x5305;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;" class="headerlink" title="&#x6253;&#x5305;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;"></a>&#x6253;&#x5305;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#打包其他信息"><span class="toc-number">8.3.</span> <span class="toc-text"><a href="#&#x6253;&#x5305;&#x5176;&#x4ED6;&#x4FE1;&#x606F;" class="headerlink" title="&#x6253;&#x5305;&#x5176;&#x4ED6;&#x4FE1;&#x606F;"></a>&#x6253;&#x5305;&#x5176;&#x4ED6;&#x4FE1;&#x606F;</span></a></li></ol></li></ol>
         
     </div>
     <style>
