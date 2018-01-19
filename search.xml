@@ -64,8 +64,8 @@ root@kali:~# source .bashrc
 </code></pre><h2 id="自定义终端命令启动程序"><a href="#自定义终端命令启动程序" class="headerlink" title="自定义终端命令启动程序"></a>自定义终端命令启动程序</h2><p>exm：</p>
 <pre><code>alias burp=&apos;setsid java -jar /root/softs/burpsuite_pro_v1.6.37.jar &gt;/dev/null 2&gt;&amp;1 &amp;&apos;
 
-echo &quot;###&quot; &gt; file  替换文件
-echo &quot;###&quot; &gt;&gt; file 追加写入文件
+echo &quot;###&quot; &gt; file  ##替换文件
+echo &quot;###&quot; &gt;&gt; file ##追加写入文件
 echo alias ss=&apos;ss start&apos; &gt;&gt; .bashrc
 </code></pre><hr>
 <h2 id="设置ssh免密码登录"><a href="#设置ssh免密码登录" class="headerlink" title="设置ssh免密码登录"></a>设置ssh免密码登录</h2><pre><code>在.ssh目录下：
@@ -450,13 +450,13 @@ hexo generate --deploy
     
     <entry>
       <title></title>
-      <url>/tags/index.html</url>
+      <url>/categories/index.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
       <title></title>
-      <url>/categories/index.html</url>
+      <url>/tags/index.html</url>
       <content type="html"></content>
     </entry>
     
