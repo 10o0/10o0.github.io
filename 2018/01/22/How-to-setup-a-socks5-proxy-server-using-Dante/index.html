@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="hexo new &amp;quot;postName&amp;quot; #新建文章 hexo new page &amp;quot;pageName&amp;quot; #新建页面 hexo generate #生成静态页面至public目录 hexo server #开启预览访问端口（默认端口4000，&amp;apos;ctrl + c&amp;apos;关闭server） hexo deploy #将.deploy目录部署到GitHu">
-<meta name="keywords" content="hexo">
+<meta name="description" content="debain可用参考链接：  https://nfalcone.net/blog/danted-socks-proxy-server/ &amp;gt; 其他： socks5软件包安装:# apt-get update &amp;amp;&amp;amp; apt-get upgrade # apt-get install dante-server # service danted restart # service d">
+<meta name="keywords" content="socks5,proxy">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo command">
-<meta property="og:url" content="https://10o0.github.io/2017/03/02/hexo-command/index.html">
+<meta property="og:title" content="How to setup a socks5 proxy server using Dante">
+<meta property="og:url" content="https://10o0.github.io/2018/01/22/How-to-setup-a-socks5-proxy-server-using-Dante/index.html">
 <meta property="og:site_name" content="0o0o0丶Blog">
-<meta property="og:description" content="hexo new &amp;quot;postName&amp;quot; #新建文章 hexo new page &amp;quot;pageName&amp;quot; #新建页面 hexo generate #生成静态页面至public目录 hexo server #开启预览访问端口（默认端口4000，&amp;apos;ctrl + c&amp;apos;关闭server） hexo deploy #将.deploy目录部署到GitHu">
+<meta property="og:description" content="debain可用参考链接：  https://nfalcone.net/blog/danted-socks-proxy-server/ &amp;gt; 其他： socks5软件包安装:# apt-get update &amp;amp;&amp;amp; apt-get upgrade # apt-get install dante-server # service danted restart # service d">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-01-18T04:03:44.205Z">
+<meta property="og:updated_time" content="2018-01-22T05:11:04.313Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo command">
-<meta name="twitter:description" content="hexo new &amp;quot;postName&amp;quot; #新建文章 hexo new page &amp;quot;pageName&amp;quot; #新建页面 hexo generate #生成静态页面至public目录 hexo server #开启预览访问端口（默认端口4000，&amp;apos;ctrl + c&amp;apos;关闭server） hexo deploy #将.deploy目录部署到GitHu">
+<meta name="twitter:title" content="How to setup a socks5 proxy server using Dante">
+<meta name="twitter:description" content="debain可用参考链接：  https://nfalcone.net/blog/danted-socks-proxy-server/ &amp;gt; 其他： socks5软件包安装:# apt-get update &amp;amp;&amp;amp; apt-get upgrade # apt-get install dante-server # service danted restart # service d">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>hexo command | 0o0o0丶Blog</title>
+<title>How to setup a socks5 proxy server using Dante | 0o0o0丶Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -269,11 +269,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-hexo-command" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-How-to-setup-a-socks5-proxy-server-using-Dante" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/02/hexo-command/" class="article-date">
-      <time datetime="2017-03-02T08:46:11.000Z" itemprop="datePublished">2017-03-02</time>
+      <a href="/2018/01/22/How-to-setup-a-socks5-proxy-server-using-Dante/" class="article-date">
+      <time datetime="2018-01-22T02:26:52.000Z" itemprop="datePublished">2018-01-22</time>
 </a>
 
 
@@ -288,7 +288,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      hexo command
+      How to setup a socks5 proxy server using Dante
     </h1>
   
 
@@ -303,7 +303,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/proxy/">proxy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/socks5/">socks5</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -313,16 +313,37 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <pre><code>hexo new &quot;postName&quot; #新建文章
-hexo new page &quot;pageName&quot; #新建页面
-hexo generate #生成静态页面至public目录
-hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）
-hexo deploy #将.deploy目录部署到GitHub
-</code></pre><hr>
-<pre><code>hexo clean
-hexo generate --deploy
-</code></pre><hr>
-<a id="more"></a>
+        <pre><code>debain可用参考链接：
+
+https://nfalcone.net/blog/danted-socks-proxy-server/
+</code></pre><p><strong>&gt; 其他：</strong></p>
+<h1 id="socks5软件包安装"><a href="#socks5软件包安装" class="headerlink" title="socks5软件包安装:"></a>socks5软件包安装:</h1><pre><code># apt-get update &amp;&amp; apt-get upgrade
+# apt-get install dante-server
+# service danted restart
+# service danted status
+# danted -v
+danted: dante v1.1.19
+</code></pre><h1 id="socks5源码安装："><a href="#socks5源码安装：" class="headerlink" title="socks5源码安装："></a>socks5源码安装：</h1><pre><code># cd /usr/src
+# wget http://www.inet.no/dante/files/dante-1.4.2.tar.gz
+# tar -zxf dante-1.4.2.tar.gz
+# cd dante-1.4.2/
+# apt-get install gcc make
+#./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-client --without-libwrap --without-bsdauth --without-gssapi --without-krb5 --without-upnp --without-pam
+# make &amp;&amp; make install
+# /usr/sbin/sockd -v
+Dante v1.4.2.  Copyright (c) 1997 - 2014 Inferno Nettverk A/S, Norway
+</code></pre><h1 id="Configuring-Dante-server-service-script"><a href="#Configuring-Dante-server-service-script" class="headerlink" title="Configuring Dante-server service script"></a>Configuring Dante-server service script</h1><pre><code># vim /etc/init.d/sockd
+</code></pre><h1 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h1><pre><code>https://www.proxyrack.com/how-to-setup-a-socks5-proxy-server-using-dante/
+</code></pre><h1 id="debain可能遇到的问题："><a href="#debain可能遇到的问题：" class="headerlink" title="debain可能遇到的问题："></a>debain可能遇到的问题：</h1><blockquote>
+<p>perl: warning: Falling back to the standard locale (“C”)</p>
+</blockquote>
+<pre><code>root@host:~#locale-gen en_GB.UTF-8
+root@host:~#localectl set-locale LANG=en_GB.UTF-8,LC_ALL=en_GB.UTF-8
+</code></pre><blockquote>
+<p>参考：<a href="https://konradpodgorski.com/blog/2014/06/23/fixing-locale-problem-debian/" target="_blank" rel="noopener">https://konradpodgorski.com/blog/2014/06/23/fixing-locale-problem-debian/</a></p>
+</blockquote>
+<p>debain VPs 安装失败：仅作记录</p>
+
       
     </div>
     
@@ -330,13 +351,13 @@ hexo generate --deploy
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/03/02/hexo-command/">hexo command</a></p>
+        <p><span>本文标题:</span><a href="/2018/01/22/How-to-setup-a-socks5-proxy-server-using-Dante/">How to setup a socks5 proxy server using Dante</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">0o0</a></p>
-        <p><span>发布时间:</span>2017-03-02, 16:46:11</p>
-        <p><span>最后更新:</span>2018-01-18, 12:03:44</p>
+        <p><span>发布时间:</span>2018-01-22, 10:26:52</p>
+        <p><span>最后更新:</span>2018-01-22, 13:11:04</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/03/02/hexo-command/" title="hexo command">https://10o0.github.io/2017/03/02/hexo-command/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://10o0.github.io/2017/03/02/hexo-command/　　作者: 0o0" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/01/22/How-to-setup-a-socks5-proxy-server-using-Dante/" title="How to setup a socks5 proxy server using Dante">https://10o0.github.io/2018/01/22/How-to-setup-a-socks5-proxy-server-using-Dante/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://10o0.github.io/2018/01/22/How-to-setup-a-socks5-proxy-server-using-Dante/　　作者: 0o0" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -348,16 +369,10 @@ hexo generate --deploy
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/03/04/win10-Cmd-here/">
-                    win10-Cmd here
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/03/01/mimikittenz-Ps1版/">
-                    mimikittenz-Ps1版
+                <a href="/2018/01/22/SS安装脚本/">
+                    SS安装脚本
                 </a>
             </div>
         
@@ -369,7 +384,7 @@ hexo generate --deploy
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#socks5软件包安装"><span class="toc-number">1.</span> <span class="toc-text"><a href="#socks5&#x8F6F;&#x4EF6;&#x5305;&#x5B89;&#x88C5;" class="headerlink" title="socks5&#x8F6F;&#x4EF6;&#x5305;&#x5B89;&#x88C5;:"></a>socks5&#x8F6F;&#x4EF6;&#x5305;&#x5B89;&#x88C5;:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#socks5源码安装："><span class="toc-number">2.</span> <span class="toc-text"><a href="#socks5&#x6E90;&#x7801;&#x5B89;&#x88C5;&#xFF1A;" class="headerlink" title="socks5&#x6E90;&#x7801;&#x5B89;&#x88C5;&#xFF1A;"></a>socks5&#x6E90;&#x7801;&#x5B89;&#x88C5;&#xFF1A;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Configuring-Dante-server-service-script"><span class="toc-number">3.</span> <span class="toc-text"><a href="#Configuring-Dante-server-service-script" class="headerlink" title="Configuring Dante-server service script"></a>Configuring Dante-server service script</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考链接："><span class="toc-number">4.</span> <span class="toc-text"><a href="#&#x53C2;&#x8003;&#x94FE;&#x63A5;&#xFF1A;" class="headerlink" title="&#x53C2;&#x8003;&#x94FE;&#x63A5;&#xFF1A;"></a>&#x53C2;&#x8003;&#x94FE;&#x63A5;&#xFF1A;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#debain可能遇到的问题："><span class="toc-number">5.</span> <span class="toc-text"><a href="#debain&#x53EF;&#x80FD;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;&#xFF1A;" class="headerlink" title="debain&#x53EF;&#x80FD;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;&#xFF1A;"></a>debain&#x53EF;&#x80FD;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;&#xFF1A;</span></a></li></ol>
         
     </div>
     <style>
@@ -400,15 +415,13 @@ hexo generate --deploy
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/03/04/win10-Cmd-here/" title="上一篇: win10-Cmd here">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/03/01/mimikittenz-Ps1版/" title="下一篇: mimikittenz-Ps1版">
+            <a href="/2018/01/22/SS安装脚本/" title="下一篇: SS安装脚本">
                 <i class="fa fa-angle-right"></i>
             </a>
         

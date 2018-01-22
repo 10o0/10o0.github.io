@@ -195,7 +195,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/NVIDIA/">NVIDIA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bash/">bash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command/">command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exp/">exp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mimikittenz/">mimikittenz</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/msf/">msf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/s2-045/">s2-045</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sh/">sh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shadowsocks/">shadowsocks</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ss/">ss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xss/">xss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/入侵检测，安全审计/">入侵检测，安全审计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/驱动/">驱动</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/NVIDIA/">NVIDIA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bash/">bash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command/">command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exp/">exp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mimikittenz/">mimikittenz</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/msf/">msf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proxy/">proxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/s2-045/">s2-045</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sh/">sh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shadowsocks/">shadowsocks</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/socks5/">socks5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ss/">ss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xss/">xss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/入侵检测，安全审计/">入侵检测，安全审计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/驱动/">驱动</a></li></ul>
                     </div>
                 </section>
                 
@@ -273,6 +273,99 @@
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-How-to-setup-a-socks5-proxy-server-using-Dante" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/01/22/How-to-setup-a-socks5-proxy-server-using-Dante/" class="article-date">
+      <time datetime="2018-01-22T02:26:52.000Z" itemprop="datePublished">2018-01-22</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/22/How-to-setup-a-socks5-proxy-server-using-Dante/">How to setup a socks5 proxy server using Dante</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <pre><code>debain可用参考链接：
+
+https://nfalcone.net/blog/danted-socks-proxy-server/
+</code></pre><p><strong>&gt; 其他：</strong></p>
+<h1 id="socks5软件包安装"><a href="#socks5软件包安装" class="headerlink" title="socks5软件包安装:"></a>socks5软件包安装:</h1><pre><code># apt-get update &amp;&amp; apt-get upgrade
+# apt-get install dante-server
+# service danted restart
+# service danted status
+# danted -v
+danted: dante v1.1.19
+</code></pre><h1 id="socks5源码安装："><a href="#socks5源码安装：" class="headerlink" title="socks5源码安装："></a>socks5源码安装：</h1><pre><code># cd /usr/src
+# wget http://www.inet.no/dante/files/dante-1.4.2.tar.gz
+# tar -zxf dante-1.4.2.tar.gz
+# cd dante-1.4.2/
+# apt-get install gcc make
+#./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-client --without-libwrap --without-bsdauth --without-gssapi --without-krb5 --without-upnp --without-pam
+# make &amp;&amp; make install
+# /usr/sbin/sockd -v
+Dante v1.4.2.  Copyright (c) 1997 - 2014 Inferno Nettverk A/S, Norway
+</code></pre><h1 id="Configuring-Dante-server-service-script"><a href="#Configuring-Dante-server-service-script" class="headerlink" title="Configuring Dante-server service script"></a>Configuring Dante-server service script</h1><pre><code># vim /etc/init.d/sockd
+</code></pre><h1 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h1><pre><code>https://www.proxyrack.com/how-to-setup-a-socks5-proxy-server-using-dante/
+</code></pre><h1 id="debain可能遇到的问题："><a href="#debain可能遇到的问题：" class="headerlink" title="debain可能遇到的问题："></a>debain可能遇到的问题：</h1><blockquote>
+<p>perl: warning: Falling back to the standard locale (“C”)</p>
+</blockquote>
+<pre><code>root@host:~#locale-gen en_GB.UTF-8
+root@host:~#localectl set-locale LANG=en_GB.UTF-8,LC_ALL=en_GB.UTF-8
+</code></pre><blockquote>
+<p>参考：<a href="https://konradpodgorski.com/blog/2014/06/23/fixing-locale-problem-debian/" target="_blank" rel="noopener">https://konradpodgorski.com/blog/2014/06/23/fixing-locale-problem-debian/</a></p>
+</blockquote>
+<p>debain VPs 安装失败：仅作记录</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/笔记/">笔记</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/proxy/">proxy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/socks5/">socks5</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-SS安装脚本" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -902,90 +995,6 @@ py -3 -m pip install XXXX
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/command/">command</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-win10-Cmd-here" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/04/win10-Cmd-here/" class="article-date">
-      <time datetime="2017-03-04T08:27:02.000Z" itemprop="datePublished">2017-03-04</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/04/win10-Cmd-here/">win10-Cmd here</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>保存为reg格式导入注册表即可：</p>
-<pre><code>Windows Registry Editor Version 5.00
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\cmd_here]
-@=&quot;Cmd Here&quot;
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\cmd_here\command]
-@=&quot;\&quot;C:\\Windows\\System32\\cmd.exe\&quot;&quot;
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Folder\shell\cmdPrompt]
-@=&quot;Cmd Here&quot;
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Folder\shell\cmdPrompt\command]
-@=&quot;\&quot;C:\\Windows\\System32\\cmd.exe\&quot; \&quot;cd %1\&quot;&quot;
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\cmd_here]
-@=&quot;Cmd Here&quot;
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\cmd_here\command]
-@=&quot;\&quot;C:\\Windows\\System32\\cmd.exe\&quot;&quot;
-</code></pre><p><img src="http://i.imgur.com/wZijEcJ.jpg" alt=""></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/笔记/">笔记</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li></ul>
     </div>
 
       
