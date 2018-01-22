@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://10o0.github.io/"/>
-  <updated>2018-01-22T05:11:04.313Z</updated>
+  <updated>2018-01-22T05:39:01.569Z</updated>
   <id>https://10o0.github.io/</id>
   
   <author>
@@ -21,20 +21,16 @@
     <link href="https://10o0.github.io/2018/01/22/How-to-setup-a-socks5-proxy-server-using-Dante/"/>
     <id>https://10o0.github.io/2018/01/22/How-to-setup-a-socks5-proxy-server-using-Dante/</id>
     <published>2018-01-22T02:26:52.000Z</published>
-    <updated>2018-01-22T05:11:04.313Z</updated>
+    <updated>2018-01-22T05:39:01.569Z</updated>
     
-    <content type="html"><![CDATA[<pre><code>debain可用参考链接：https://nfalcone.net/blog/danted-socks-proxy-server/</code></pre><p><strong>&gt; 其他：</strong></p><h1 id="socks5软件包安装"><a href="#socks5软件包安装" class="headerlink" title="socks5软件包安装:"></a>socks5软件包安装:</h1><pre><code># apt-get update &amp;&amp; apt-get upgrade# apt-get install dante-server# service danted restart# service danted status# danted -vdanted: dante v1.1.19</code></pre><h1 id="socks5源码安装："><a href="#socks5源码安装：" class="headerlink" title="socks5源码安装："></a>socks5源码安装：</h1><pre><code># cd /usr/src# wget http://www.inet.no/dante/files/dante-1.4.2.tar.gz# tar -zxf dante-1.4.2.tar.gz# cd dante-1.4.2/# apt-get install gcc make#./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-client --without-libwrap --without-bsdauth --without-gssapi --without-krb5 --without-upnp --without-pam# make &amp;&amp; make install# /usr/sbin/sockd -vDante v1.4.2.  Copyright (c) 1997 - 2014 Inferno Nettverk A/S, Norway</code></pre><h1 id="Configuring-Dante-server-service-script"><a href="#Configuring-Dante-server-service-script" class="headerlink" title="Configuring Dante-server service script"></a>Configuring Dante-server service script</h1><pre><code># vim /etc/init.d/sockd</code></pre><h1 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h1><pre><code>https://www.proxyrack.com/how-to-setup-a-socks5-proxy-server-using-dante/</code></pre><h1 id="debain可能遇到的问题："><a href="#debain可能遇到的问题：" class="headerlink" title="debain可能遇到的问题："></a>debain可能遇到的问题：</h1><blockquote><p>perl: warning: Falling back to the standard locale (“C”)</p></blockquote><pre><code>root@host:~#locale-gen en_GB.UTF-8root@host:~#localectl set-locale LANG=en_GB.UTF-8,LC_ALL=en_GB.UTF-8</code></pre><blockquote><p>参考：<a href="https://konradpodgorski.com/blog/2014/06/23/fixing-locale-problem-debian/" target="_blank" rel="noopener">https://konradpodgorski.com/blog/2014/06/23/fixing-locale-problem-debian/</a></p></blockquote><p>debain VPs 安装失败：仅作记录</p>]]></content>
+    <content type="html"><![CDATA[<pre><code>debain可用参考链接：https://nfalcone.net/blog/danted-socks-proxy-server/</code></pre><a id="more"></a><p><strong>&gt; 其他：</strong></p><h1 id="socks5软件包安装"><a href="#socks5软件包安装" class="headerlink" title="socks5软件包安装:"></a>socks5软件包安装:</h1><pre><code># apt-get update &amp;&amp; apt-get upgrade# apt-get install dante-server# service danted restart# service danted status# danted -vdanted: dante v1.1.19</code></pre><h1 id="socks5源码安装："><a href="#socks5源码安装：" class="headerlink" title="socks5源码安装："></a>socks5源码安装：</h1><pre><code># cd /usr/src# wget http://www.inet.no/dante/files/dante-1.4.2.tar.gz# tar -zxf dante-1.4.2.tar.gz# cd dante-1.4.2/# apt-get install gcc make#./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-client --without-libwrap --without-bsdauth --without-gssapi --without-krb5 --without-upnp --without-pam# make &amp;&amp; make install# /usr/sbin/sockd -vDante v1.4.2.  Copyright (c) 1997 - 2014 Inferno Nettverk A/S, Norway</code></pre><h1 id="Configuring-Dante-server-service-script"><a href="#Configuring-Dante-server-service-script" class="headerlink" title="Configuring Dante-server service script"></a>Configuring Dante-server service script</h1><pre><code># vim /etc/init.d/sockd</code></pre><h1 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h1><pre><code>https://www.proxyrack.com/how-to-setup-a-socks5-proxy-server-using-dante/</code></pre><h1 id="debain可能遇到的问题："><a href="#debain可能遇到的问题：" class="headerlink" title="debain可能遇到的问题："></a>debain可能遇到的问题：</h1><blockquote><p>perl: warning: Falling back to the standard locale (“C”)</p></blockquote><pre><code>root@host:~#locale-gen en_GB.UTF-8root@host:~#localectl set-locale LANG=en_GB.UTF-8,LC_ALL=en_GB.UTF-8</code></pre><blockquote><p>参考：<a href="https://konradpodgorski.com/blog/2014/06/23/fixing-locale-problem-debian/" target="_blank" rel="noopener">https://konradpodgorski.com/blog/2014/06/23/fixing-locale-problem-debian/</a></p></blockquote><p>debain VPs 安装失败：仅作记录</p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;pre&gt;&lt;code&gt;debain可用参考链接：
+      &lt;pre&gt;&lt;code&gt;debain可用参考链接：
 
 https://nfalcone.net/blog/danted-socks-proxy-server/
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;&amp;gt; 其他：&lt;/strong&gt;&lt;/p&gt;
-&lt;h1 id=&quot;socks5软
-      
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     
