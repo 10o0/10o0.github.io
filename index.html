@@ -377,6 +377,21 @@ https://nfalcone.net/blog/danted-socks-proxy-server/
               <h1 id="一键安装："><a href="#一键安装：" class="headerlink" title="一键安装："></a>一键安装：</h1><pre><code>wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh
 chmod +x shadowsocks-all.sh
 ./shadowsocks-all.sh 2&gt;&amp;1 | tee shadowsocks-all.log
+</code></pre><blockquote>
+<p>多用户配置文件：</p>
+</blockquote>
+<pre><code>{
+    &quot;server&quot;:&quot;0.0.0.0&quot;,
+    &quot;port_password&quot;:{
+         &quot;8989&quot;:&quot;password0&quot;,
+         &quot;9001&quot;:&quot;password1&quot;,
+         &quot;9002&quot;:&quot;password2&quot;,
+         &quot;9003&quot;:&quot;password3&quot;,
+         &quot;9004&quot;:&quot;password4&quot;
+    },
+    &quot;method&quot;:&quot;aes-256-cfb&quot;,
+    &quot;timeout&quot;:600
+}
 </code></pre><h1 id="卸载："><a href="#卸载：" class="headerlink" title="卸载："></a>卸载：</h1><pre><code>./shadowsocks-all.sh uninstall
 </code></pre>
           

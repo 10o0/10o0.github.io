@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="0o0o0丶Blog">
 <meta property="og:description" content="一键安装：wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh chmod +x shadowsocks-all.sh ./shadowsocks-all.sh 2&amp;gt;&amp;amp;1 | tee shadowsocks">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-01-22T05:36:52.477Z">
+<meta property="og:updated_time" content="2018-01-22T05:49:20.230Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SS安装脚本">
 <meta name="twitter:description" content="一键安装：wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh chmod +x shadowsocks-all.sh ./shadowsocks-all.sh 2&amp;gt;&amp;amp;1 | tee shadowsocks">
@@ -316,6 +316,21 @@
         <h1 id="一键安装："><a href="#一键安装：" class="headerlink" title="一键安装："></a>一键安装：</h1><pre><code>wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh
 chmod +x shadowsocks-all.sh
 ./shadowsocks-all.sh 2&gt;&amp;1 | tee shadowsocks-all.log
+</code></pre><blockquote>
+<p>多用户配置文件：</p>
+</blockquote>
+<pre><code>{
+    &quot;server&quot;:&quot;0.0.0.0&quot;,
+    &quot;port_password&quot;:{
+         &quot;8989&quot;:&quot;password0&quot;,
+         &quot;9001&quot;:&quot;password1&quot;,
+         &quot;9002&quot;:&quot;password2&quot;,
+         &quot;9003&quot;:&quot;password3&quot;,
+         &quot;9004&quot;:&quot;password4&quot;
+    },
+    &quot;method&quot;:&quot;aes-256-cfb&quot;,
+    &quot;timeout&quot;:600
+}
 </code></pre><h1 id="卸载："><a href="#卸载：" class="headerlink" title="卸载："></a>卸载：</h1><pre><code>./shadowsocks-all.sh uninstall
 </code></pre><a id="more"></a>
 <h1 id="启动命令："><a href="#启动命令：" class="headerlink" title="启动命令："></a>启动命令：</h1><blockquote>
@@ -368,7 +383,7 @@ Shadowsocks-libev 版：
         <p><span>本文标题:</span><a href="/2018/01/22/SS安装脚本/">SS安装脚本</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">0o0</a></p>
         <p><span>发布时间:</span>2018-01-22, 10:01:21</p>
-        <p><span>最后更新:</span>2018-01-22, 13:36:52</p>
+        <p><span>最后更新:</span>2018-01-22, 13:49:20</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/01/22/SS安装脚本/" title="SS安装脚本">https://10o0.github.io/2018/01/22/SS安装脚本/</a>
             <span class="copy-path" data-clipboard-text="原文: https://10o0.github.io/2018/01/22/SS安装脚本/　　作者: 0o0" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
