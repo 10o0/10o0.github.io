@@ -619,6 +619,8 @@ cat vps_rsa.pub &gt;&gt; authorized_keys   ##写入文件
 
 复制authorized_keys到远程主机： 
 scp -P 22 authorized_keys root@176.*.145.*:/root/.ssh
+从远程主机下载文件：
+scp -P 22 root@176.*.145.*:/root/test.txt /root/
 </code></pre><h1 id="批量操作文件"><a href="#批量操作文件" class="headerlink" title="批量操作文件"></a>批量操作文件</h1><pre><code>find ./ -name &quot;*.docx&quot; | awk -F &quot;.&quot; &apos;{print $2}&apos; | xargs -i -t mv ./{}.docx  ./{}.doc   #批量修改后缀名
 
 cp -r &apos;find root/a -iname *.doc&apos; root/b   #批量复制某后缀名的文件
