@@ -386,6 +386,41 @@ hexo generate --deploy
   </entry>
   
   <entry>
+    <title>Python PyQt5</title>
+    <link href="https://10o0.github.io/2017/03/02/Python%E5%AE%9E%E7%94%A8/"/>
+    <id>https://10o0.github.io/2017/03/02/Python实用/</id>
+    <published>2017-03-02T08:46:11.000Z</published>
+    <updated>2018-03-07T03:23:28.487Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="使用Python3，PyQt5实现简易浏览器"><a href="#使用Python3，PyQt5实现简易浏览器" class="headerlink" title="使用Python3，PyQt5实现简易浏览器"></a>使用Python3，PyQt5实现简易浏览器</h1><pre><code>from PyQt5.QtWidgets import QApplicationfrom PyQt5.QtWebEngineWidgets import QWebEngineViewfrom PyQt5.QtCore import QUrlapp = QApplication([])view = QWebEngineView()view.load(QUrl(&quot;https://translate.google.cn&quot;))view.show()app.exec_()</code></pre><hr><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;使用Python3，PyQt5实现简易浏览器&quot;&gt;&lt;a href=&quot;#使用Python3，PyQt5实现简易浏览器&quot; class=&quot;headerlink&quot; title=&quot;使用Python3，PyQt5实现简易浏览器&quot;&gt;&lt;/a&gt;使用Python3，PyQt5实现简易浏览器&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;from PyQt5.QtWidgets import QApplication
+from PyQt5.QtWebEngineWidgets import QWebEngineView
+from PyQt5.QtCore import QUrl
+
+app = QApplication([])
+view = QWebEngineView()
+view.load(QUrl(&amp;quot;https://translate.google.cn&amp;quot;))
+view.show()
+app.exec_()
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="https://10o0.github.io/categories/python/"/>
+    
+    
+      <category term="pyqt5" scheme="https://10o0.github.io/tags/pyqt5/"/>
+    
+      <category term="python" scheme="https://10o0.github.io/tags/python/"/>
+    
+      <category term="browser" scheme="https://10o0.github.io/tags/browser/"/>
+    
+  </entry>
+  
+  <entry>
     <title>mimikittenz-Ps1版</title>
     <link href="https://10o0.github.io/2017/03/01/mimikittenz-Ps1%E7%89%88/"/>
     <id>https://10o0.github.io/2017/03/01/mimikittenz-Ps1版/</id>

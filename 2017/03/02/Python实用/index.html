@@ -15,20 +15,18 @@
 
 
 
-<meta name="description" content="保存为reg格式导入注册表即可： Windows Registry Editor Version 5.00  [HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\cmd_here] @=&amp;quot;Cmd Here&amp;quot;  [HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\">
-<meta name="keywords" content="cmd">
+<meta name="description" content="使用Python3，PyQt5实现简易浏览器from PyQt5.QtWidgets import QApplication from PyQt5.QtWebEngineWidgets import QWebEngineView from PyQt5.QtCore import QUrl  app = QApplication([]) view = QWebEngineView() view.lo">
+<meta name="keywords" content="pyqt5,python,browser">
 <meta property="og:type" content="article">
-<meta property="og:title" content="win10-Cmd here">
-<meta property="og:url" content="https://10o0.github.io/2017/03/04/win10-Cmd-here/index.html">
+<meta property="og:title" content="Python PyQt5">
+<meta property="og:url" content="https://10o0.github.io/2017/03/02/Python实用/index.html">
 <meta property="og:site_name" content="0o0o0丶Blog">
-<meta property="og:description" content="保存为reg格式导入注册表即可： Windows Registry Editor Version 5.00  [HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\cmd_here] @=&amp;quot;Cmd Here&amp;quot;  [HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\">
+<meta property="og:description" content="使用Python3，PyQt5实现简易浏览器from PyQt5.QtWidgets import QApplication from PyQt5.QtWebEngineWidgets import QWebEngineView from PyQt5.QtCore import QUrl  app = QApplication([]) view = QWebEngineView() view.lo">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://i.imgur.com/wZijEcJ.jpg">
-<meta property="og:updated_time" content="2018-01-18T02:25:55.111Z">
+<meta property="og:updated_time" content="2018-03-07T03:23:28.487Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="win10-Cmd here">
-<meta name="twitter:description" content="保存为reg格式导入注册表即可： Windows Registry Editor Version 5.00  [HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\cmd_here] @=&amp;quot;Cmd Here&amp;quot;  [HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\">
-<meta name="twitter:image" content="http://i.imgur.com/wZijEcJ.jpg">
+<meta name="twitter:title" content="Python PyQt5">
+<meta name="twitter:description" content="使用Python3，PyQt5实现简易浏览器from PyQt5.QtWidgets import QApplication from PyQt5.QtWebEngineWidgets import QWebEngineView from PyQt5.QtCore import QUrl  app = QApplication([]) view = QWebEngineView() view.lo">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>win10-Cmd here | 0o0o0丶Blog</title>
+<title>Python PyQt5 | 0o0o0丶Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -271,11 +269,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-win10-Cmd-here" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Python实用" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/04/win10-Cmd-here/" class="article-date">
-      <time datetime="2017-03-04T08:27:02.000Z" itemprop="datePublished">2017-03-04</time>
+      <a href="/2017/03/02/Python实用/" class="article-date">
+      <time datetime="2017-03-02T08:46:11.000Z" itemprop="datePublished">2017-03-02</time>
 </a>
 
 
@@ -290,7 +288,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      win10-Cmd here
+      Python PyQt5
     </h1>
   
 
@@ -299,13 +297,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/笔记/">笔记</a>
+    <a class="article-category-link" href="/categories/python/">python</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/browser/">browser</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pyqt5/">pyqt5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -315,28 +313,17 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>保存为reg格式导入注册表即可：</p>
-<pre><code>Windows Registry Editor Version 5.00
+        <h1 id="使用Python3，PyQt5实现简易浏览器"><a href="#使用Python3，PyQt5实现简易浏览器" class="headerlink" title="使用Python3，PyQt5实现简易浏览器"></a>使用Python3，PyQt5实现简易浏览器</h1><pre><code>from PyQt5.QtWidgets import QApplication
+from PyQt5.QtWebEngineWidgets import QWebEngineView
+from PyQt5.QtCore import QUrl
 
-[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\cmd_here]
-@=&quot;Cmd Here&quot;
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\cmd_here\command]
-@=&quot;\&quot;C:\\Windows\\System32\\cmd.exe\&quot;&quot;
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Folder\shell\cmdPrompt]
-@=&quot;Cmd Here&quot;
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Folder\shell\cmdPrompt\command]
-@=&quot;\&quot;C:\\Windows\\System32\\cmd.exe\&quot; \&quot;cd %1\&quot;&quot;
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\cmd_here]
-@=&quot;Cmd Here&quot;
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\cmd_here\command]
-@=&quot;\&quot;C:\\Windows\\System32\\cmd.exe\&quot;&quot;
-</code></pre><p><img src="http://i.imgur.com/wZijEcJ.jpg" alt=""></p>
-
+app = QApplication([])
+view = QWebEngineView()
+view.load(QUrl(&quot;https://translate.google.cn&quot;))
+view.show()
+app.exec_()
+</code></pre><hr>
+<a id="more"></a>
       
     </div>
     
@@ -344,13 +331,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/03/04/win10-Cmd-here/">win10-Cmd here</a></p>
+        <p><span>本文标题:</span><a href="/2017/03/02/Python实用/">Python PyQt5</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">0o0</a></p>
-        <p><span>发布时间:</span>2017-03-04, 16:27:02</p>
-        <p><span>最后更新:</span>2018-01-18, 10:25:55</p>
+        <p><span>发布时间:</span>2017-03-02, 16:46:11</p>
+        <p><span>最后更新:</span>2018-03-07, 11:23:28</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/03/04/win10-Cmd-here/" title="win10-Cmd here">https://10o0.github.io/2017/03/04/win10-Cmd-here/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://10o0.github.io/2017/03/04/win10-Cmd-here/　　作者: 0o0" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/03/02/Python实用/" title="Python PyQt5">https://10o0.github.io/2017/03/02/Python实用/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://10o0.github.io/2017/03/02/Python实用/　　作者: 0o0" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -363,15 +350,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/03/05/SimpleHTTPServer/">
-                    SimpleHTTPServer
+                <a href="/2017/03/02/hexo-command/">
+                    hexo command
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/03/02/hexo-command/">
-                    hexo command
+                <a href="/2017/03/01/mimikittenz-Ps1版/">
+                    mimikittenz-Ps1版
                 </a>
             </div>
         
@@ -383,7 +370,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#使用Python3，PyQt5实现简易浏览器"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x4F7F;&#x7528;Python3&#xFF0C;PyQt5&#x5B9E;&#x73B0;&#x7B80;&#x6613;&#x6D4F;&#x89C8;&#x5668;" class="headerlink" title="&#x4F7F;&#x7528;Python3&#xFF0C;PyQt5&#x5B9E;&#x73B0;&#x7B80;&#x6613;&#x6D4F;&#x89C8;&#x5668;"></a>&#x4F7F;&#x7528;Python3&#xFF0C;PyQt5&#x5B9E;&#x73B0;&#x7B80;&#x6613;&#x6D4F;&#x89C8;&#x5668;</span></a></li></ol>
         
     </div>
     <style>
@@ -414,7 +401,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/03/05/SimpleHTTPServer/" title="上一篇: SimpleHTTPServer">
+            <a href="/2017/03/02/hexo-command/" title="上一篇: hexo command">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -422,7 +409,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/03/02/hexo-command/" title="下一篇: hexo command">
+            <a href="/2017/03/01/mimikittenz-Ps1版/" title="下一篇: mimikittenz-Ps1版">
                 <i class="fa fa-angle-right"></i>
             </a>
         
