@@ -3,14 +3,14 @@
   <entry>
     <title><![CDATA[How to encrypt files and folders with eCryptfs in Ubuntu/Debian/kali linux]]></title>
     <url>%2F2018%2F03%2F27%2Fencrypt%20in%20linux%2F</url>
-    <content type="text"><![CDATA[apt-get install ecryptfs-utils modprobe ecryptfs #Load the ecryptfs kernel driver, ecryptfs-setup-private ##default ecryptfs-umount-private # to unmount ecryptfs-mount-private # to mount it again,Switch to another directory except home ####### ecryptfs-setup-private --noautoumount # avoid ecryptfs auto mount at login]]></content>
+    <content type="text"><![CDATA[apt-get install ecryptfs-utils modprobe ecryptfs #Load the ecryptfs kernel driver ecryptfs-setup-private ##default ecryptfs-umount-private # to unmount ecryptfs-mount-private # to mount it again,Switch to another directory except home ####### ecryptfs-setup-private --noautoumount # avoid ecryptfs auto mount at login]]></content>
       <categories>
         <category>encrypt</category>
       </categories>
       <tags>
+        <tag>kali</tag>
         <tag>encrypt</tag>
         <tag>eCryptfs</tag>
-        <tag>kali</tag>
       </tags>
   </entry>
   <entry>
@@ -21,8 +21,8 @@
         <category>shell</category>
       </categories>
       <tags>
-        <tag>bash</tag>
         <tag>python</tag>
+        <tag>bash</tag>
         <tag>perl</tag>
         <tag>netcat</tag>
         <tag>php</tag>
@@ -36,8 +36,8 @@
         <category>python</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>pyqt5</tag>
+        <tag>python</tag>
         <tag>browser</tag>
       </tags>
   </entry>
