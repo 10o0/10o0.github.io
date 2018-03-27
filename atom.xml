@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://10o0.github.io/"/>
-  <updated>2018-03-20T06:56:19.653Z</updated>
+  <updated>2018-03-27T04:45:04.854Z</updated>
   <id>https://10o0.github.io/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>How to encrypt files and folders with eCryptfs in Ubuntu/Debian/kali linux</title>
+    <link href="https://10o0.github.io/2018/03/27/encrypt%20in%20linux/"/>
+    <id>https://10o0.github.io/2018/03/27/encrypt in linux/</id>
+    <published>2018-03-27T04:36:32.000Z</published>
+    <updated>2018-03-27T04:45:04.854Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>apt-get install ecryptfs-utilsmodprobe ecryptfs  #Load the ecryptfs kernel driver,ecryptfs-setup-private ##defaultecryptfs-umount-private  # to unmountecryptfs-mount-private  # to mount it again,Switch to another directory except home#######ecryptfs-setup-private --noautoumount  # avoid ecryptfs auto mount at login</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;pre&gt;&lt;code&gt;apt-get install ecryptfs-utils
+
+modprobe ecryptfs  #Load the ecryptfs kernel driver,
+
+ecryptfs-setup-private ##default
+
+ecryptfs-
+      
+    
+    </summary>
+    
+      <category term="encrypt" scheme="https://10o0.github.io/categories/encrypt/"/>
+    
+    
+      <category term="encrypt" scheme="https://10o0.github.io/tags/encrypt/"/>
+    
+      <category term="eCryptfs" scheme="https://10o0.github.io/tags/eCryptfs/"/>
+    
+      <category term="kali" scheme="https://10o0.github.io/tags/kali/"/>
+    
+  </entry>
   
   <entry>
     <title>Reverse Shell Cheat Sheet</title>
@@ -44,9 +79,9 @@
       <category term="shell" scheme="https://10o0.github.io/categories/shell/"/>
     
     
-      <category term="python" scheme="https://10o0.github.io/tags/python/"/>
-    
       <category term="bash" scheme="https://10o0.github.io/tags/bash/"/>
+    
+      <category term="python" scheme="https://10o0.github.io/tags/python/"/>
     
       <category term="perl" scheme="https://10o0.github.io/tags/perl/"/>
     
