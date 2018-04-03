@@ -36,8 +36,8 @@
         <category>python</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>pyqt5</tag>
+        <tag>python</tag>
         <tag>browser</tag>
       </tags>
   </entry>
@@ -92,7 +92,7 @@
   <entry>
     <title><![CDATA[linux实用技巧]]></title>
     <url>%2F2018%2F01%2F18%2Flinux%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7%2F</url>
-    <content type="text"><![CDATA[自定义终端命令启动程序 编辑 .bashrc 文件： root@kali:~# vim .bashrc root@kali:~# source .bashrc exm： alias burp=&apos;setsid java -jar /root/softs/burpsuite_pro_v1.6.37.jar &gt;/dev/null 2&gt;&amp;1 &amp;&apos; echo &quot;###&quot; &gt; file ##替换文件 echo &quot;###&quot; &gt;&gt; file ##追加写入文件 echo &quot;alias ss=&apos;ss start&apos;&quot; &gt;&gt; .bashrc 设置ssh免密码登录在.ssh目录下： 本地主机： ssh-keygen -t rsa ##生成id_rsa.pub cat vps_rsa.pub &gt;&gt; authorized_keys ##写入文件 复制authorized_keys到远程主机： scp -P 22 authorized_keys root@176.*.145.*:/root/.ssh 从远程主机下载文件： scp -P 22 root@176.*.145.*:/root/test.txt /root/ 批量操作文件find ./ -name &quot;*.docx&quot; | awk -F &quot;.&quot; &apos;{print $2}&apos; | xargs -i -t mv ./{}.docx ./{}.doc #批量修改后缀名 cp -r &apos;find root/a -iname *.doc&apos; root/b #批量复制某后缀名的文件 #配置终端使用HTTP or SOCKS5代理# 把代理服务器地址写入shell配置文件.bashrc或者.zshrc 直接在.bashrc或者.zshrc添加下面内容 export http_proxy=&quot;http://localhost:port&quot; export https_proxy=&quot;http://localhost:port&quot; 以使用shadowsocks代理为例，ss的代理端口为1080,那么应该设置为 export http_proxy=&quot;socks5://127.0.0.1:1080&quot; export https_proxy=&quot;socks5://127.0.0.1:1080&quot; 或者直接设置ALL_PROXY export ALL_PROXY=socks5://127.0.0.1:1080 然后ESC后:wq保存文件，接着在终端中执行 source ~/.bashrc 或者退出当前终端再起一个终端。 这个办法的好处是把代理服务器永久保存了，下次就可以直接用了。 或者通过设置alias简写来简化操作，每次要用的时候输入setproxy，不用了就unsetproxy。 alias setproxy=&quot;export ALL_PROXY=socks5://127.0.0.1:1080&quot; alias unsetproxy=&quot;unset ALL_PROXY&quot; alias ip=&quot;curl ip.cn&quot;]]></content>
+    <content type="text"><![CDATA[自定义终端命令启动程序 编辑 .bashrc 文件： root@kali:~# vim .bashrc root@kali:~# source .bashrc exm： alias burp=&apos;setsid java -jar /root/softs/burpsuite_pro_v1.6.37.jar &gt;/dev/null 2&gt;&amp;1 &amp;&apos; echo &quot;###&quot; &gt; file ##替换文件 echo &quot;###&quot; &gt;&gt; file ##追加写入文件 echo &quot;alias ss=&apos;ss start&apos;&quot; &gt;&gt; .bashrc 设置ssh免密码登录在.ssh目录下： 本地主机： ssh-keygen -t rsa ##生成id_rsa.pub cat vps_rsa.pub &gt;&gt; authorized_keys ##写入文件 复制authorized_keys到远程主机： scp -P 22 authorized_keys root@176.*.145.*:/root/.ssh 从远程主机下载文件： scp -P 22 root@176.*.145.*:/root/test.txt /root/ 批量操作文件find ./ -name &quot;*.docx&quot; | awk -F &quot;.&quot; &apos;{print $2}&apos; | xargs -i -t mv ./{}.docx ./{}.doc #批量修改后缀名 cp -r &apos;find root/a -iname *.doc&apos; root/b #批量复制某后缀名的文件 配置终端使用HTTP or SOCKS5代理 把代理服务器地址写入shell配置文件.bashrc或者.zshrc 直接在.bashrc或者.zshrc添加下面内容 export http_proxy=&quot;http://localhost:port&quot; export https_proxy=&quot;http://localhost:port&quot; 以使用shadowsocks代理为例，ss的代理端口为1080,那么应该设置为 export http_proxy=&quot;socks5://127.0.0.1:1080&quot; export https_proxy=&quot;socks5://127.0.0.1:1080&quot; 或者直接设置ALL_PROXY export ALL_PROXY=socks5://127.0.0.1:1080 然后ESC后:wq保存文件，接着在终端中执行 source ~/.bashrc 或者退出当前终端再起一个终端。 这个办法的好处是把代理服务器永久保存了，下次就可以直接用了。 或者通过设置alias简写来简化操作，每次要用的时候输入setproxy，不用了就unsetproxy。 alias setproxy=&quot;export ALL_PROXY=socks5://127.0.0.1:1080&quot; alias unsetproxy=&quot;unset ALL_PROXY&quot; alias ip=&quot;curl ip.cn&quot;]]></content>
       <categories>
         <category>笔记</category>
       </categories>
