@@ -15,17 +15,17 @@
 
 
 
-<meta name="description" content="Frp结合VPS打造外网Msf 前言：  本来一开始是在Vps上直接安装的MSF,想安装的可以试试，附一键脚本： curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb &amp;gt; msfin">
+<meta name="description" content="Frp结合VPS打造外网Meatsploit 前言：  本来一开始是在Vps上直接安装的MSF,想安装的可以试试，附一键脚本： curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb &amp;gt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="0o0o0丶Blog">
 <meta property="og:url" content="https://10o0.github.io/2018/04/19/Frp＋VPS打造外网Meatsploit/index.html">
 <meta property="og:site_name" content="0o0o0丶Blog">
-<meta property="og:description" content="Frp结合VPS打造外网Msf 前言：  本来一开始是在Vps上直接安装的MSF,想安装的可以试试，附一键脚本： curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb &amp;gt; msfin">
+<meta property="og:description" content="Frp结合VPS打造外网Meatsploit 前言：  本来一开始是在Vps上直接安装的MSF,想安装的可以试试，附一键脚本： curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb &amp;gt">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-19T02:43:57.956Z">
+<meta property="og:updated_time" content="2018-04-19T03:01:56.737Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="0o0o0丶Blog">
-<meta name="twitter:description" content="Frp结合VPS打造外网Msf 前言：  本来一开始是在Vps上直接安装的MSF,想安装的可以试试，附一键脚本： curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb &amp;gt; msfin">
+<meta name="twitter:description" content="Frp结合VPS打造外网Meatsploit 前言：  本来一开始是在Vps上直接安装的MSF,想安装的可以试试，附一键脚本： curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb &amp;gt">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -272,7 +272,7 @@
   
     <div class="article-meta">
       <a href="/2018/04/19/Frp＋VPS打造外网Meatsploit/" class="article-date">
-      <time datetime="2018-04-19T02:47:05.267Z" itemprop="datePublished">2018-04-19</time>
+      <time datetime="2018-04-19T03:01:56.777Z" itemprop="datePublished">2018-04-19</time>
 </a>
 
 
@@ -286,14 +286,15 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="Frp结合VPS打造外网Msf"><a href="#Frp结合VPS打造外网Msf" class="headerlink" title="Frp结合VPS打造外网Msf"></a>Frp结合VPS打造外网Msf</h2><ul>
+        <h2 id="Frp结合VPS打造外网Meatsploit"><a href="#Frp结合VPS打造外网Meatsploit" class="headerlink" title="Frp结合VPS打造外网Meatsploit"></a>Frp结合VPS打造外网Meatsploit</h2><ul>
 <li><strong>前言：</strong></li>
 </ul>
 <p>本来一开始是在Vps上直接安装的MSF,想安装的可以试试，附一键脚本：</p>
 <pre><code>curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb &gt; msfinstall
 
 chmod 755 msfinstall &amp;&amp; ./msfinstall
-</code></pre><p>可以用，但是总是时不时崩溃（可能是配置太低），烦的一pi.<br>然后就去Google找到了ngrok的端口转发教程。试了下，可以用，不过用起来反应很慢，时不时还掉线，尼玛啊，最坑的是有的平台（VIP是不可能开的，这辈子都不可能）不能固定外网端口，启动一次客户端就换一个端口，每次都要改Payload，费劲。<br>然后试了下用Frp来转发，相比起来简直不要太爽。</p>
+</code></pre><a id="more"></a>
+<p>可以用，但是总是时不时崩溃（可能是配置太低），烦的一pi.<br>然后就去Google找到了ngrok的端口转发教程。试了下，可以用，不过用起来反应很慢，时不时还掉线，尼玛啊，最坑的是有的平台（VIP是不可能开的，这辈子都不可能）不能固定外网端口，启动一次客户端就换一个端口，每次都要改Payload，费劲。<br>然后试了下用Frp来转发，相比起来简直不要太爽。</p>
 <p> <strong>1. 准备工作：</strong></p>
 <blockquote>
 <p>VPS一台<br>FRP  ##下载地址：<a href="https://github.com/fatedier/frp/releases（根据自己的VPS选择对应的版本）" target="_blank" rel="noopener">https://github.com/fatedier/frp/releases（根据自己的VPS选择对应的版本）</a></p>
@@ -350,8 +351,8 @@ Payload options (windows/x64/meterpreter_reverse_tcp):
     <div class="copyright">
         <p><span>本文标题:</span><a href="/2018/04/19/Frp＋VPS打造外网Meatsploit/"></a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">0o0</a></p>
-        <p><span>发布时间:</span>2018-04-19, 10:47:05</p>
-        <p><span>最后更新:</span>2018-04-19, 10:43:57</p>
+        <p><span>发布时间:</span>2018-04-19, 11:01:56</p>
+        <p><span>最后更新:</span>2018-04-19, 11:01:56</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/04/19/Frp＋VPS打造外网Meatsploit/" title="">https://10o0.github.io/2018/04/19/Frp＋VPS打造外网Meatsploit/</a>
             <span class="copy-path" data-clipboard-text="原文: https://10o0.github.io/2018/04/19/Frp＋VPS打造外网Meatsploit/　　作者: 0o0" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -381,7 +382,7 @@ Payload options (windows/x64/meterpreter_reverse_tcp):
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Frp结合VPS打造外网Msf"><span class="toc-number">1.</span> <span class="toc-text"><a href="#Frp&#x7ED3;&#x5408;VPS&#x6253;&#x9020;&#x5916;&#x7F51;Msf" class="headerlink" title="Frp&#x7ED3;&#x5408;VPS&#x6253;&#x9020;&#x5916;&#x7F51;Msf"></a>Frp&#x7ED3;&#x5408;VPS&#x6253;&#x9020;&#x5916;&#x7F51;Msf</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Frp结合VPS打造外网Meatsploit"><span class="toc-number">1.</span> <span class="toc-text"><a href="#Frp&#x7ED3;&#x5408;VPS&#x6253;&#x9020;&#x5916;&#x7F51;Meatsploit" class="headerlink" title="Frp&#x7ED3;&#x5408;VPS&#x6253;&#x9020;&#x5916;&#x7F51;Meatsploit"></a>Frp&#x7ED3;&#x5408;VPS&#x6253;&#x9020;&#x5916;&#x7F51;Meatsploit</span></a></li></ol>
         
     </div>
     <style>
