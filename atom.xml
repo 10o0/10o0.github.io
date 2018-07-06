@@ -143,11 +143,11 @@ ecryptfs-u
       <category term="encrypt" scheme="https://10o0.github.io/categories/encrypt/"/>
     
     
+      <category term="kali" scheme="https://10o0.github.io/tags/kali/"/>
+    
       <category term="encrypt" scheme="https://10o0.github.io/tags/encrypt/"/>
     
       <category term="eCryptfs" scheme="https://10o0.github.io/tags/eCryptfs/"/>
-    
-      <category term="kali" scheme="https://10o0.github.io/tags/kali/"/>
     
   </entry>
   
@@ -218,9 +218,9 @@ app.exec_()
       <category term="python" scheme="https://10o0.github.io/categories/python/"/>
     
     
-      <category term="python" scheme="https://10o0.github.io/tags/python/"/>
-    
       <category term="pyqt5" scheme="https://10o0.github.io/tags/pyqt5/"/>
+    
+      <category term="python" scheme="https://10o0.github.io/tags/python/"/>
     
       <category term="browser" scheme="https://10o0.github.io/tags/browser/"/>
     
