@@ -20,8 +20,8 @@
         <category>shell</category>
       </categories>
       <tags>
-        <tag>mysql</tag>
         <tag>shell</tag>
+        <tag>mysql</tag>
         <tag>log</tag>
       </tags>
   </entry>
@@ -45,9 +45,9 @@
         <category>encrypt</category>
       </categories>
       <tags>
-        <tag>kali</tag>
         <tag>encrypt</tag>
         <tag>eCryptfs</tag>
+        <tag>kali</tag>
       </tags>
   </entry>
   <entry>
@@ -73,8 +73,8 @@
         <category>python</category>
       </categories>
       <tags>
-        <tag>pyqt5</tag>
         <tag>python</tag>
+        <tag>pyqt5</tag>
         <tag>browser</tag>
       </tags>
   </entry>
@@ -134,8 +134,8 @@
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>bash</tag>
         <tag>linux</tag>
+        <tag>bash</tag>
         <tag>sh</tag>
       </tags>
   </entry>
@@ -238,12 +238,12 @@
   </entry>
   <entry>
     <title></title>
-    <url>%2Ftags%2Findex.html</url>
+    <url>%2Fcategories%2Findex.html</url>
     <content type="text"></content>
   </entry>
   <entry>
     <title></title>
-    <url>%2Fcategories%2Findex.html</url>
+    <url>%2Ftags%2Findex.html</url>
     <content type="text"></content>
   </entry>
   <entry>

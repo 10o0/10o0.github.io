@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>0o0o0丶Blog</title>
   
-  <subtitle>爱生活丶爱网络丶爱自由</subtitle>
+  <subtitle>0o0o0o0o0o0o0o0o0o0</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://10o0.github.io/"/>
@@ -76,9 +76,9 @@ S
       <category term="shell" scheme="https://10o0.github.io/categories/shell/"/>
     
     
-      <category term="mysql" scheme="https://10o0.github.io/tags/mysql/"/>
-    
       <category term="shell" scheme="https://10o0.github.io/tags/shell/"/>
+    
+      <category term="mysql" scheme="https://10o0.github.io/tags/mysql/"/>
     
       <category term="log" scheme="https://10o0.github.io/tags/log/"/>
     
@@ -143,11 +143,11 @@ ecryptfs-u
       <category term="encrypt" scheme="https://10o0.github.io/categories/encrypt/"/>
     
     
-      <category term="kali" scheme="https://10o0.github.io/tags/kali/"/>
-    
       <category term="encrypt" scheme="https://10o0.github.io/tags/encrypt/"/>
     
       <category term="eCryptfs" scheme="https://10o0.github.io/tags/eCryptfs/"/>
+    
+      <category term="kali" scheme="https://10o0.github.io/tags/kali/"/>
     
   </entry>
   
@@ -218,9 +218,9 @@ app.exec_()
       <category term="python" scheme="https://10o0.github.io/categories/python/"/>
     
     
-      <category term="pyqt5" scheme="https://10o0.github.io/tags/pyqt5/"/>
-    
       <category term="python" scheme="https://10o0.github.io/tags/python/"/>
+    
+      <category term="pyqt5" scheme="https://10o0.github.io/tags/pyqt5/"/>
     
       <category term="browser" scheme="https://10o0.github.io/tags/browser/"/>
     
@@ -378,9 +378,9 @@ chmod +x shadowsocks-all.sh
       <category term="笔记" scheme="https://10o0.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="bash" scheme="https://10o0.github.io/tags/bash/"/>
-    
       <category term="linux" scheme="https://10o0.github.io/tags/linux/"/>
+    
+      <category term="bash" scheme="https://10o0.github.io/tags/bash/"/>
     
       <category term="sh" scheme="https://10o0.github.io/tags/sh/"/>
     
