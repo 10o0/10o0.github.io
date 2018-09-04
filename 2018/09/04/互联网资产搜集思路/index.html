@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="0o0" />
+
+
+
+<meta name="description" content="给定域名、部分IP： 整理成C段IP， [] [centos_shell]123456789101112131415161718192021222324252627282930313233343536373839404142434445#!/usr/bin/python# -*- coding:utf-8 -*-#exp:192.168.1.1  &amp;gt;&amp;gt;&amp;gt;  192.168.1.0">
+<meta name="keywords" content="bash,linux,sh">
+<meta property="og:type" content="article">
+<meta property="og:title" content="互联网资产搜集思路&lt;更新中...&gt;">
+<meta property="og:url" content="https://10o0.github.io/2018/09/04/互联网资产搜集思路/index.html">
+<meta property="og:site_name" content="0o0o0丶Blog">
+<meta property="og:description" content="给定域名、部分IP： 整理成C段IP， [] [centos_shell]123456789101112131415161718192021222324252627282930313233343536373839404142434445#!/usr/bin/python# -*- coding:utf-8 -*-#exp:192.168.1.1  &amp;gt;&amp;gt;&amp;gt;  192.168.1.0">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-04T06:40:18.245Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="互联网资产搜集思路&lt;更新中...&gt;">
+<meta name="twitter:description" content="给定域名、部分IP： 整理成C段IP， [] [centos_shell]123456789101112131415161718192021222324252627282930313233343536373839404142434445#!/usr/bin/python# -*- coding:utf-8 -*-#exp:192.168.1.1  &amp;gt;&amp;gt;&amp;gt;  192.168.1.0">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>互联网资产搜集思路&lt;更新中...&gt; | 0o0o0丶Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/Coding.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">0o0</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">0o0o0o0o0o0o0o0o0o0</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:r0o0t@foxmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/NVIDIA/">NVIDIA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bash/">bash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/browser/">browser</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/">cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command/">command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/defcon/">defcon</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eCryptfs/">eCryptfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encrypt/">encrypt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exp/">exp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frp/">frp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/log/">log</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mimikittenz/">mimikittenz</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/msf/">msf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/netcat/">netcat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/perl/">perl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proxy/">proxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pyqt5/">pyqt5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/s2-045/">s2-045</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sh/">sh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shadowsocks/">shadowsocks</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/socks5/">socks5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ss/">ss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xss/">xss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ziroom/">ziroom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/入侵检测，安全审计/">入侵检测，安全审计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/应急响应/">应急响应</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/驱动/">驱动</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://10o0.github.io">0o0</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">小本本上八卦羞答答,人生太复杂。</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">0o0</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/Coding.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">0o0</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">0o0o0o0o0o0o0o0o0o0</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:r0o0t@foxmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-互联网资产搜集思路" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/09/04/互联网资产搜集思路/" class="article-date">
+      <time datetime="2018-09-04T06:39:24.000Z" itemprop="datePublished">2018-09-04</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      互联网资产搜集思路&lt;更新中...&gt;
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/笔记/">笔记</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bash/">bash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sh/">sh</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>给定域名、部分IP：</p>
+<p>整理成C段IP，</p>
+<figure class="highlight python"><figcaption><span>[] [centos_shell]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="comment">#exp:192.168.1.1  &gt;&gt;&gt;  192.168.1.0/24</span></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"> </span><br><span class="line"><span class="comment"># def cleanCLRFspace(content):</span></span><br><span class="line"><span class="comment"># 	noCLContext = content.replace('\n','')</span></span><br><span class="line"><span class="comment"># 	noSpaceCLRFcontext = noCLContext.strip()</span></span><br><span class="line"><span class="comment"># 	return noSpaceCLRFcontext</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">readFile</span><span class="params">()</span>:</span></span><br><span class="line">	ipf = open(<span class="string">'./content.txt'</span>,<span class="string">'r'</span>)</span><br><span class="line">	<span class="keyword">return</span> ipf</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getLineIP</span><span class="params">(ipf)</span>:</span></span><br><span class="line">	ipList = set()</span><br><span class="line">	texts = ipf.readlines()</span><br><span class="line">	<span class="keyword">for</span> text <span class="keyword">in</span> texts:</span><br><span class="line">		ips = re.findall(<span class="string">r'\d+\.\d+?\.\d+?\.\d+?'</span>,text)</span><br><span class="line">		<span class="keyword">for</span> ip <span class="keyword">in</span> ips:</span><br><span class="line">			ipList.add(ip)</span><br><span class="line">	<span class="keyword">return</span> ipList</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ip2c</span><span class="params">(ipNoDup)</span>:</span></span><br><span class="line">	ipset = set()</span><br><span class="line">	<span class="keyword">for</span> ip <span class="keyword">in</span> ipNoDup:</span><br><span class="line">		ipset.add(re.findall(<span class="string">r'\d+?\.\d+?\.\d+?\.'</span>,ip)[<span class="number">0</span>] + <span class="string">'0/24'</span>)</span><br><span class="line">	iplist = list(ipset)</span><br><span class="line">	iplist.sort()</span><br><span class="line">	<span class="keyword">return</span> iplist</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">saveContext</span><span class="params">(s)</span>:</span></span><br><span class="line">	wfile = open(<span class="string">'./result.txt'</span>,<span class="string">'w'</span>)</span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> s:</span><br><span class="line">		wfile.write(i+<span class="string">'\n'</span>)</span><br><span class="line">	wfile.close()</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">	ipf = readFile()</span><br><span class="line">	ipList = getLineIP(ipf)</span><br><span class="line">	iplist = ip2c(ipList)</span><br><span class="line">	saveContext(iplist)</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<figure class="highlight shell"><figcaption><span>[] [centos_shell]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span>脚本名称：test.sh</span><br><span class="line"><span class="meta">#</span>使用方法：./test.sh ip.txt</span><br><span class="line"><span class="meta">#</span>备注：192.168.1.0/24  &gt;&gt;&gt; 192.168.1.0-192.168.1.254  范围IP</span><br><span class="line">while read IPRANGE</span><br><span class="line">do</span><br><span class="line">    IP_FILE_NAME=$(echo $IPRANGE | cut -d/ -f1)</span><br><span class="line">    IP_1="$(echo $IPRANGE | cut -d"." -f1-2)."</span><br><span class="line">    IP_3="$(echo $IPRANGE | cut -d"." -f3)"</span><br><span class="line">    MAX_IP_3="$(sipcalc $IPRANGE | awk -F. '/Usable range/&#123;print $6&#125;')"</span><br><span class="line">    for i in $(seq $IP_3 $MAX_IP_3)</span><br><span class="line">    do</span><br><span class="line">        for j in $(seq 1 254)</span><br><span class="line">            do</span><br><span class="line">                touch $IP_FILE_NAME.txt</span><br><span class="line">                echo "$&#123;IP_1&#125;$&#123;i&#125;.$&#123;j&#125;" &gt;&gt;ip.ini</span><br><span class="line">            done</span><br><span class="line">    done</span><br><span class="line">done &lt; $1</span><br></pre></td></tr></table></figure>
+<p>一步到位：<br><figure class="highlight shell"><figcaption><span>[] [centos_shell]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span>Desc:根据起始IP和结束IP输出IP信息</span><br><span class="line"><span class="meta">#</span>Usage:./iprange.sh IP.txt</span><br><span class="line"><span class="meta">#</span>notepad++去重：  ^(.*?)$\s+?^(?=.*^\1$)   操作方法如下，快捷键Ctrl+H，在弹出的界面输入表达式，并勾选匹配新行。</span><br><span class="line"><span class="meta">#</span>换行处理否则报错    /r/n     /r   全部替换为 /n</span><br><span class="line"></span><br><span class="line">while read line0</span><br><span class="line">do</span><br><span class="line"><span class="meta">	#</span>echo $line1</span><br><span class="line">	awk -F $line1  "-" '&#123;print $1,$2&#125;' | while read IPA IPB</span><br><span class="line">	do</span><br><span class="line"> </span><br><span class="line">		IPA1=`echo $IPA | awk -F '.' '&#123;print $1&#125;'`          </span><br><span class="line">		IPA2=`echo $IPA | awk -F '.' '&#123;print $2&#125;'`          </span><br><span class="line">		IPA3=`echo $IPA | awk -F '.' '&#123;print $3&#125;'`          </span><br><span class="line">		IPA4=`echo $IPA | awk -F '.' '&#123;print $4&#125;'`          </span><br><span class="line">														  </span><br><span class="line">		IPB1=`echo $IPB | awk -F '.' '&#123;print $1&#125;'`          </span><br><span class="line">		IPB2=`echo $IPB | awk -F '.' '&#123;print $2&#125;'`          </span><br><span class="line">		IPB3=`echo $IPB | awk -F '.' '&#123;print $3&#125;'`          </span><br><span class="line">		IPB4=`echo $IPB | awk -F '.' '&#123;print $4&#125;'`          </span><br><span class="line"></span><br><span class="line">		IP4_not_equal()&#123;</span><br><span class="line">			for i in `eval echo &#123;$IPA4..$IPB4&#125;`</span><br><span class="line">			do</span><br><span class="line">				echo $IPA1.$IPA2.$IPA3.$i</span><br><span class="line">			done</span><br><span class="line">		&#125;</span><br><span class="line">		 </span><br><span class="line">		 </span><br><span class="line">		 </span><br><span class="line">		IP3_not_equal () &#123;</span><br><span class="line">			for i in  `eval echo &#123;$IPA3..$IPB3&#125;`</span><br><span class="line">			do</span><br><span class="line">				if [[ $i = $IPA3 ]]</span><br><span class="line">				then</span><br><span class="line">					eval echo   "192.168.$i.&#123;$IPA4..255&#125;" |xargs -n 1</span><br><span class="line">				elif [[ $i = $IPB3 ]]</span><br><span class="line">				then</span><br><span class="line">					eval echo   "192.168.$i.&#123;1..$IPB4&#125;" |xargs -n 1</span><br><span class="line">				else</span><br><span class="line">					eval echo  "192.168.$i.&#123;1..255&#125;" | xargs -n 1</span><br><span class="line">				fi</span><br><span class="line">		done</span><br><span class="line">		&#125;</span><br><span class="line">		 </span><br><span class="line">		 </span><br><span class="line">		IP2_not_equal()&#123;</span><br><span class="line"><span class="meta">			#</span>第二段的变化范围</span><br><span class="line">			for n in `eval echo &#123;$IPA2..$IPB2&#125;`</span><br><span class="line">			do</span><br><span class="line">				#如果第二段与IPA的第二段相同</span><br><span class="line">				if [ $n = $IPA2 ] </span><br><span class="line">				then  </span><br><span class="line">					#第三段的变化范围为IPA3到255 </span><br><span class="line">					for m in `eval echo &#123;$IPA3..255&#125;`</span><br><span class="line">					do</span><br><span class="line">						#如果第三段与IPA的第三段相同</span><br><span class="line">						if [[ $m = $IPA3 ]]</span><br><span class="line">						then</span><br><span class="line">							eval echo "$IPA1.$IPA2.$IPA3.&#123;$IPA4..255&#125;" | xargs -n 1</span><br><span class="line">						else</span><br><span class="line">							eval echo "$IPA1.$IPA2.$m.&#123;1..255&#125;" | xargs -n 1</span><br><span class="line">						fi</span><br><span class="line">					done</span><br><span class="line">				#如果第三段与IPB的第三段相同</span><br><span class="line">				elif [ $n = $IPB2 ]</span><br><span class="line">				then</span><br><span class="line">					#第三段变化范围为0到IPB3</span><br><span class="line">					for x in `eval echo &#123;0..$IPB3&#125;` </span><br><span class="line">					do</span><br><span class="line">						#如果第三段与IPB的第三段相同</span><br><span class="line">						if [ $x = $IPB3  ]</span><br><span class="line">						then</span><br><span class="line">							eval echo "$IPB1.$IPB2.$IPB3.&#123;0..$IPB4&#125;" |xargs -n 1</span><br><span class="line">						else</span><br><span class="line">							eval echo "$IPB1.$IPB2.$x.&#123;0..255&#125;" |xargs -n 1</span><br><span class="line">						fi</span><br><span class="line">					done</span><br><span class="line">				#如果第二段与IPA和IPB的均不相同</span><br><span class="line">				else  </span><br><span class="line">					#第三段变化范围</span><br><span class="line">					for y in &#123;0..255&#125;</span><br><span class="line">					do </span><br><span class="line">						echo $IPA1.$n.$y.&#123;0..255&#125; |xargs -n 1</span><br><span class="line">					done</span><br><span class="line">				fi</span><br><span class="line">			done </span><br><span class="line">		&#125;</span><br><span class="line">		 </span><br><span class="line"><span class="meta">		#</span>定义pass函数，啥事都不做</span><br><span class="line">		pass()&#123;</span><br><span class="line">		echo ""&gt;/dev/null</span><br><span class="line">		&#125;</span><br><span class="line">		 </span><br><span class="line">		 </span><br><span class="line">		IP1_not_equal()&#123;</span><br><span class="line"><span class="meta">		#</span>IP第一段的范围</span><br><span class="line">		for d1 in `eval echo &#123;$IPA1..$IPB1&#125;`</span><br><span class="line">		do</span><br><span class="line"><span class="meta">			#</span>&lt;1&gt;如果第一段与IPA1相同</span><br><span class="line">			if [[ $d1 = $IPA1 ]]</span><br><span class="line">			then</span><br><span class="line">				#第二段IP范围为IPA2到255</span><br><span class="line">				for d2 in `eval echo &#123;$IPA2..255&#125;`</span><br><span class="line">				do</span><br><span class="line">				   #&lt;1.1&gt;如果第二段与IPA2相同</span><br><span class="line">				   if [[ $d2 = $IPA2 ]]</span><br><span class="line">				   then</span><br><span class="line">					   #第三段IP范围为IPA3到255</span><br><span class="line">					   for d3 in `eval echo &#123;$IPA3..255&#125;`</span><br><span class="line">					   do</span><br><span class="line">						   #&lt;1.1.1&gt;如果第三段IP与IPA3相同</span><br><span class="line">						   if [[ $d3 = $IPA3  ]]</span><br><span class="line">						   then</span><br><span class="line">							   for d4 in `eval echo &#123;$IPA4..255&#125;`</span><br><span class="line">							   do</span><br><span class="line">								   echo $d1.$d2.$d3.$d4</span><br><span class="line">							   done</span><br><span class="line">						   #&lt;1.1.2&gt;如果第三段IP与IP3不同</span><br><span class="line">						   else</span><br><span class="line">							   for d4 in &#123;0..255&#125;</span><br><span class="line">							   do</span><br><span class="line">								   echo $d1.$d2.$d3.$d4</span><br><span class="line">							   done</span><br><span class="line">						   fi</span><br><span class="line">					   done</span><br><span class="line">				   #&lt;1.2&gt;如果第二段与IPA2不同</span><br><span class="line">				   else</span><br><span class="line">					   for d3 in &#123;0..255&#125;</span><br><span class="line">					   do</span><br><span class="line">						   for d4 in &#123;0..255&#125;</span><br><span class="line">						   do</span><br><span class="line">							   echo $d1.$d2.$d3.$d4</span><br><span class="line">						   done</span><br><span class="line">					   done</span><br><span class="line">				   fi  </span><br><span class="line">				done</span><br><span class="line"><span class="meta">			#</span>&lt;2&gt;如果第一段IP与IPB相同</span><br><span class="line">			elif [[ $d1 = $IPB1 ]]</span><br><span class="line">			then</span><br><span class="line">				#第二段IP的范围为0到IPB2</span><br><span class="line">				for d2 in `eval echo &#123;0..$IPB2&#125;`</span><br><span class="line">				do</span><br><span class="line">					#&lt;2.1&gt;如果第二段IP与IPB相同</span><br><span class="line">					if [[ $d2 = $IPB2 ]]</span><br><span class="line">					then</span><br><span class="line">						#第三段IP范围为0到IPB3</span><br><span class="line">						for d3 in `eval echo &#123;0..$IPB3&#125;`</span><br><span class="line">						do</span><br><span class="line">							#&lt;2.1.1&gt;如果第三段IP与IPB3相同</span><br><span class="line">							if [[ $d3 = $IPB3 ]]</span><br><span class="line">							then</span><br><span class="line">								for d4 in `eval echo &#123;0..$IPB4&#125;`</span><br><span class="line">								do</span><br><span class="line">									echo $d1.$d2.$d3.$d4</span><br><span class="line">								done</span><br><span class="line">							#&lt;2.1.2&gt;如果第三段IP与IPB3不同</span><br><span class="line">							else</span><br><span class="line">								for d4 in &#123;0..255&#125;</span><br><span class="line">								do</span><br><span class="line">									echo $d1.$d2.$d3.$d4</span><br><span class="line">								done</span><br><span class="line">							fi</span><br><span class="line">						done</span><br><span class="line">					#&lt;2.2&gt;如果第二段IP与IPB不相同</span><br><span class="line">					else</span><br><span class="line">					   #第三段IP范围为&#123;0..255&#125;</span><br><span class="line">					   for d3 in &#123;0..255&#125;</span><br><span class="line">					   do</span><br><span class="line">						   #第四段IP范围为&#123;0.255&#125;</span><br><span class="line">						   for d4 in &#123;0.255&#125;</span><br><span class="line">						   do</span><br><span class="line">							   echo $d1.$d2.$d3.$d4</span><br><span class="line">						   done</span><br><span class="line">					   done</span><br><span class="line">					fi</span><br><span class="line">				done     </span><br><span class="line"><span class="meta">			#</span>&lt;3&gt;第一段IP与IPA1和IPB1都不相同</span><br><span class="line">			else</span><br><span class="line">				for d2 in &#123;0..255&#125;</span><br><span class="line">				do</span><br><span class="line">					for d3 in &#123;0..255&#125;</span><br><span class="line">					do </span><br><span class="line">						for d4 in &#123;0..255&#125;</span><br><span class="line">						do</span><br><span class="line">							echo $d1.$d2.$d3.$d4</span><br><span class="line">						done</span><br><span class="line">					done</span><br><span class="line">				done</span><br><span class="line">			fi   </span><br><span class="line">		done    </span><br><span class="line">		&#125;</span><br><span class="line">		 </span><br><span class="line">		 </span><br><span class="line">		print_range_ip()&#123; </span><br><span class="line"><span class="meta">		#</span>&lt;1&gt;如果两IP第一段不同</span><br><span class="line">		if [ $IPA1 != $IPB1 ]</span><br><span class="line">		then</span><br><span class="line">			IP1_not_equal </span><br><span class="line"><span class="meta">		#</span>&lt;2&gt;如果两IP第一段相同</span><br><span class="line">		else</span><br><span class="line"><span class="meta">			#</span>&lt;2.1&gt; 如果第二段IP相同</span><br><span class="line">			if [ $IPA2 = $IPB2 ]</span><br><span class="line">			then</span><br><span class="line">				#&lt;2.1.1&gt;如果第三段IP不相同</span><br><span class="line">				if [[ $IPA3 != $IPB3 ]]</span><br><span class="line">				then</span><br><span class="line">					IP3_not_equal </span><br><span class="line">				#&lt;2.2.2&gt;如果第三段IP相同</span><br><span class="line">				else</span><br><span class="line">					IP4_not_equal</span><br><span class="line">				fi</span><br><span class="line">				</span><br><span class="line"><span class="meta">			#</span>&lt;2.2&gt; 如果第二段IP不相同</span><br><span class="line">			else</span><br><span class="line">				IP2_not_equal</span><br><span class="line">			</span><br><span class="line">			fi</span><br><span class="line">		fi</span><br><span class="line">		&#125;</span><br><span class="line">		print_range_ip &gt;&gt; allssip.txt</span><br><span class="line">	done</span><br><span class="line">done &lt; $1</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>IP整理完通过工具扫描</p>
+<p>爆破子域名</p>
+<figure class="highlight shell"><figcaption><span>[] [centos_shell]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span>usage:&gt;.sh domain.txt</span><br><span class="line"></span><br><span class="line">while read line1</span><br><span class="line">do</span><br><span class="line"><span class="meta">	#</span>echo $line1</span><br><span class="line">	echo python subDomainsBrute.py -i $line1 --full -o $line1</span><br><span class="line">done &lt; $1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bat"><figcaption><span>[] [centos_shell]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off&amp;<span class="built_in">setlocal</span> enabledelayedexpansion</span><br><span class="line"><span class="keyword">for</span> /f "delims=" <span class="variable">%%i</span> <span class="keyword">in</span> (pufadomainbat.txt) <span class="keyword">do</span> <span class="built_in">set</span> "website=<span class="variable">%%i</span>"&amp;<span class="keyword">call</span> :s <span class="variable">!website!</span></span><br><span class="line"><span class="built_in">pause</span></span><br><span class="line">:s</span><br><span class="line">python subDomainsBrute.py -i %<span class="number">1</span> --full -o %<span class="number">1</span></span><br><span class="line"><span class="keyword">goto</span> :eof</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/09/04/互联网资产搜集思路/">互联网资产搜集思路&lt;更新中...&gt;</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">0o0</a></p>
+        <p><span>发布时间:</span>2018-09-04, 14:39:24</p>
+        <p><span>最后更新:</span>2018-09-04, 14:40:18</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/09/04/互联网资产搜集思路/" title="互联网资产搜集思路&lt;更新中...&gt;">https://10o0.github.io/2018/09/04/互联网资产搜集思路/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://10o0.github.io/2018/09/04/互联网资产搜集思路/　　作者: 0o0" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/08/17/recording/">
+                    recording
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/08/17/recording/" title="下一篇: recording">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/09/04/互联网资产搜集思路/">互联网资产搜集思路<更新中...></a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/recording/">recording</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/13/ziroom/">Ziroom--Monitor</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/27/【应急响应】自动化脚本/">【应急响应】自动化脚本</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/04/MySQL's general-log shell/">MySQL's general-log shell</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/19/Frp＋VPS打造外网Meatsploit/">Frp结合VPS打造外网Meatsploit</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/27/encrypt in linux/">How to encrypt files and folders with eCryptfs in Ubuntu/Debian/kali linux</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/20/Reverse Shell Cheat Sheet/">Reverse Shell Cheat Sheet</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/07/Python实用/">Python PyQt5</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/22/How-to-setup-a-socks5-proxy-server-using-Dante/">How to setup a socks5 proxy server using Dante</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/22/SS安装脚本/">SS安装脚本</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/Xss常用测试代码/">Xss常用测试代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/msf-shell/">msf常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/linux实用技巧/">linux实用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/18/linux入侵检测基础/">linux入侵检测基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/10/kali安装NVIDIA显卡驱动/">kali安装NVIDIA显卡驱动</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/16/s2-045-exp-CVE-2017-5638/">s2-045 exp CVE-2017-5638</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/06/Python-command/">Python command</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/05/SimpleHTTPServer/">SimpleHTTPServer</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/04/win10-Cmd-here/">win10-Cmd here</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/02/hexo-command/">hexo command</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/01/mimikittenz-Ps1版/">mimikittenz-Ps1版</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/01/0o0-test/">0o0-test</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2017-2018 0o0
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+    <script>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+                clearTimeout(titleTime);
+            }
+            else {
+                document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+                titleTime = setTimeout(function() {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        })
+    </script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
